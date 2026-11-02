@@ -11,7 +11,7 @@ export default async function HomeLayout({ children }: LayoutProps<"/">) {
   return (
     <>
       <AppHeader user={user} />
-      <main id="main-content" tabIndex={-1} className="flex grow flex-col px-page pt-10 pb-12 outline-none">
+      <main id="main-content" tabIndex={-1} className="flex grow flex-col px-page pb-12 outline-none">
         {children}
       </main>
     </>

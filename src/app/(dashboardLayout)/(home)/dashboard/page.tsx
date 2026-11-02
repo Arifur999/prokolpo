@@ -24,7 +24,7 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
   const main = projects.data.length ? <ProjectBrowser projects={projects.data} /> : deleted.data.length ? <NoActiveProjects /> : <DashboardEmpty />;
 
   return (
-    <div className="flex grow flex-col gap-7">
+    <div className="flex grow flex-col gap-7 pt-10">
       {welcome !== undefined && <ToastOnMount message={t("welcomeToast")} />}
       <DashboardHeading greeting={greeting} />
       {deleted.data.length ? <DeletedProjects projects={deleted.data}>{main}</DeletedProjects> : main}
