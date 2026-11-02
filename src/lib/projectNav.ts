@@ -69,3 +69,10 @@ export const projectNav = (project: Pick<IProjectSummary, "kind" | "ownership">)
   });
   return groups;
 };
+
+// The page a project sells from (units, farm or shop sales), for the "sale" shortcut on
+// the overview and the phone bar; partners are not a sales page.
+export const salesPageOf = (groups: NavGroup[]) =>
+  groups
+    .find((group) => group.key === "joint" || group.key === "sales" || group.key === "farm" || group.key === "shop")
+    ?.items.find((item) => item.key !== "partners")?.page ?? null;

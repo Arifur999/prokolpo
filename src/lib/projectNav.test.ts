@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { projectNav } from "./projectNav";
+import { projectNav, salesPageOf } from "./projectNav";
 
 const keys = (kind: Parameters<typeof projectNav>[0]["kind"], ownership: Parameters<typeof projectNav>[0]["ownership"]) =>
   projectNav({ kind, ownership }).map((group) => `${group.key}:${group.items.map((item) => item.key).join(",")}`);
@@ -21,5 +21,11 @@ describe("projectNav", () => {
   it("files a personal farm's sales under its own group", () => {
     expect(keys("FARM", "PERSONAL")[2]).toBe("farm:farmSales");
     expect(keys("BUSINESS", "PERSONAL")[2]).toBe("shop:bizSales");
+  });
+
+  it("finds the page a project sells from", () => {
+    expect(salesPageOf(projectNav({ kind: "FARM", ownership: "PERSONAL" }))).toBe("farm-sales");
+    expect(salesPageOf(projectNav({ kind: "BUILDING", ownership: "PARTNERSHIP" }))).toBe("units");
+    expect(salesPageOf(projectNav({ kind: "BUILDING", ownership: "PERSONAL" }))).toBeNull();
   });
 });

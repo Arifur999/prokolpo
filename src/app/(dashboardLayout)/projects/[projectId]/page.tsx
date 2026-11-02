@@ -17,7 +17,7 @@ import { dayPart, formatDate, formatWeekdayDate } from "@/lib/dhakaTime";
 import { initials } from "@/lib/initials";
 import { monthName, monthRange, recentMonths } from "@/lib/months";
 import { overviewFeatures, overviewFigures, topCategories } from "@/lib/overview";
-import { projectNav } from "@/lib/projectNav";
+import { projectNav, salesPageOf } from "@/lib/projectNav";
 import { projectHref } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { getUserInfo } from "@/services/auth.services";
@@ -45,8 +45,7 @@ export default async function OverviewPage({ params, searchParams }: PageProps<"
 
   const now = new Date();
   const features = overviewFeatures(project);
-  const salesGroup = projectNav(project).find((group) => group.key === "joint" || group.key === "sales");
-  const salesPage = salesGroup?.items.find((item) => item.key !== "partners")?.page ?? null;
+  const salesPage = salesPageOf(projectNav(project));
   const months = recentMonths(now, 12);
   const greeting = t(`greeting.${dayPart(now)}`, { name: user.name });
 
