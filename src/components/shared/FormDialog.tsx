@@ -46,7 +46,7 @@ export function FormDialog({
         <Dialog.Overlay className="fixed inset-0 z-50 bg-scrim" />
         <Dialog.Content
           className={cn(
-            "fixed left-1/2 z-50 flex max-h-[calc(100vh-2rem)] w-[calc(100%-2rem)] -translate-x-1/2 flex-col overflow-hidden rounded-[20px] bg-white text-ink shadow-dialog",
+            "fixed left-1/2 z-50 flex max-h-[calc(100dvh-5rem)] w-[calc(100%-2rem)] -translate-x-1/2 flex-col overflow-hidden rounded-[20px] bg-white text-ink shadow-dialog",
             widthClass ?? WIDTH[size],
             topClass,
           )}
