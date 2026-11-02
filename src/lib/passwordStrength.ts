@@ -10,3 +10,10 @@ export const passwordStrength = (password: string): PasswordStrength => {
   const extra = password.length >= 12 || /[^\p{L}\p{N}]/u.test(password) || (/[a-z]/.test(password) && /[A-Z]/.test(password));
   return extra ? 3 : 2;
 };
+
+// The reset form's four-bar meter (board ForgotPassword): a point each for 8+ characters,
+// letters with digits, 12+ characters, and a symbol or capital.
+export const resetPasswordScore = (password: string): 0 | 1 | 2 | 3 | 4 => {
+  const points = [password.length >= 8, /\p{L}/u.test(password) && /\p{N}/u.test(password), password.length >= 12, /[^\p{L}\p{N}]|[A-Z]/u.test(password)];
+  return points.filter(Boolean).length as 0 | 1 | 2 | 3 | 4;
+};

@@ -45,7 +45,7 @@ export const getResetOptions = (phone: string) => post<IResetOptions>("/auth/pas
 
 export const sendResetLink = (phone: string) => post<null>("/auth/password/email", { phone });
 
-export const checkResetLink = (token: string) => post<{ valid: boolean }>("/auth/password/check", { token });
+export const checkResetLink = (token: string) => post<{ maskedEmail: string | null }>("/auth/password/check", { token });
 
 export const resetPassword = (token: string, password: string) => post<null>("/auth/password/reset", { token, password });
 

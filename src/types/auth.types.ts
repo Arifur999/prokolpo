@@ -68,5 +68,7 @@ export const AUTH_ERROR_CODES = {
   accountSuspended: "ACCOUNT_SUSPENDED",
   registrationClosed: "REGISTRATION_CLOSED",
   resetLinkInvalid: "RESET_LINK_INVALID",
+  resetLinkExpired: "RESET_LINK_EXPIRED",
+  resetLinkUsed: "RESET_LINK_USED",
   accountNotFound: "ACCOUNT_NOT_FOUND",
 } as const;
