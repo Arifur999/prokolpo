@@ -140,6 +140,9 @@
   body {
     @apply bg-background text-foreground leading-normal;
   }
+  a {
+    @apply text-brand hover:text-brand-deep;
+  }
   button {
     font-family: inherit;
   }

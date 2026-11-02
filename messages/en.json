@@ -4,5 +4,170 @@
     "logoMark": "P",
     "appTagline": "Project accounts book",
     "skipToContent": "Skip to main content"
+  },
+  "Landing": {
+    "nav": {
+      "label": "On this page",
+      "kinds": "Project types",
+      "features": "What you can do",
+      "how": "Getting started",
+      "faq": "FAQ"
+    },
+    "actions": {
+      "switchLanguage": "বাংলা",
+      "login": "Log in",
+      "register": "Create account",
+      "loginLong": "Log in"
+    },
+    "hero": {
+      "eyebrow": "Home · Farm · Land · Shop — any project",
+      "title": "Every taka of your project, in one place",
+      "lead": "Expenses, what you owe shops and builders, partners' money, flat sale instalments and receipts — all in one book, right from your phone. Make an entry and the accounts balance themselves.",
+      "points": {
+        "mobile": "Sign up with just a mobile number",
+        "team": "Your whole team together",
+        "language": "Bangla and English"
+      }
+    },
+    "preview": {
+      "heading": "See a sample project",
+      "tabsLabel": "Sample project",
+      "panelLabel": "Sample project: {name}",
+      "building": {
+        "tab": "Building",
+        "name": "Mirpur 6-storey building",
+        "badge": "Joint",
+        "line": "Building · 6 floors · Mirpur-10, Dhaka",
+        "label": "Budget spent so far",
+        "big": "৳ 1,56,40,500",
+        "of": "Budget ৳ 2,50,00,000",
+        "stats": {
+          "s1": {
+            "label": "Cash in hand",
+            "value": "৳ 8,75,200"
+          },
+          "s2": {
+            "label": "Owed to suppliers",
+            "value": "৳ 12,48,000"
+          },
+          "s3": {
+            "label": "Due from customers",
+            "value": "৳ 96,50,000"
+          }
+        },
+        "recentTitle": "Recent entries",
+        "recent": {
+          "r1": {
+            "title": "Rod · 5 tons",
+            "sub": "Karim Rod Store · 3rd floor · 30/09/2026",
+            "chip": "On credit",
+            "amount": "৳ 4,75,000"
+          },
+          "r2": {
+            "title": "Instalment paid — Flat 3-B",
+            "sub": "Nasrin Akter · Instalment 6/24 · 29/09/2026",
+            "chip": "Receipt",
+            "amount": "+ ৳ 85,000"
+          },
+          "r3": {
+            "title": "Attendance — Jamal's crew",
+            "sub": "6 workers × ৳ 1,200 · 29/09/2026",
+            "chip": "Attendance",
+            "amount": "৳ 7,200"
+          }
+        },
+        "note": "Instalment received — receipt PRK-000148 created, ready to send on WhatsApp"
+      },
+      "farm": {
+        "tab": "Farm",
+        "name": "Savar poultry farm",
+        "badge": "Personal",
+        "line": "Farm · Poultry · Hemayetpur, Savar",
+        "label": "Budget spent so far",
+        "big": "৳ 27,43,000",
+        "of": "Budget ৳ 35,00,000",
+        "stats": {
+          "s1": {
+            "label": "Total sales",
+            "value": "৳ 19,28,270"
+          },
+          "s2": {
+            "label": "Profit, last 4 batches",
+            "value": "+ ৳ 85,770"
+          },
+          "s3": {
+            "label": "Owed by buyers",
+            "value": "৳ 49,500"
+          }
+        },
+        "recentTitle": "Recent sales",
+        "recent": {
+          "r1": {
+            "title": "Broiler chicken · 900 kg",
+            "sub": "Hanif Traders · 5th batch · 02/10/2026",
+            "chip": "Sale",
+            "amount": "+ ৳ 1,57,500"
+          },
+          "r2": {
+            "title": "Litter (manure) · 40 sacks",
+            "sub": "Azizul Haque · 4th batch · 30/08/2026",
+            "chip": "Sale",
+            "amount": "+ ৳ 6,000"
+          },
+          "r3": {
+            "title": "Broiler chicken · 1,760 kg",
+            "sub": "Mamun Poultry · 4th batch · 24/08/2026",
+            "chip": "Sale",
+            "amount": "+ ৳ 2,95,680"
+          }
+        },
+        "note": "Profit or loss for every batch, worked out for you — 3 of the last 4 batches in profit"
+      },
+      "shop": {
+        "tab": "Shop",
+        "name": "Karim Hardware",
+        "badge": "Personal",
+        "line": "Business · Hardware shop · Mirpur-10 Bazar, Dhaka",
+        "label": "September sales",
+        "big": "৳ 6,25,250",
+        "of": "Daily average ৳ 20,842",
+        "stats": {
+          "s1": {
+            "label": "Income − expenses",
+            "value": "+ ৳ 92,250"
+          },
+          "s2": {
+            "label": "Credit book",
+            "value": "৳ 38,200"
+          },
+          "s3": {
+            "label": "October so far",
+            "value": "৳ 33,300"
+          }
+        },
+        "recentTitle": "Recent accounts",
+        "recent": {
+          "r1": {
+            "title": "Day's account — Fri 02/10",
+            "sub": "Cash ৳ 7,800 · bKash ৳ 1,600 · by Shafiqul",
+            "chip": "Sale",
+            "amount": "+ ৳ 9,400"
+          },
+          "r2": {
+            "title": "Day's account — Thu 01/10",
+            "sub": "Cash, bKash and credit together",
+            "chip": "Sale",
+            "amount": "+ ৳ 23,900"
+          },
+          "r3": {
+            "title": "Rahim Construction",
+            "sub": "Credit book · last bought 30/09 · owing for 21 days",
+            "chip": "Credit",
+            "amount": "৳ 18,500"
+          }
+        },
+        "note": "End-of-day cash count matches the books"
+      }
+    }
   }
 }
