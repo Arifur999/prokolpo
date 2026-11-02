@@ -8,7 +8,7 @@ import { logoutEverywhereAction, sendResetLinkAction } from "@/app/(admin)/admin
 import { DialogButtons, FormDialog } from "@/components/shared/FormDialog";
 import type { IAdminUserDetail } from "@/types/admin.types";
 import { ActionRow } from "./ActionRow";
-import { deviceLabel } from "./deviceLabel";
+import { deviceLabel } from "@/lib/deviceLabel";
 import { PhoneDialog } from "./PhoneDialog";
 import { ResetCodeDialog } from "./ResetCodeDialog";
 import { SuspendDialog } from "./SuspendDialog";

@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { Icon } from "@/components/shared/icon/Icon";
 import { whenText } from "@/lib/whenText";
 import type { IAdminUserDetail } from "@/types/admin.types";
-import { deviceLabel } from "./deviceLabel";
+import { deviceLabel } from "@/lib/deviceLabel";
 
 const SHOWN = 5;
 

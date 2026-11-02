@@ -3,7 +3,7 @@ import { auditLine } from "@/lib/auditText";
 import { whenText } from "@/lib/whenText";
 import { cn } from "@/lib/utils";
 import type { IAdminUserDetail } from "@/types/admin.types";
-import { deviceLabel } from "./deviceLabel";
+import { deviceLabel } from "@/lib/deviceLabel";
 
 const MARKS = {
   support: { mark: "স", tone: "bg-gold-tint text-gold-ink" },

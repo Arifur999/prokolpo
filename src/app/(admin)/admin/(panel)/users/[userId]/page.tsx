@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { isAxiosError } from "axios";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { deviceLabel } from "@/components/modules/Admin/user/deviceLabel";
+import { deviceLabel } from "@/lib/deviceLabel";
 import { SuspendedBanner } from "@/components/modules/Admin/user/SuspendedBanner";
 import { UserActions } from "@/components/modules/Admin/user/UserActions";
 import { UserDevices } from "@/components/modules/Admin/user/UserDevices";
