@@ -326,6 +326,83 @@
           "stamp": "Received"
         }
       }
+    },
+    "more": {
+      "eyebrow": "And more",
+      "title": "For worry-free accounts",
+      "items": {
+        "reports": {
+          "title": "Reports",
+          "body": "Expenses by head, floor, month and supplier, instalment collection and profit or loss — print or Excel."
+        },
+        "budget": {
+          "title": "Budget alerts",
+          "body": "A floor or head turns yellow past 90% of budget and red past 100% — you notice while there is still time."
+        },
+        "team": {
+          "title": "Team and roles",
+          "body": "Owner, manager and viewer — you decide who makes entries and who only looks."
+        },
+        "history": {
+          "title": "Nothing gets lost",
+          "body": "Who wrote or changed what, and when, is all in the activity log. Deleted entries can be brought back."
+        },
+        "accounts": {
+          "title": "Where the money is",
+          "body": "Cash, bank and bKash — each account has its own balance, with every transfer recorded."
+        },
+        "language": {
+          "title": "Bangla and English",
+          "body": "Everyone in the language they prefer. Receipt and report language can be set per project."
+        }
+      }
+    },
+    "how": {
+      "eyebrow": "Getting started",
+      "title": "Your first project in three steps",
+      "lead": "No training needed — it works almost the way you already keep your accounts book.",
+      "steps": {
+        "account": {
+          "title": "Create an account",
+          "body": "Sign up with your name and mobile number. Add an email and resetting a forgotten password is easy."
+        },
+        "project": {
+          "title": "Open a project",
+          "body": "Enter the type, name and budget. Expense heads, phases and a \"Cash\" account are created for you."
+        },
+        "team": {
+          "title": "Add your team and start writing",
+          "body": "Let a manager make entries and a partner view. Log the first expense — the rest of the accounts follow."
+        }
+      },
+      "ownership": {
+        "title": "Personal or joint?",
+        "personal": {
+          "title": "Personal project",
+          "badge": "One owner",
+          "body": "Your own home, farm or shop — expenses, budget, suppliers, contractors and money.",
+          "tags": {
+            "t1": "Expenses",
+            "t2": "Suppliers",
+            "t3": "Contractors",
+            "t4": "Accounts",
+            "t5": "Reports"
+          }
+        },
+        "joint": {
+          "title": "Joint project",
+          "badge": "Several partners",
+          "body": "A building or business shared by several people — everything in personal, plus partners' money, capital calls and profit shares.",
+          "tags": {
+            "t1": "Partners",
+            "t2": "Capital calls",
+            "t3": "Flat sales & instalments",
+            "t4": "Receipts",
+            "t5": "Profit share"
+          }
+        },
+        "note": "Ownership is chosen when the project is opened and cannot be changed later."
+      }
     }
   }
 }
