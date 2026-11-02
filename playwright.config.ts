@@ -5,6 +5,9 @@ import { defineConfig } from "@playwright/test";
 export default defineConfig({
   testDir: "e2e",
   fullyParallel: false,
+  // One dev server compiles each route on its first visit; parallel workers starve it.
+  workers: 1,
+  expect: { timeout: 10_000 },
   retries: 0,
   reporter: "list",
   use: {
