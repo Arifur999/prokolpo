@@ -18,8 +18,7 @@ export const getTokenSecondsRemaining = (token: string): number => {
   return typeof exp === "number" ? exp - Math.floor(Date.now() / 1000) : 0;
 };
 
-export const isTokenExpiringSoon = (token: string, threshold = REFRESH_THRESHOLD_SECONDS) =>
-  getTokenSecondsRemaining(token) < threshold;
+export const isTokenExpiringSoon = (token: string, threshold = REFRESH_THRESHOLD_SECONDS) => getTokenSecondsRemaining(token) < threshold;
 
 // The cookie expires with the token it holds, not before or after it.
 export const cookieMaxAge = (token: string, fallback: number) => {

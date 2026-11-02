@@ -9,7 +9,7 @@ export async function LandingHeader() {
   const t = await getTranslations("Landing");
 
   return (
-    <header className="px-page relative flex h-[76px] items-center gap-7">
+    <header className="relative flex h-[76px] items-center gap-7 px-page">
       <BrandLogo />
       <nav aria-label={t("nav.label")} className="hidden gap-1 lg:flex">
         {LANDING_SECTIONS.map((section) => (
@@ -31,10 +31,7 @@ export async function LandingHeader() {
         <Link href={ROUTES.login} className="flex h-11 items-center px-3.5 text-[15px] font-semibold text-white no-underline">
           {t("actions.login")}
         </Link>
-        <Link
-          href={ROUTES.register}
-          className="flex h-11 items-center rounded-xl bg-gold px-5 text-[15px] font-bold text-ink no-underline"
-        >
+        <Link href={ROUTES.register} className="flex h-11 items-center rounded-xl bg-gold px-5 text-[15px] font-bold text-ink no-underline">
           {t("actions.register")}
         </Link>
       </div>

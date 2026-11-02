@@ -10,11 +10,7 @@ const LEVELS: Record<LogLevel, number> = { debug: 10, info: 20, warn: 30, error:
 const isLevel = (value: string | undefined): value is LogLevel => value !== undefined && value in LEVELS;
 
 const configured = process.env.LOG_LEVEL;
-const threshold: LogLevel = isLevel(configured)
-  ? configured
-  : process.env.NODE_ENV === "production"
-    ? "info"
-    : "debug";
+const threshold: LogLevel = isLevel(configured) ? configured : process.env.NODE_ENV === "production" ? "info" : "debug";
 
 const write = (level: Exclude<LogLevel, "silent">, msg: string, fields: LogFields = {}) => {
   if (LEVELS[level] < LEVELS[threshold]) return;

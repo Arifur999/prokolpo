@@ -65,7 +65,7 @@ export async function KindsSection() {
   const phasesLabel = <span className="text-xs text-ink-3">{t("phasesLabel")}</span>;
 
   return (
-    <section id="lp-kinds" aria-labelledby={TITLE_ID} className="px-page flex shrink-0 flex-col gap-9 py-20 xl:h-[820px]">
+    <section id="lp-kinds" aria-labelledby={TITLE_ID} className="flex shrink-0 flex-col gap-9 px-page py-20 xl:h-[820px]">
       <SectionHeading id={TITLE_ID} eyebrow={t("eyebrow")} title={t("title")} lead={t("lead")} className="max-w-[680px]" />
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {kinds.map((kind) => (

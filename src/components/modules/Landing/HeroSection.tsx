@@ -18,7 +18,7 @@ export async function HeroSection() {
 
       <LandingHeader />
 
-      <div className="px-page relative grid items-center gap-12 pt-4 pb-10 xl:h-[644px] xl:grid-cols-[590px_560px] xl:justify-between xl:gap-0">
+      <div className="relative grid items-center gap-12 px-page pt-4 pb-10 xl:h-[644px] xl:grid-cols-[590px_560px] xl:justify-between xl:gap-0">
         <div className="flex flex-col gap-[22px]">
           <span className="inline-flex h-8 items-center self-start rounded-full bg-white/10 px-3.5 text-sm font-semibold text-gold-light">
             {t("hero.eyebrow")}
@@ -26,10 +26,7 @@ export async function HeroSection() {
           <h1 className="m-0 font-heading text-[34px] leading-[1.35] font-bold md:text-[50px]">{t("hero.title")}</h1>
           <p className="m-0 max-w-[540px] text-lg leading-[1.65] text-white/84">{t("hero.lead")}</p>
           <div className="mt-1.5 flex flex-wrap gap-3">
-            <Link
-              href={ROUTES.register}
-              className="flex h-[54px] items-center gap-2.5 rounded-xl bg-gold px-6 text-[17px] font-bold text-ink no-underline"
-            >
+            <Link href={ROUTES.register} className="flex h-[54px] items-center gap-2.5 rounded-xl bg-gold px-6 text-[17px] font-bold text-ink no-underline">
               {t("actions.register")}
               <Icon name="arrowRight" size={20} strokeWidth={2.2} />
             </Link>

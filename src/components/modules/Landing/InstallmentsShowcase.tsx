@@ -19,8 +19,7 @@ const LEGEND_SWATCH: Record<InstalmentState, string> = {
   upcoming: "bg-surface-4 border-line-strong",
 };
 
-const stateOf = (instalment: number): InstalmentState =>
-  instalment <= PAID_INSTALMENTS ? "paid" : instalment === PAID_INSTALMENTS + 1 ? "next" : "upcoming";
+const stateOf = (instalment: number): InstalmentState => (instalment <= PAID_INSTALMENTS ? "paid" : instalment === PAID_INSTALMENTS + 1 ? "next" : "upcoming");
 
 export async function InstallmentsShowcase() {
   const t = await getTranslations("Landing.features.sales.card");

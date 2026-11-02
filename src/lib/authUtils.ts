@@ -25,8 +25,7 @@ export const ROUTE_RULES: RouteRule[] = [
 
 export const isProtected = (pathname: string) => ROUTE_RULES.some((rule) => rule.pattern.test(pathname));
 
-export const canAccessRoute = (pathname: string, role: UserRole) =>
-  ROUTE_RULES.find((rule) => rule.pattern.test(pathname))?.roles.includes(role) ?? true;
+export const canAccessRoute = (pathname: string, role: UserRole) => ROUTE_RULES.find((rule) => rule.pattern.test(pathname))?.roles.includes(role) ?? true;
 
 // Guards ?redirect=: same-origin paths only (no "//evil.com", no "https://..."),
 // and only into areas this role can open.
@@ -46,5 +45,4 @@ export const MANAGE_ROLES = {
 
 export type ManageArea = keyof typeof MANAGE_ROLES;
 
-export const canManage = (role: UserRole | null | undefined, area: ManageArea) =>
-  Boolean(role && (MANAGE_ROLES[area] as UserRole[]).includes(role));
+export const canManage = (role: UserRole | null | undefined, area: ManageArea) => Boolean(role && (MANAGE_ROLES[area] as UserRole[]).includes(role));

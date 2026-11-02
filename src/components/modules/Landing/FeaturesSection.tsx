@@ -14,7 +14,7 @@ export async function FeaturesSection() {
   const points = (feature: "dues" | "partners" | "sales") => [t(`${feature}.points.p1`), t(`${feature}.points.p2`), t(`${feature}.points.p3`)];
 
   return (
-    <section id="lp-features" aria-labelledby={TITLE_ID} className="px-page flex shrink-0 flex-col gap-14 bg-white py-20 xl:h-[1500px]">
+    <section id="lp-features" aria-labelledby={TITLE_ID} className="flex shrink-0 flex-col gap-14 bg-white px-page py-20 xl:h-[1500px]">
       <SectionHeading id={TITLE_ID} eyebrow={t("eyebrow")} title={t("title")} lead={t("lead")} className="max-w-[760px]" />
 
       <div className={`${ROW} xl:grid-cols-[500px_600px]`}>
