@@ -16,6 +16,8 @@ type FormDialogProps = {
   children: ReactNode;
   // 540px for a code, 580px for a short choice, 600px for a short form, 680px for a payment.
   size?: "xs" | "sm" | "md" | "lg";
+  // Any other width, e.g. "max-w-180" for a 720px dialog.
+  widthClass?: string;
   topClass?: string;
 };
 
@@ -23,7 +25,7 @@ const WIDTH = { xs: "max-w-135", sm: "max-w-145", md: "max-w-150", lg: "max-w-17
 
 // A modal form card: title and close at the top, fields, and a grey footer of actions
 // (boards SupplierAdd, SupplierPay, ContractorAdd, AccountsTransfer).
-export function FormDialog({ title, subtitle, closeLabel, onClose, band, footer, children, size = "md", topClass = "top-16" }: FormDialogProps) {
+export function FormDialog({ title, subtitle, closeLabel, onClose, band, footer, children, size = "md", widthClass, topClass = "top-16" }: FormDialogProps) {
   return (
     <Dialog.Root open onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
@@ -31,7 +33,7 @@ export function FormDialog({ title, subtitle, closeLabel, onClose, band, footer,
         <Dialog.Content
           className={cn(
             "fixed left-1/2 z-50 flex max-h-[calc(100vh-2rem)] w-[calc(100%-2rem)] -translate-x-1/2 flex-col overflow-hidden rounded-[20px] bg-white text-ink shadow-dialog",
-            WIDTH[size],
+            widthClass ?? WIDTH[size],
             topClass,
           )}
         >

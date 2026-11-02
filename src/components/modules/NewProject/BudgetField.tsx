@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { MoneyInput } from "@/components/shared/form/MoneyInput";
 import { cn } from "@/lib/utils";
-import { useAmountWords } from "./useAmountWords";
+import { useAmountWords } from "@/hooks/useAmountWords";
 
 type BudgetFieldProps = { value: string; onChange: (digits: string) => void };
 
