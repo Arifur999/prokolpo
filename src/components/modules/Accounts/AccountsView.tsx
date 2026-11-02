@@ -29,6 +29,7 @@ const KIND_PILL: Record<IMovement["kind"], string> = {
   OPENING: "bg-brand-tint text-success",
   PAYMENT: "bg-surface-4 text-ink-2",
   BUY: "bg-gold-tint text-gold-ink",
+  DEPOSIT: "bg-brand-tint text-success",
   TRANSFER_IN: "bg-info-tint text-info",
   TRANSFER_OUT: "bg-info-tint text-info",
 };
@@ -60,6 +61,8 @@ export function AccountsView({ projectId, accounts, movements, today, canWrite, 
         return { title: t("transferIn", { other: m.otherAccount ?? "" }), sub: m.note ?? "" };
       case "BUY":
         return { title: t("buyTitle", { title: m.title ?? "" }), sub: m.note ?? "" };
+      case "DEPOSIT":
+        return { title: t("depositFrom", { party: m.party ?? "" }), sub: m.note ?? "" };
       default:
         return {
           title: m.party ? t("paymentTo", { party: m.party }) : (m.title ?? t("moves.PAYMENT")),

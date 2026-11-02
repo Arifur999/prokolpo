@@ -7,6 +7,7 @@ export interface IMember {
   phone: string;
   role: "OWNER" | TeamRole;
   isYou: boolean;
+  isPartner: boolean;
   joinedAt: string;
   lastActive: string | null;
   entries: number;

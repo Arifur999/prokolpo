@@ -21,6 +21,9 @@ const AREAS = new Set([
   "member",
   "invite",
   "password",
+  "partner",
+  "call",
+  "deposit",
 ]);
 
 // "রড · 5 টন": a bill's head with the quantity bought.
@@ -83,6 +86,15 @@ export function activityLine(it: IActivityItem, t: Translate): ActivityLine {
       return line(t("text.inviteCreate", { phone: displayPhone(it.summary), role: role(it.details.role) }), [t("sub.inviteWaits")]);
     case "invite.DELETE":
       return line(t("text.inviteDelete", { phone: displayPhone(it.summary) }));
+    case "partner.CREATE":
+      return line(t("text.partnerCreate", { name: it.summary, share: it.details.share ?? "" }), [it.details.phone && displayPhone(it.details.phone)]);
+    case "call.CREATE":
+      return line(t("text.callCreate", { amount }), [it.summary]);
+    case "deposit.CREATE":
+      return line(t("text.depositCreate", { party: it.party ?? it.summary, amount }), [
+        it.account && t("sub.fromAccount", { account: it.account }),
+        it.details.receipt && t("sub.receipt", { no: it.details.receipt }),
+      ]);
     case "password.UPDATE":
       return line(t("text.passwordUpdate"), [t("sub.signedOut")]);
     default:

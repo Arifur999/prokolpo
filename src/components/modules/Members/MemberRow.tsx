@@ -58,6 +58,7 @@ export function MemberRow({ projectId, member: m, isOwner, confirming, onAskRemo
           <span className="flex items-center gap-1.5 text-[15px] font-semibold">
             <span className="truncate">{m.name}</span>
             {m.isYou && <span className="rounded-full bg-surface-4 px-1.75 text-xs font-semibold text-ink-2">{t("you")}</span>}
+            {m.isPartner && <span className="rounded-full bg-gold-tint px-1.75 text-xs font-semibold text-gold-ink">{t("partner")}</span>}
           </span>
           <span className="text-[13px] text-ink-3">{t("sub", { phone: displayPhone(m.phone), date: formatDate(new Date(m.joinedAt)) })}</span>
         </span>
