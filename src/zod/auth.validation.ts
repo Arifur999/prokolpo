@@ -10,10 +10,10 @@ const PASSWORD_RULE = /^(?=.*\p{L})(?=.*\p{N}).{8,128}$/u;
 
 export const passwordSchema = (m: AuthValidationMessages) => z.string().regex(PASSWORD_RULE, m.passwordWeak);
 
-export const phoneSchema = (m: AuthValidationMessages) =>
+export const phoneSchema = (invalidMessage: string) =>
   z
     .string()
-    .refine((raw) => normalizePhone(raw) !== null, m.phoneBad)
+    .refine((raw) => normalizePhone(raw) !== null, invalidMessage)
     .transform((raw) => normalizePhone(raw) ?? raw);
 
 // ---- login
@@ -45,7 +45,7 @@ export const registerFormSchema = (m: AuthValidationMessages) =>
         .string()
         .trim()
         .refine((v) => v === "" || z.email().safeParse(v).success, m.emailBad),
-      phone: phoneSchema(m),
+      phone: phoneSchema(m.phoneBad),
       password: passwordSchema(m),
       confirmPassword: z.string(),
       acceptTerms: z.boolean().refine((v) => v, m.termsMissing),
@@ -64,7 +64,7 @@ export type IRegisterFormValues = z.input<ReturnType<typeof registerFormSchema>>
 
 // ---- password reset
 
-export const forgotPhoneSchema = (m: AuthValidationMessages) => z.object({ phone: phoneSchema(m) });
+export const forgotPhoneSchema = (m: AuthValidationMessages) => z.object({ phone: phoneSchema(m.phoneBad) });
 
 export const newPasswordSchema = (m: AuthValidationMessages) =>
   z

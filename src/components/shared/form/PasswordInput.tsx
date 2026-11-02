@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState, type ComponentProps } from "react";
 import { Icon } from "@/components/shared/icon/Icon";
+import { cn } from "@/lib/utils";
 import { TextInput } from "./TextInput";
 
 type PasswordInputProps = Omit<ComponentProps<typeof TextInput>, "type">;
@@ -13,7 +14,7 @@ export function PasswordInput(props: PasswordInputProps) {
 
   return (
     <div className="relative">
-      <TextInput {...props} type={isVisible ? "text" : "password"} className="pr-13" />
+      <TextInput {...props} type={isVisible ? "text" : "password"} className={cn("pr-13", props.className)} />
       <button
         type="button"
         aria-label={isVisible ? t("hide") : t("show")}

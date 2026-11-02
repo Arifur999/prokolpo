@@ -18,10 +18,24 @@ type LabeledInputProps = Omit<ComponentProps<typeof TextInput>, "id" | "invalid"
   below?: ReactNode;
   password?: boolean;
   className?: string;
+  inputClassName?: string;
 };
 
 // One labelled input with its single message line, wired for screen readers.
-export function LabeledInput({ id, label, labelNote, labelAside, error, hint, success, below, password = false, className, ...inputProps }: LabeledInputProps) {
+export function LabeledInput({
+  id,
+  label,
+  labelNote,
+  labelAside,
+  error,
+  hint,
+  success,
+  below,
+  password = false,
+  className,
+  inputClassName,
+  ...inputProps
+}: LabeledInputProps) {
   const messageId = `${id}-msg`;
   const message = error ? (
     <FieldMessage id={messageId} tone="error">
@@ -40,7 +54,7 @@ export function LabeledInput({ id, label, labelNote, labelAside, error, hint, su
 
   return (
     <FormField id={id} label={label} labelNote={labelNote} labelAside={labelAside} className={className}>
-      <Input id={id} invalid={Boolean(error)} aria-describedby={message ? messageId : undefined} {...inputProps} />
+      <Input id={id} invalid={Boolean(error)} aria-describedby={message ? messageId : undefined} className={inputClassName} {...inputProps} />
       {below}
       {message}
     </FormField>
