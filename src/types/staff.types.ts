@@ -1,5 +1,5 @@
 // prokolpo-backend's admin panel second step (internal/staff).
-export type StaffRole = "super_admin" | "support" | "billing";
+import type { StaffRole } from "./auth.types";
 
 export interface IStaffStatus {
   enabled: boolean;

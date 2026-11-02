@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
-import { GateLanguagePill } from "./GateLanguagePill";
+import { LanguageToggle } from "@/components/shared/LanguageToggle";
 
 type GateShellProps = { right: ReactNode; footer: ReactNode; children: ReactNode };
 
@@ -24,7 +24,11 @@ export async function GateShell({ right, footer, children }: GateShellProps) {
           <span className="rounded-full bg-gold px-2 text-xs leading-[1.6] font-bold text-ink">{t("badge")}</span>
         </span>
         <span className="flex items-center gap-3">
-          <GateLanguagePill />
+          <LanguageToggle
+            label={t("otherLanguage")}
+            className="box-border flex h-11 items-center gap-2 rounded-full border border-white/30 bg-transparent pr-4 pl-3.5 text-[15px] font-semibold text-white"
+            iconClassName="text-gold-light"
+          />
           {right}
         </span>
       </header>
