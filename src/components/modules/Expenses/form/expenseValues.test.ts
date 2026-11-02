@@ -27,3 +27,24 @@ describe("expense values", () => {
     expect(toPayload({ ...v, paidNow: true }).accountId).toBe("cash-1");
   });
 });
+
+describe("valuesFromExpense", () => {
+  it("treats a total that matches quantity × rate as worked out", async () => {
+    const { valuesFromExpense } = await import("./expenseValues");
+    const bill = {
+      categoryId: "c",
+      quantity: "5.000",
+      unit: "টন",
+      rate: 95000,
+      amount: 475000,
+      supplierId: "s",
+      contractorId: null,
+      phaseId: null,
+      date: "2026-10-01",
+      description: null,
+      paidNow: false,
+    };
+    expect(valuesFromExpense(bill as never)).toMatchObject({ quantity: "5", amountManual: false, partyKind: "SUPPLIER" });
+    expect(valuesFromExpense({ ...bill, amount: 470000 } as never).amountManual).toBe(true);
+  });
+});

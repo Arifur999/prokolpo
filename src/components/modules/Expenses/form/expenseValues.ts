@@ -48,7 +48,8 @@ export const valuesFromExpense = (e: IExpense): ExpenseValues => ({
   unit: e.unit ?? UNITS[0],
   rate: e.rate ? String(e.rate) : "",
   amount: String(e.amount),
-  amountManual: true,
+  // Typed by hand only if it differs from quantity × rate.
+  amountManual: !(e.quantity && e.rate && Math.round(Number(e.quantity) * e.rate) === e.amount),
   partyKind: e.supplierId ? "SUPPLIER" : e.contractorId ? "CONTRACTOR" : "NONE",
   supplierId: e.supplierId ?? "",
   contractorId: e.contractorId ?? "",
