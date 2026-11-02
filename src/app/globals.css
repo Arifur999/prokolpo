@@ -2,128 +2,145 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-display);
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Prokolpo palette, named by role. Values come straight from the design canvas. */
+  --color-ink: #16211d;
+  --color-ink-2: #4e5853;
+  --color-ink-3: #616a65;
+  --color-ink-4: #6e7571;
+  --color-ink-5: #8c918e;
+
+  --color-brand: #16493a;
+  --color-brand-deep: #0f3a2e;
+  --color-brand-mid: #2e7d64;
+  --color-brand-soft: #9db5ac;
+  --color-brand-tint: #e6f0eb;
+  --color-brand-wash: #f3f8f5;
+
+  --color-gold: #e9a23b;
+  --color-gold-light: #f2b85b;
+  --color-gold-strong: #d9951e;
+  --color-gold-ink: #8a5a00;
+  --color-gold-deep: #6b4a00;
+  --color-gold-line: #efd9ae;
+  --color-gold-tint: #fbefd8;
+  --color-gold-wash: #fff8ec;
+
+  --color-success: #1e6b45;
+  --color-danger: #a32d24;
+  --color-danger-strong: #c0362c;
+  --color-danger-line: #f0cfcb;
+  --color-danger-tint: #fce8e6;
+  --color-info: #2f5a8a;
+  --color-info-tint: #e7eef6;
+
+  --color-canvas: #f5f4ef;
+  --color-canvas-deep: #eceae3;
+  --color-surface-2: #f7f6f2;
+  --color-surface-3: #fbfaf7;
+  --color-surface-4: #f1f0eb;
+  --color-line: #d3d0c6;
+  --color-line-2: #e4e2da;
+  --color-line-3: #efeee9;
+  --color-line-strong: #c9c6bb;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-4xl: 24px;
+
+  --shadow-card: 0 1px 2px rgba(22, 33, 29, 0.04), 0 12px 32px rgba(22, 33, 29, 0.06);
+  --shadow-pop: 0 8px 24px rgba(22, 33, 29, 0.12);
+  --shadow-raised: 0 12px 32px rgba(22, 33, 29, 0.16);
+  --shadow-dialog: 0 24px 64px rgba(15, 31, 26, 0.28);
+  --shadow-hero: 0 24px 60px rgba(8, 28, 22, 0.35);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #f5f4ef;
+  --foreground: #16211d;
+  --card: #ffffff;
+  --card-foreground: #16211d;
+  --popover: #ffffff;
+  --popover-foreground: #16211d;
+  --primary: #16493a;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f0eb;
+  --secondary-foreground: #16211d;
+  --muted: #f7f6f2;
+  --muted-foreground: #616a65;
+  --accent: #e6f0eb;
+  --accent-foreground: #16493a;
+  --destructive: #a32d24;
+  --border: #e4e2da;
+  --input: #d3d0c6;
+  --ring: #16493a;
+  --chart-1: #16493a;
+  --chart-2: #2e7d64;
+  --chart-3: #e9a23b;
+  --chart-4: #2f5a8a;
+  --chart-5: #a32d24;
+  --radius: 10px;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #16211d;
+  --sidebar-primary: #16493a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e6f0eb;
+  --sidebar-accent-foreground: #16493a;
+  --sidebar-border: #e4e2da;
+  --sidebar-ring: #16493a;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground leading-normal;
+  }
+  button {
+    font-family: inherit;
   }
 }
