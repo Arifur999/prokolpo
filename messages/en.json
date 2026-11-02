@@ -3270,5 +3270,195 @@
       "note": "The money goes into cash and shows under today's \"paid back\"."
     },
     "failed": "Couldn't save — please try again"
+  },
+  "Reports": {
+    "title": "Reports",
+    "subtitle": "Spending, installments, profit and dues in one place — export to Excel or print for partners or the bank",
+    "excel": "Excel",
+    "exported": "Downloading the report as Excel",
+    "print": "Print / PDF",
+    "navLabel": "Report type",
+    "printedOn": "Printed {date}",
+    "lakh": "{n} lakh",
+    "kinds": {
+      "EXPENSE": {
+        "mark": "৳",
+        "label": "Spending",
+        "sub": "By head, phase, month or supplier"
+      },
+      "COLLECTION": {
+        "mark": "I",
+        "label": "Installments",
+        "sub": "What was due, what came in, who is late"
+      },
+      "PROFIT": {
+        "mark": "%",
+        "label": "Profit and shares",
+        "sub": "What each partner gets"
+      },
+      "DUES": {
+        "mark": "⇄",
+        "label": "Owed and owing",
+        "sub": "Who owes us, whom we owe"
+      }
+    },
+    "expense": {
+      "groupLabel": "Group by",
+      "groups": {
+        "CAT": "By head",
+        "PHASE": "Floor / phase",
+        "MONTH": "By month",
+        "SUP": "Supplier"
+      },
+      "period": "Period:",
+      "periodLabel": "Period",
+      "all": "From the start",
+      "monthYear": "{month} {year}",
+      "rangeAll": "{from} – {to} · from the project's start to today",
+      "range": "{from} – {to}",
+      "titles": {
+        "CAT": "Spending by head",
+        "PHASE": "Spending by floor / phase",
+        "MONTH": "Spending by month",
+        "SUP": "Bills by supplier"
+      },
+      "total": "Total spent",
+      "totalBills": "Total billed",
+      "labour": "Labour",
+      "noPhase": "No phase",
+      "noPhaseSub": "Wages, transport, fees — not tied to a phase",
+      "overBudget": "৳ {amount} over budget",
+      "cols": {
+        "head": "Head",
+        "phase": "Phase",
+        "supplier": "Supplier",
+        "amount": "Taka",
+        "share": "%",
+        "ofBudget": "Of budget",
+        "spent": "Spent",
+        "budget": "Budget",
+        "used": "Used",
+        "billed": "Billed",
+        "paid": "Paid",
+        "due": "Owed"
+      },
+      "sum": "Total",
+      "noteCat": "Money went to {used} heads{unused}. The top five take {percent} of it all.",
+      "noteCatUnused": ", {count} still at nothing (greyed)",
+      "notePhase": "The black mark is 100% of budget. Yellow past 90%, red past 100%.",
+      "notePhaseOver": " {names} went over budget — ৳ {amount} in all.",
+      "noteMonth": "Most in {month} · ৳ {average} a month on average.",
+      "noteMonthLeft": " ৳ {left} of the budget left — about {months} more months at this rate.",
+      "noteSupAll": "The rest (৳ {amount}) is wages, cash buys and fees — not supplier bills.",
+      "noteSupMonth": "Paid = payments made this month (they may cover earlier bills).",
+      "monthAria": "Bar chart of spending each month, {range}; the most in {month} at ৳ {amount}",
+      "averageLabel": "৳ {amount} a month on average",
+      "barTitle": "{month}: ৳ {amount}",
+      "empty": "Nothing spent in this period"
+    },
+    "collection": {
+      "cardsLabel": "Installment summary",
+      "dueToDate": "Due to date",
+      "dueToDateSub": "Installments only, not down payments",
+      "paid": "Paid",
+      "paidSub": "{percent} collected",
+      "late": "Late",
+      "lateSub": "{count} installments · {people} customers",
+      "next": "Due in the next 3 months",
+      "chartTitle": "Installments by month — due against paid",
+      "chartSub": "Not down payments · from this month on it is what is expected",
+      "legendDue": "Due",
+      "legendPaid": "Paid",
+      "legendLate": "Late",
+      "chartAria": "Installments by month, {range}; each bar shows what was due, paid in green and late in red",
+      "barTitle": "{month}: ৳ {due} due",
+      "barPaid": " · ৳ {amount} paid",
+      "barLate": " · ৳ {amount} late",
+      "barAhead": " (ahead)",
+      "byCustomer": "By customer",
+      "cols": {
+        "customer": "Customer",
+        "due": "Due",
+        "paid": "Paid",
+        "late": "Late",
+        "onTime": "On time"
+      },
+      "unitLine": "{unit} · {paid}/{count}",
+      "aging": "How late",
+      "ages": {
+        "A": {
+          "label": "0–30 days",
+          "sub": "A gentle reminder"
+        },
+        "B": {
+          "label": "31–60 days",
+          "sub": "Call them"
+        },
+        "C": {
+          "label": "Over 60 days",
+          "sub": "Time to sit down together"
+        }
+      },
+      "nothing": "Nothing",
+      "agingNote": "Past 60 days late, sit down with the customer — change the terms if needed.",
+      "empty": "No sales on installments yet"
+    },
+    "profit": {
+      "scenarioLabel": "Work it out",
+      "BUDGET": "On budget (estimate)",
+      "NOW": "So far",
+      "noteBudget": "If the build ends on budget",
+      "noteNow": "Counting what was spent to date — not the work still to do",
+      "title": "Profit and loss",
+      "sold": "Price of the {count} units sold",
+      "soldSub": "৳ {received} received · ৳ {due} still owed by customers",
+      "costBudget": "Total cost (on budget)",
+      "costBudgetSub": "৳ {spent} so far + about ৳ {rest} still to spend",
+      "costNow": "Spent so far",
+      "costNowSub": "{from} – {to} · work still going",
+      "profitBudget": "Estimated profit",
+      "profitNow": "Profit on the books (so far)",
+      "lossBudget": "Estimated loss",
+      "lossNow": "Loss on the books (so far)",
+      "profitSub": "Split among partners by share",
+      "profitSubSolo": "All the owner's",
+      "note": "The {count} unsold units (list price ৳ {amount}) will add to it. Profit = total sale price − total cost; land counts if it was written as a cost.",
+      "noteAllSold": "Profit = total sale price − total cost; land counts if it was written as a cost.",
+      "shares": "Partners' shares",
+      "sharesSub": "By share · unpaid capital comes off the profit",
+      "cols": {
+        "partner": "Partner",
+        "share": "Share",
+        "capital": "Capital paid",
+        "part": "Profit share",
+        "due": "Capital owed",
+        "net": "Takes home"
+      },
+      "sum": "Total"
+    },
+    "dues": {
+      "cardsLabel": "Owed and owing",
+      "get": "Owed to us",
+      "getSub": "By customers and partners",
+      "give": "We owe",
+      "giveSub": "To suppliers and contractors",
+      "cash": "Money on hand",
+      "cashSub": "Across {count} accounts · ৳ {give} needed to pay what we owe",
+      "tagGet": "Owed",
+      "tagGive": "Owing",
+      "customers": "Customers",
+      "partners": "Partners",
+      "suppliers": "Suppliers",
+      "contractors": "Contractors",
+      "nextDue": "{unit} · next due {date}",
+      "lateDays": "{unit} · installment {days} days late",
+      "partnerCommit": "Left of the pledge",
+      "partnerCall": "Pledge ৳ {committed} + capital call ৳ {call}",
+      "lastBill": "Last bill {date}",
+      "owingDays": "Owing {days} days",
+      "daily": "Daily · wages for days worked",
+      "contract": "Contract",
+      "none": "Nothing"
+    }
   }
 }

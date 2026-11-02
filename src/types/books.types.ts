@@ -217,3 +217,15 @@ export interface IPaymentPayload {
   purpose?: PaymentPurpose;
   note: string;
 }
+
+// GET /projects/{id}/reports/expenses: a period's spending grouped four ways.
+export interface IExpenseReport {
+  from: string;
+  to: string;
+  budget: number | null;
+  categories: { name: string; amount: number; labour: boolean }[];
+  phases: { name: string; amount: number; budget: number | null }[];
+  unphased: number;
+  months: { month: string; amount: number }[];
+  suppliers: { name: string; billed: number; paid: number }[];
+}

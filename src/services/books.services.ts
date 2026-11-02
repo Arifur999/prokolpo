@@ -11,6 +11,7 @@ import type {
   IExpense,
   IExpensePage,
   IExpensePayload,
+  IExpenseReport,
   IMovement,
   IOverviewData,
   IPaymentPayload,
@@ -22,6 +23,8 @@ const base = (projectId: string) => `/projects/${encodeURIComponent(projectId)}`
 const one = (id: string) => encodeURIComponent(id);
 
 export const getOverview = async (projectId: string) => httpClient.get<IOverviewData>(`${base(projectId)}/overview`);
+export const getExpenseReport = async (projectId: string, params: { from?: string; to?: string }) =>
+  httpClient.get<IExpenseReport>(`${base(projectId)}/reports/expenses`, { params });
 
 export const getCategories = cache(async (projectId: string) => httpClient.get<ICategory[]>(`${base(projectId)}/categories`));
 export const createCategory = async (projectId: string, name: string) => httpClient.post<ICategory>(`${base(projectId)}/categories`, { name });
