@@ -81,7 +81,9 @@ export function HeroPreview() {
           {PREVIEW_ROWS.map((row) => (
             <span key={row} className="flex flex-col gap-0.5 rounded-xl bg-surface-2 px-3 py-2.5">
               <span className="text-xs text-ink-3">{t(`${kind}.stats.${row}.label`)}</span>
-              <strong className={cn("text-base font-bold", AMOUNT_TONE_CLASS[look.statTones[row]])}>{t(`${kind}.stats.${row}.value`)}</strong>
+              <strong className={cn("text-[13px] font-bold whitespace-nowrap sm:text-base", AMOUNT_TONE_CLASS[look.statTones[row]])}>
+                {t(`${kind}.stats.${row}.value`)}
+              </strong>
             </span>
           ))}
         </div>
