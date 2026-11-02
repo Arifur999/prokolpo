@@ -1061,7 +1061,13 @@
       "profileLabel": "প্রোফাইল ও অ্যাকাউন্ট — {name}",
       "logout": "লগআউট",
       "switchLanguage": "English",
-      "switchProject": "প্রজেক্ট বদলান"
+      "switchProject": "প্রজেক্ট বদলান",
+      "mobileLabel": "প্রধান মেনু",
+      "dues": "পাওনা",
+      "salesShort": "বিক্রি",
+      "more": "আরও",
+      "close": "বন্ধ করুন",
+      "addExpense": "খরচ যোগ করুন"
     },
     "title": "ওভারভিউ",
     "downloadReport": "রিপোর্ট ডাউনলোড",
@@ -1106,7 +1112,6 @@
     },
     "byMonth": {
       "title": "মাস অনুযায়ী খরচ",
-      "range": "{from} – {to}",
       "period": "সময়কাল",
       "six": "6 মাস",
       "twelve": "12 মাস",
@@ -1142,6 +1147,17 @@
       "morning": "শুভ সকাল, {name}",
       "afternoon": "শুভ দুপুর, {name}",
       "evening": "শুভ সন্ধ্যা, {name}"
+    },
+    "mobile": {
+      "projectType": {
+        "PERSONAL": "ব্যক্তিগত প্রজেক্ট",
+        "PARTNERSHIP": "যৌথ প্রজেক্ট"
+      },
+      "totalSpent": "মোট খরচ",
+      "percentChip": "বাজেটের {percent}",
+      "budget": "বাজেট ৳ {amount}",
+      "remaining": "বাকি ৳ {amount}",
+      "account": "প্রোফাইল ও লগআউট"
     }
   }
 }

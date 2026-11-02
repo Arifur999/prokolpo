@@ -1080,7 +1080,13 @@
       "profileLabel": "Profile & account — {name}",
       "logout": "Log out",
       "switchLanguage": "বাংলা",
-      "switchProject": "Switch project"
+      "switchProject": "Switch project",
+      "mobileLabel": "Main menu",
+      "dues": "Dues",
+      "salesShort": "Sales",
+      "more": "More",
+      "close": "Close",
+      "addExpense": "Add expense"
     },
     "title": "Overview",
     "downloadReport": "Download report",
@@ -1125,7 +1131,6 @@
     },
     "byMonth": {
       "title": "Spending by month",
-      "range": "{from} – {to}",
       "period": "Period",
       "six": "6 months",
       "twelve": "12 months",
@@ -1161,6 +1166,17 @@
       "morning": "Good morning, {name}",
       "afternoon": "Good afternoon, {name}",
       "evening": "Good evening, {name}"
+    },
+    "mobile": {
+      "projectType": {
+        "PERSONAL": "Personal project",
+        "PARTNERSHIP": "Joint project"
+      },
+      "totalSpent": "Total spent",
+      "percentChip": "{percent} of budget",
+      "budget": "Budget ৳ {amount}",
+      "remaining": "Left ৳ {amount}",
+      "account": "Profile & log out"
     }
   }
 }

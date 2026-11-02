@@ -129,6 +129,8 @@
   --shadow-segment: 0 1px 3px rgba(22, 33, 29, 0.14);
   /* The raised option in a filter tab group. */
   --shadow-tab: 0 1px 2px rgba(22, 33, 29, 0.12);
+  /* The floating add button on phones. */
+  --shadow-fab: 0 6px 16px rgba(15, 58, 46, 0.28);
   --shadow-focus: 0 0 0 3px rgba(22, 73, 58, 0.14);
   --shadow-hero: 0 24px 60px rgba(8, 28, 22, 0.35);
 }
