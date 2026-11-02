@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { Icon } from "@/components/shared/icon/Icon";
+import { Icon } from "./icon/Icon";
 
-// Opens the add dialog through ?new=1, the same way the expense form's link does.
-export function AddSupplierButton({ label }: { label: string }) {
+// Opens a list page's add dialog through ?new=1, as links from other pages do too.
+export function OpenNewButton({ label }: { label: string }) {
   const router = useRouter();
   const pathname = usePathname();
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { ProjectPageHeader } from "@/components/modules/Project/ProjectPageHeader";
-import { AddSupplierButton } from "@/components/modules/Suppliers/AddSupplierButton";
+import { OpenNewButton } from "@/components/shared/OpenNewButton";
 import { SupplierList } from "@/components/modules/Suppliers/SupplierList";
 import { supplierTotals } from "@/components/modules/Suppliers/supplierRules";
 import { Icon } from "@/components/shared/icon/Icon";
@@ -41,7 +41,7 @@ export default async function SuppliersPage({ params }: PageProps<"/projects/[pr
               <Icon name="download" size={18} />
               {t("excel")}
             </button>
-            {canWrite && <AddSupplierButton label={t("add")} />}
+            {canWrite && <OpenNewButton label={t("add")} />}
           </>
         }
       />
