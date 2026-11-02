@@ -1898,7 +1898,8 @@
       "BUY": "নগদে কেনা",
       "TRANSFER_IN": "টাকা সরানো",
       "TRANSFER_OUT": "টাকা সরানো",
-      "DEPOSIT": "পার্টনারের জমা"
+      "DEPOSIT": "পার্টনারের জমা",
+      "COLLECTION": "বিক্রির টাকা"
     },
     "openingTitle": "শুরুর ব্যালেন্স",
     "paymentTo": "{party}-কে পেমেন্ট",
@@ -1951,7 +1952,8 @@
       "added": "অ্যাকাউন্ট যোগ হয়েছে — {name}"
     },
     "failed": "কাজটা হয়নি — আবার চেষ্টা করুন",
-    "depositFrom": "{party}-এর জমা"
+    "depositFrom": "{party}-এর জমা",
+    "collectionFrom": "{party}-এর জমা"
   },
   "Members": {
     "title": "মেম্বার",
@@ -2109,7 +2111,11 @@
       "other": "অন্যান্য",
       "partner": "পার্টনার",
       "call": "ক্যাপিটাল কল",
-      "deposit": "পার্টনারের জমা"
+      "deposit": "পার্টনারের জমা",
+      "unit": "ইউনিট",
+      "customer": "কাস্টমার",
+      "sale": "বিক্রি",
+      "installment": "কিস্তি"
     },
     "role": {
       "OWNER": "মালিক",
@@ -2143,7 +2149,14 @@
       "other": "{name}",
       "partnerCreate": "{name}-কে পার্টনার করেছেন — {share} শেয়ার",
       "callCreate": "ক্যাপিটাল কল দিয়েছেন — ৳ {amount}",
-      "depositCreate": "{party}-এর ৳ {amount} জমা নিয়েছেন"
+      "depositCreate": "{party}-এর ৳ {amount} জমা নিয়েছেন",
+      "unitCreate": "নতুন ইউনিট যোগ করেছেন — {name}",
+      "unitsCreate": "একসাথে {count}টা ফ্ল্যাট যোগ করেছেন",
+      "unitUpdate": "{name} এডিট করেছেন",
+      "unitDelete": "{name} মুছেছেন",
+      "customerCreate": "নতুন কাস্টমার যোগ করেছেন — {name}",
+      "saleCreate": "{unit} বিক্রি করেছেন — {party} · ৳ {amount}",
+      "installmentCreate": "{party}-এর কিস্তি জমা নিয়েছেন — ৳ {amount}"
     },
     "sub": {
       "cash": "নগদে কেনা",

@@ -1917,7 +1917,8 @@
       "BUY": "Bought in cash",
       "TRANSFER_IN": "Transfer",
       "TRANSFER_OUT": "Transfer",
-      "DEPOSIT": "Partner deposit"
+      "DEPOSIT": "Partner deposit",
+      "COLLECTION": "Sale collection"
     },
     "openingTitle": "Opening balance",
     "paymentTo": "Payment to {party}",
@@ -1970,7 +1971,8 @@
       "added": "Account added — {name}"
     },
     "failed": "That didn't work — please try again",
-    "depositFrom": "Deposit from {party}"
+    "depositFrom": "Deposit from {party}",
+    "collectionFrom": "Paid by {party}"
   },
   "Members": {
     "title": "Members",
@@ -2128,7 +2130,11 @@
       "other": "Other",
       "partner": "Partner",
       "call": "Capital call",
-      "deposit": "Partner deposit"
+      "deposit": "Partner deposit",
+      "unit": "Unit",
+      "customer": "Customer",
+      "sale": "Sale",
+      "installment": "Installment"
     },
     "role": {
       "OWNER": "Owner",
@@ -2162,7 +2168,14 @@
       "other": "{name}",
       "partnerCreate": "made {name} a partner — {share} share",
       "callCreate": "made a capital call — ৳ {amount}",
-      "depositCreate": "took ৳ {amount} from {party}"
+      "depositCreate": "took ৳ {amount} from {party}",
+      "unitCreate": "added a unit — {name}",
+      "unitsCreate": "added {count} flats at once",
+      "unitUpdate": "edited {name}",
+      "unitDelete": "deleted {name}",
+      "customerCreate": "added a customer — {name}",
+      "saleCreate": "sold {unit} — {party} · ৳ {amount}",
+      "installmentCreate": "took an installment from {party} — ৳ {amount}"
     },
     "sub": {
       "cash": "Paid on the spot",

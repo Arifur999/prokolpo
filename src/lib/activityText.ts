@@ -24,6 +24,10 @@ const AREAS = new Set([
   "partner",
   "call",
   "deposit",
+  "unit",
+  "customer",
+  "sale",
+  "installment",
 ]);
 
 // "রড · 5 টন": a bill's head with the quantity bought.
@@ -92,6 +96,22 @@ export function activityLine(it: IActivityItem, t: Translate): ActivityLine {
       return line(t("text.callCreate", { amount }), [it.summary]);
     case "deposit.CREATE":
       return line(t("text.depositCreate", { party: it.party ?? it.summary, amount }), [
+        it.account && t("sub.fromAccount", { account: it.account }),
+        it.details.receipt && t("sub.receipt", { no: it.details.receipt }),
+      ]);
+    case "unit.CREATE":
+      return line(Number(it.details.count) > 1 ? t("text.unitsCreate", { count: it.details.count ?? "" }) : t("text.unitCreate", { name: it.summary }));
+    case "unit.UPDATE":
+      return line(t("text.unitUpdate", { name: it.summary }));
+    case "unit.DELETE":
+      return line(t("text.unitDelete", { name: it.summary }));
+    case "customer.CREATE":
+      return line(t("text.customerCreate", { name: it.summary }));
+    case "sale.CREATE":
+      return line(t("text.saleCreate", { unit: it.title ?? it.summary, party: it.party ?? "", amount }));
+    case "installment.CREATE":
+      return line(t("text.installmentCreate", { party: it.party ?? it.summary, amount }), [
+        it.title,
         it.account && t("sub.fromAccount", { account: it.account }),
         it.details.receipt && t("sub.receipt", { no: it.details.receipt }),
       ]);
