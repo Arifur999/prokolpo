@@ -168,6 +168,65 @@
         },
         "note": "End-of-day cash count matches the books"
       }
+    },
+    "kinds": {
+      "eyebrow": "Project types",
+      "title": "Not just buildings — accounts for any project",
+      "lead": "Pick a type when you open a project — expense heads, phases and menus are set up for you. Change them later as you like.",
+      "phasesLabel": "Phases",
+      "items": {
+        "building": {
+          "title": "Home / Building",
+          "body": "Expenses and budget by floor; for joint projects, flat sales and instalments",
+          "phases": {
+            "p1": "Foundation",
+            "p2": "1st floor",
+            "p3": "2nd floor",
+            "p4": "Roof"
+          }
+        },
+        "farm": {
+          "title": "Farm",
+          "body": "Poultry, cattle, fish or crops — costs and sales profit by batch",
+          "phases": {
+            "p1": "Shed build",
+            "p2": "1st batch",
+            "p3": "2nd batch"
+          }
+        },
+        "land": {
+          "title": "Land buy & sell",
+          "body": "Registration, mutation, filling and plot sale instalments",
+          "phases": {
+            "p1": "Registration",
+            "p2": "Mutation",
+            "p3": "Plot sale"
+          }
+        },
+        "business": {
+          "title": "Business / Shop",
+          "body": "Daily sales, cash matching and the credit book",
+          "phases": {
+            "p1": "Shop setup",
+            "p2": "Stocking",
+            "p3": "Open"
+          }
+        },
+        "renovation": {
+          "title": "Renovation",
+          "body": "Paint, tiles, sanitary and labour costs — within budget",
+          "phases": {
+            "p1": "Demolish & clean",
+            "p2": "Tiles & paint",
+            "p3": "Finishing"
+          }
+        },
+        "other": {
+          "title": "Other",
+          "body": "From wedding arrangements to mosque work — your own heads and phases",
+          "addOwn": "Add your own"
+        }
+      }
     }
   }
 }
