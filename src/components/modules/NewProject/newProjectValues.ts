@@ -1,4 +1,4 @@
-import { toLatinDigits } from "@/lib/money";
+import { toDecimalDigits, toLatinDigits } from "@/lib/money";
 import type { Plan } from "@/lib/projectPlan";
 import type { FarmType, ICreateProjectPayload, LandUnit, Ownership, ProjectKind } from "@/types/project.types";
 
@@ -42,7 +42,7 @@ const onlyFor = <T>(applies: boolean, value: T) => (applies ? value : null);
 
 export const toPayload = (values: NewProjectValues, plan: Plan): ICreateProjectPayload => {
   const { kind } = values;
-  const area = Number.parseFloat(values.landArea.replace(",", "."));
+  const area = Number.parseFloat(toDecimalDigits(values.landArea.replaceAll(",", "")));
   return {
     name: values.name.trim(),
     kind,
