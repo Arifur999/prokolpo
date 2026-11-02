@@ -4,8 +4,10 @@ import { DEFAULT_LOCALE, isLocale, LOCALE_COOKIE } from "@/i18n/config";
 
 // The browser never calls the API, so this server tells it what it would have sent itself:
 // the reader's language (API messages follow it) and, for the sessions list, where they are.
+// The last X-Forwarded-For entry is the one our own reverse proxy appended; anything before it
+// came from the browser and could say anything.
 export const forwardHeadersFrom = (incoming: Headers, locale: string | undefined): Record<string, string> => {
-  const forwarded = incoming.get("x-forwarded-for")?.split(",")[0]?.trim() || incoming.get("x-real-ip") || "";
+  const forwarded = incoming.get("x-forwarded-for")?.split(",").at(-1)?.trim() || incoming.get("x-real-ip") || "";
   const out: Record<string, string> = { "Accept-Language": isLocale(locale) ? locale : DEFAULT_LOCALE };
   if (forwarded) out["X-Forwarded-For"] = forwarded;
   const userAgent = incoming.get("user-agent");
