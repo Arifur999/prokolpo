@@ -1019,16 +1019,76 @@
         "Transport",
         "Other"
       ],
-      "RENOVATION": ["Paint", "Tiles", "Sanitary", "Electrical", "Wood & furniture", "Thai glass/grill", "Mason wages", "Transport", "Other"],
-      "OTHER": ["Materials", "Wages", "Transport", "Fees & paperwork", "Other"],
-      "POULTRY": ["Chicks", "Feed", "Medicine & vaccines", "Shed building", "Litter/husk", "Electricity", "Labour wages", "Transport", "Other"],
-      "CATTLE": ["Animals", "Feed (grass/bran)", "Medicine & vet", "Shed building", "Labour wages", "Electricity & water", "Transport", "Other"],
-      "FISH": ["Pond digging/repair", "Fingerlings", "Feed", "Medicine & lime", "Nets & gear", "Labour wages", "Electricity/pump", "Other"],
-      "CROP": ["Land lease", "Seeds/seedlings", "Fertiliser", "Pesticide", "Irrigation", "Labour wages", "Transport", "Other"]
+      "RENOVATION": [
+        "Paint",
+        "Tiles",
+        "Sanitary",
+        "Electrical",
+        "Wood & furniture",
+        "Thai glass/grill",
+        "Mason wages",
+        "Transport",
+        "Other"
+      ],
+      "OTHER": [
+        "Materials",
+        "Wages",
+        "Transport",
+        "Fees & paperwork",
+        "Other"
+      ],
+      "POULTRY": [
+        "Chicks",
+        "Feed",
+        "Medicine & vaccines",
+        "Shed building",
+        "Litter/husk",
+        "Electricity",
+        "Labour wages",
+        "Transport",
+        "Other"
+      ],
+      "CATTLE": [
+        "Animals",
+        "Feed (grass/bran)",
+        "Medicine & vet",
+        "Shed building",
+        "Labour wages",
+        "Electricity & water",
+        "Transport",
+        "Other"
+      ],
+      "FISH": [
+        "Pond digging/repair",
+        "Fingerlings",
+        "Feed",
+        "Medicine & lime",
+        "Nets & gear",
+        "Labour wages",
+        "Electricity/pump",
+        "Other"
+      ],
+      "CROP": [
+        "Land lease",
+        "Seeds/seedlings",
+        "Fertiliser",
+        "Pesticide",
+        "Irrigation",
+        "Labour wages",
+        "Transport",
+        "Other"
+      ]
     },
     "phases": {
-      "buildingStart": ["Land & design", "Piling", "Foundation"],
-      "buildingEnd": ["Roof", "Finishing"],
+      "buildingStart": [
+        "Land & design",
+        "Piling",
+        "Foundation"
+      ],
+      "buildingEnd": [
+        "Roof",
+        "Finishing"
+      ],
       "floor": "{ordinal} floor",
       "batch": "Batch {n}",
       "season": "Season {n}",
@@ -1038,9 +1098,24 @@
         "FISH": "Pond preparation",
         "CROP": "Land preparation"
       },
-      "LAND": ["Purchase & registry", "Mutation & papers", "Development (filling, roads)", "Plot sales"],
-      "BUSINESS": ["Finding the shop", "Decoration", "Stocking up", "Opening"],
-      "RENOVATION": ["Demolition & cleanup", "Plumbing & electrical", "Tiles & paint", "Finishing"]
+      "LAND": [
+        "Purchase & registry",
+        "Mutation & papers",
+        "Development (filling, roads)",
+        "Plot sales"
+      ],
+      "BUSINESS": [
+        "Finding the shop",
+        "Decoration",
+        "Stocking up",
+        "Opening"
+      ],
+      "RENOVATION": [
+        "Demolition & cleanup",
+        "Plumbing & electrical",
+        "Tiles & paint",
+        "Finishing"
+      ]
     },
     "menus": {
       "partners": "Partners",
@@ -1412,5 +1487,153 @@
       "saved": "Changes saved — {fields}",
       "deleted": "Expense deleted — it can be restored from activity"
     }
+  },
+  "Suppliers": {
+    "title": "Suppliers",
+    "excel": "Excel",
+    "add": "New supplier",
+    "summaryLabel": "Supplier summary",
+    "totalDue": "Owed to suppliers",
+    "totalDueNote": "Owed to {due} of {count}",
+    "billed": "Total bought (bills)",
+    "billedNote": "Since the project began",
+    "paid": "Total paid",
+    "paidAria": "{percent} of all bills paid",
+    "oldest": "Oldest due",
+    "oldestNote": "৳ {amount} · {days, plural, one {# day} other {# days}}",
+    "noOldest": "Nobody is owed",
+    "listLabel": "Supplier list",
+    "searchLabel": "Search suppliers",
+    "search": "Search name, phone or goods",
+    "filterLabel": "Filter by due",
+    "all": "All",
+    "withDue": "Owed",
+    "noDue": "Settled",
+    "sortLabel": "Sort:",
+    "sortDue": "Most owed first",
+    "sortRecent": "Latest activity first",
+    "sortBilled": "Most bought first",
+    "sortName": "By name",
+    "table": {
+      "label": "Suppliers",
+      "supplier": "Supplier",
+      "supplies": "Supplies",
+      "billed": "Billed (৳)",
+      "paid": "Paid (৳)",
+      "due": "Due (৳)",
+      "last": "Last activity",
+      "actions": "Actions"
+    },
+    "paidPercent": "{percent}% paid",
+    "settled": "Settled",
+    "advance": "Advance ৳ {amount}",
+    "noActivity": "No activity yet",
+    "dueFor": "Owed for {days, plural, one {# day} other {# days}}",
+    "pay": "Make payment",
+    "payLabel": "Pay {name}",
+    "ledgerLabel": "Open {name}'s ledger",
+    "emptyTitle": "No suppliers found",
+    "emptyBody": "Try another name, or add a new supplier",
+    "showAll": "Show all suppliers",
+    "noneYetTitle": "No suppliers yet",
+    "noneYetBody": "Add the shops you buy from — dues work themselves out",
+    "footer": "Total ({count})",
+    "form": {
+      "title": "New supplier",
+      "subtitle": "A shop or person you buy materials from",
+      "close": "Close",
+      "name": "Shop or supplier name",
+      "namePlaceholder": "e.g. Karim Rod Store",
+      "phone": "Mobile number",
+      "phonePlaceholder": "01XXXXXXXXX",
+      "phoneSaved": "Will be saved as {phone}",
+      "address": "Address",
+      "addressPlaceholder": "e.g. Mirpur-11, Dhaka",
+      "supplies": "What they supply",
+      "suppliesNote": "(optional, pick any)",
+      "opening": "Owed before using the app",
+      "openingHelp": "This becomes a bill called \"Brought forward\" and the due starts there",
+      "note": "Note",
+      "notePlaceholder": "e.g. Wants payment by the 10th",
+      "optional": "(optional)",
+      "cancel": "Cancel",
+      "submit": "Add supplier",
+      "added": "Supplier added — {name}",
+      "validation": {
+        "name": "Enter the supplier's name",
+        "nameShort": "The name needs at least 2 characters",
+        "phone": "Enter a valid mobile number (e.g. 01712345678)"
+      }
+    },
+    "failed": "That didn't work — please try again"
+  },
+  "PayDialog": {
+    "title": "Make payment",
+    "close": "Close",
+    "dueNow": "Due now",
+    "dueNowContractor": "Owed now",
+    "amount": "How much are you paying",
+    "required": "*",
+    "quickLabel": "Quick amounts",
+    "quickFull": "Full due {amount}",
+    "quickFullContractor": "All owed {amount}",
+    "quickHalf": "Half {amount}",
+    "account": "Which account pays",
+    "hasBalance": "Has ৳ {amount}",
+    "bill": "For which bill",
+    "optional": "(optional)",
+    "generalPayment": "No particular bill — general payment",
+    "billDue": "Due ৳ {amount}",
+    "purpose": "What it is for",
+    "date": "Date",
+    "note": "Note",
+    "notePlaceholder": "e.g. Cheque no. 458921",
+    "notePlaceholderContractor": "e.g. Wages for 27/09–03/10",
+    "after": "After the payment",
+    "partyDue": "{name}'s due",
+    "partyOwed": "Owed to {name}",
+    "full": "The whole due is settled",
+    "fullContractor": "Everything owed is settled",
+    "over": "৳ {amount} more than the due — the extra stays as an advance",
+    "overContractor": "৳ {amount} more than owed — the extra stays as an advance",
+    "short": "The account doesn't have this much — you can still save; the balance will go negative",
+    "advance": "Advance ৳ {amount}",
+    "minus": "− ৳ {amount}",
+    "print": "Print the payment voucher after saving",
+    "printContractor": "Print the wage voucher after saving",
+    "cancel": "Cancel",
+    "submit": "Make payment",
+    "submitAmount": "Pay ৳ {amount}",
+    "submitAmountContractor": "Pay ৳ {amount}",
+    "done": "৳ {amount} paid to {name}",
+    "doneContractor": "৳ {amount} paid to {name}",
+    "printing": " — opening the voucher to print",
+    "purposes": {
+      "WAGE": "Wages",
+      "ADVANCE": "Advance",
+      "INSTALL": "Work installment",
+      "EXTRA": "For extra work",
+      "FINAL": "Final settlement",
+      "OTHER": "Other"
+    },
+    "failed": "The payment wasn't saved — please try again",
+    "billedPaid": "Billed ৳ {billed} · paid ৳ {paid}"
+  },
+  "Lists": {
+    "supplies": [
+      "রড",
+      "সিমেন্ট",
+      "ইট",
+      "বালু",
+      "পাথর/খোয়া",
+      "টাইলস",
+      "রং",
+      "স্যানিটারি",
+      "ইলেকট্রিক",
+      "কাঠ/দরজা-জানালা",
+      "গ্রিল/থাই গ্লাস",
+      "হার্ডওয়্যার",
+      "অন্যান্য"
+    ]
   }
 }

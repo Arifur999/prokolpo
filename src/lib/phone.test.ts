@@ -15,3 +15,11 @@ describe("normalizePhone", () => {
     expect(normalizePhone(raw)).toBeNull();
   });
 });
+
+describe("displayPhone", () => {
+  it("puts the dash after the operator code", async () => {
+    const { displayPhone } = await import("./phone");
+    expect(displayPhone("01712345678")).toBe("01712-345678");
+    expect(displayPhone("রফিক")).toBe("রফিক");
+  });
+});

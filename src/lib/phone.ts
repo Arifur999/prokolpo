@@ -8,3 +8,6 @@ export const normalizePhone = (raw: string): string | null => {
   if (digits.startsWith("880")) digits = digits.slice(2);
   return /^01[3-9]\d{8}$/.test(digits) ? digits : null;
 };
+
+// "01712345678" -> "01712-345678", as the boards print numbers.
+export const displayPhone = (phone: string) => (/^\d{11}$/.test(phone) ? `${phone.slice(0, 5)}-${phone.slice(5)}` : phone);
