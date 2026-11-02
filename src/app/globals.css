@@ -75,6 +75,9 @@
   --color-danger-strong: #c0362c;
   --color-danger-line: #f0cfcb;
   --color-danger-tint: #fce8e6;
+  --color-danger-wash: #fffbfa;
+  --color-danger-ink: #7a1f18;
+  --color-danger-ink-2: #5c2a24;
   --color-info: #2f5a8a;
   --color-info-tint: #e7eef6;
 
@@ -109,6 +112,7 @@
   --shadow-showcase: 0 1px 2px rgba(22, 33, 29, 0.04), 0 16px 40px rgba(22, 33, 29, 0.08);
   --shadow-raised: 0 12px 32px rgba(22, 33, 29, 0.16);
   --shadow-dialog: 0 24px 64px rgba(15, 31, 26, 0.28);
+  --shadow-focus: 0 0 0 3px rgba(22, 73, 58, 0.14);
   --shadow-hero: 0 24px 60px rgba(8, 28, 22, 0.35);
 }
 
