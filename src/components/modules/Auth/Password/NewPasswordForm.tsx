@@ -5,15 +5,13 @@ import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { resetPasswordAction, resetWithCodeAction } from "@/app/(auth)/reset-password/_action";
 import { Icon } from "@/components/shared/icon/Icon";
+import { PasswordMeter } from "@/components/shared/form/PasswordMeter";
 import { TextInput } from "@/components/shared/form/TextInput";
-import { resetPasswordScore } from "@/lib/passwordStrength";
 import { ROUTES } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { AuthHeading } from "../AuthHeading";
 import { SubmitButton } from "../SubmitButton";
 import { CenteredState, NoteBox } from "./CenteredState";
-
-const barTone = (score: number) => (score <= 1 ? "bg-danger-strong" : score === 2 ? "bg-gold-strong" : "bg-brand-mid");
 
 // Who the code came from, when the password is reset with an owner's code instead of a link.
 type CodeFrom = { phone: string; ownerName: string };
@@ -51,11 +49,6 @@ export function NewPasswordForm({ token, maskedEmail, codeFrom }: NewPasswordFor
     );
   }
 
-  const score = resetPasswordScore(password);
-  const rules = [
-    { key: "length", met: password.length >= 8 },
-    { key: "mix", met: /\p{L}/u.test(password) && /\p{N}/u.test(password) },
-  ] as const;
   const matches = again !== "" && again === password;
 
   const codeDigits = code.replace(/\s/g, "");
@@ -139,21 +132,7 @@ export function NewPasswordForm({ token, maskedEmail, codeFrom }: NewPasswordFor
           }}
           aria-describedby="fp-rules"
         />
-        <div aria-hidden="true" className="flex gap-1">
-          {[0, 1, 2, 3].map((bar) => (
-            <span key={bar} className={cn("h-[5px] flex-1 rounded-full", password && bar < Math.max(1, score) ? barTone(score) : "bg-line-3")} />
-          ))}
-        </div>
-        <ul id="fp-rules" className="m-0 flex list-none gap-3.5 p-0">
-          {rules.map((rule) => (
-            <li key={rule.key} className={cn("text-[13px]", rule.met ? "text-success" : attempted ? "text-danger" : "text-ink-3")}>
-              <span aria-hidden="true" className="font-bold">
-                {rule.met ? "✓" : "•"}
-              </span>{" "}
-              {t(`rules.${rule.key}`)}
-            </li>
-          ))}
-        </ul>
+        <PasswordMeter id="fp-rules" password={password} attempted={attempted} />
       </div>
 
       <div className="flex flex-col gap-2">

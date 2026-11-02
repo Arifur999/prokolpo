@@ -11,6 +11,12 @@ export const passwordStrength = (password: string): PasswordStrength => {
   return extra ? 3 : 2;
 };
 
+// The two rules every new password must meet, ticked off as it is typed.
+export const passwordRulesMet = (password: string) => ({
+  length: [...password].length >= 8,
+  mix: /\p{L}/u.test(password) && /\p{N}/u.test(password),
+});
+
 // The reset form's four-bar meter (board ForgotPassword): a point each for 8+ characters,
 // letters with digits, 12+ characters, and a symbol or capital.
 export const resetPasswordScore = (password: string): 0 | 1 | 2 | 3 | 4 => {
