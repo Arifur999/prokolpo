@@ -10,7 +10,13 @@ export const ROUTES = {
   terms: "/terms",
   privacy: "/privacy",
   maintenance: "/maintenance",
+  newProject: "/projects/new",
+  profile: "/profile",
+  admin: "/admin",
 } as const;
+
+// A project's pages hang off its id: /projects/{id}, /projects/{id}/expenses, ...
+export const projectHref = (id: string, page = "") => `/projects/${id}${page ? `/${page}` : ""}`;
 
 // Support page pre-filled for where the person came from (see app/(auth)/support/page.tsx).
 export const supportHref = (from: "forgot" | "suspended", phone?: string | null) =>

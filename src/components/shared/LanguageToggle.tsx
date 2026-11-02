@@ -1,10 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
-import { setLocaleAction } from "@/app/_actions/localeActions";
-import type { Locale } from "@/i18n/config";
+import { useSwitchLanguage } from "@/hooks/useSwitchLanguage";
 import { cn } from "@/lib/utils";
 import { Icon } from "./icon/Icon";
 
@@ -18,16 +14,7 @@ type LanguageToggleProps = {
 };
 
 export function LanguageToggle({ label, className, withIcon = true, iconClassName }: LanguageToggleProps) {
-  const locale = useLocale();
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-  const target: Locale = locale === "bn" ? "en" : "bn";
-
-  const switchLanguage = () =>
-    startTransition(async () => {
-      await setLocaleAction(target);
-      router.refresh();
-    });
+  const { target, switchLanguage, isPending } = useSwitchLanguage();
 
   return (
     <button type="button" lang={target} onClick={switchLanguage} disabled={isPending} className={cn("cursor-pointer", className)}>
