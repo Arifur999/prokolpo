@@ -70,8 +70,12 @@ export interface ICustomer {
   phone: string;
   nid: string | null;
   address: string | null;
+  altPhone: string | null;
+  note: string | null;
   createdAt: string;
+  addedBy: string;
   sales: ISale[];
+  payments?: (ISalePayment & { saleId: string; unitName: string })[];
 }
 
 export interface ICustomerPayload {
@@ -79,6 +83,8 @@ export interface ICustomerPayload {
   phone: string;
   nid: string;
   address: string;
+  altPhone?: string;
+  note?: string;
 }
 
 export interface IScheduleRow {

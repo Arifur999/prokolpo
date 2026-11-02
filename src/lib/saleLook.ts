@@ -58,3 +58,9 @@ export const planInstallments = (price: number, down: number, count: number, int
   const rows = Array.from({ length: count }, (_, i) => ({ no: i + 1, due: addMonths(firstDue, i * intervalMonths), amount: i === count - 1 ? last : each }));
   return { each, last, rows };
 };
+
+export type CustomerState = SaleState | "LEAD";
+
+// A customer's state across their sales: not bought yet, behind on any, owing, or paid off.
+export const customerState = (sales: Pick<ISale, "standing">[]): CustomerState =>
+  !sales.length ? "LEAD" : sales.some((s) => s.standing.late) ? "LATE" : sales.some((s) => s.standing.due > 0) ? "RUNNING" : "PAID";
