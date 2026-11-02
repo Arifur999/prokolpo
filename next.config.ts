@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   output: "standalone",
   // No "X-Powered-By: Next.js".
   poweredByHeader: false,
+  // Memo photos (up to 5MB) travel through a server action on their way to the API.
+  experimental: { serverActions: { bodySizeLimit: "6mb" } },
 };
 
 export default withNextIntl(nextConfig);

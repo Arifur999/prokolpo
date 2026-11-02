@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Icon } from "@/components/shared/icon/Icon";
 import { cn } from "@/lib/utils";
 import { OWNERSHIPS, type Ownership } from "@/types/project.types";
-import { FormSection } from "./FormSection";
+import { FormSection } from "@/components/shared/form/FormSection";
 
 type OwnershipPickerProps = { value: Ownership; onChange: (ownership: Ownership) => void };
 

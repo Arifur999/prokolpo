@@ -33,6 +33,11 @@ export const updateExpense = async (projectId: string, id: string, payload: IExp
   httpClient.put<IExpense>(`${base(projectId)}/expenses/${one(id)}`, payload);
 export const deleteExpense = async (projectId: string, id: string, reason: string) =>
   httpClient.post<null>(`${base(projectId)}/expenses/${one(id)}/delete`, { reason });
+// The photo goes to the API as the raw body; the API decides its type from the bytes.
+export const uploadMemo = async (projectId: string, id: string, photo: Blob) =>
+  httpClient.put<null>(`${base(projectId)}/expenses/${one(id)}/memo`, Buffer.from(await photo.arrayBuffer()), {
+    headers: { "Content-Type": photo.type || "application/octet-stream" },
+  });
 export const restoreExpense = async (projectId: string, id: string) => httpClient.post<null>(`${base(projectId)}/expenses/${one(id)}/restore`);
 
 export const getSuppliers = cache(async (projectId: string) => httpClient.get<ISupplier[]>(`${base(projectId)}/suppliers`));

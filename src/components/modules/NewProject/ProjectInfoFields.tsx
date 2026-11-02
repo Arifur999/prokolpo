@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { LabeledInput } from "@/components/shared/form/LabeledInput";
 import { TextArea } from "@/components/shared/form/TextArea";
 import { DateField } from "@/components/shared/form/DateField";
-import { FormSection } from "./FormSection";
+import { FormSection } from "@/components/shared/form/FormSection";
 import type { NewProjectValues } from "./newProjectValues";
 
 type ProjectInfoFieldsProps = {

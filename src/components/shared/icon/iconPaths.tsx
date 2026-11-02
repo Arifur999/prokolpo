@@ -445,6 +445,27 @@ export const ICON_PATHS = {
       <path d="m6 6 12 12" />
     </>
   ),
+  calculator: (
+    <>
+      <rect width="16" height="20" x="4" y="2" rx="2" />
+      <path d="M8 6h8" />
+      <path d="M16 14v4" />
+      <path d="M16 10h.01" />
+      <path d="M12 10h.01" />
+      <path d="M8 10h.01" />
+      <path d="M12 14h.01" />
+      <path d="M8 14h.01" />
+      <path d="M12 18h.01" />
+      <path d="M8 18h.01" />
+    </>
+  ),
+  upload: (
+    <>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path d="m17 8-5-5-5 5" />
+      <path d="M12 3v12" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>;
 
 export type IconName = keyof typeof ICON_PATHS;

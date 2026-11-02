@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Icon } from "@/components/shared/icon/Icon";
 import { cn } from "@/lib/utils";
 import { PROJECT_KINDS, type ProjectKind } from "@/types/project.types";
-import { FormSection } from "./FormSection";
+import { FormSection } from "@/components/shared/form/FormSection";
 
 const KIND_ICON = { BUILDING: "building", FARM: "sprout", LAND: "map", BUSINESS: "store", RENOVATION: "paintRoller", OTHER: "package" } as const;
 

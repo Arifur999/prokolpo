@@ -8,7 +8,7 @@ import { Icon } from "@/components/shared/icon/Icon";
 import { cn } from "@/lib/utils";
 import { FARM_TYPES, LAND_UNITS } from "@/types/project.types";
 import { BudgetField } from "./BudgetField";
-import { FormSection } from "./FormSection";
+import { FormSection } from "@/components/shared/form/FormSection";
 import type { NewProjectValues } from "./newProjectValues";
 
 type KindDetailsProps = {
