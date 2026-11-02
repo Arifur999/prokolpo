@@ -22,7 +22,7 @@ export type NavKey =
   | "activity"
   | "settings";
 export type NavItem = { key: NavKey; page: string; icon: IconName };
-export type NavGroup = { key: "main" | "money" | "joint" | "sales" | "other"; items: NavItem[] };
+export type NavGroup = { key: "main" | "money" | "joint" | "sales" | "farm" | "shop" | "other"; items: NavItem[] };
 
 const MENU_ITEMS: Record<MenuKey, NavItem> = {
   partners: { key: "partners", page: "partners", icon: "users" },
@@ -54,7 +54,10 @@ export const projectNav = (project: Pick<IProjectSummary, "kind" | "ownership">)
       ],
     },
   ];
-  if (extras.length) groups.push({ key: project.ownership === "PARTNERSHIP" ? "joint" : "sales", items: extras });
+  // A joint project's menus sit under "যৌথ"; a farm's or a shop's under its own name (boards
+  // FarmSales, BizSales).
+  const own = project.kind === "FARM" ? "farm" : project.kind === "BUSINESS" ? "shop" : "sales";
+  if (extras.length) groups.push({ key: project.ownership === "PARTNERSHIP" ? "joint" : own, items: extras });
   groups.push({
     key: "other",
     items: [

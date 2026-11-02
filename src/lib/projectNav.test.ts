@@ -19,6 +19,7 @@ describe("projectNav", () => {
   });
 
   it("files a personal farm's sales under its own group", () => {
-    expect(keys("FARM", "PERSONAL")[2]).toBe("sales:farmSales");
+    expect(keys("FARM", "PERSONAL")[2]).toBe("farm:farmSales");
+    expect(keys("BUSINESS", "PERSONAL")[2]).toBe("shop:bizSales");
   });
 });
