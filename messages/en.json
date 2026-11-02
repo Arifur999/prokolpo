@@ -403,6 +403,55 @@
         },
         "note": "Ownership is chosen when the project is opened and cannot be changed later."
       }
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "What everyone asks",
+      "lead": "Didn't find your answer? Open a small project and try it yourself — you can delete it later if you don't need it.",
+      "items": {
+        "mobile": {
+          "q": "Can I use it from my phone?",
+          "a": "Yes. It runs in your phone's browser, no separate app to install. You can add it to your home screen and open it like an app."
+        },
+        "invite": {
+          "q": "How do I add a partner or manager?",
+          "a": "Enter their mobile number on the project's members page. If they have an account they are added right away; if not, they join automatically when they sign up with that number."
+        },
+        "roles": {
+          "q": "Can others change my accounts?",
+          "a": "Each person can do only what their role allows. Viewers only look, managers make entries, and members and settings stay with the owner. Everything anyone does is written in the activity log."
+        },
+        "restore": {
+          "q": "What if I delete something by mistake?",
+          "a": "No entry is ever gone for good. The owner or a manager can bring deleted entries back from the activity page."
+        },
+        "opening": {
+          "q": "How do I start from accounts kept in a paper book?",
+          "a": "When adding a supplier or contractor, enter the \"balance before using the app\" — the accounts carry on from there. You don't need to enter every old bill."
+        },
+        "english": {
+          "q": "Can I use it in English?",
+          "a": "Yes. Choose Bangla or English in your profile — people on the same project can each work in their own language. Customer and partner receipts can be printed in Bangla, English or both."
+        },
+        "backup": {
+          "q": "Can I keep a backup of the accounts?",
+          "a": "Yes. The project owner can download all accounts to an Excel file from settings at any time."
+        }
+      }
+    },
+    "cta": {
+      "title": "Start your first project's accounts today",
+      "body": "Sign up with your name and mobile number, then open a project and log the first expense."
+    },
+    "footer": {
+      "blurb": "Every taka of your project, in one place — for home owners, joint building groups and small developers.",
+      "app": "App",
+      "account": "Account",
+      "other": "Other",
+      "forgotPassword": "Forgot password",
+      "support": "Help & contact",
+      "terms": "Terms & privacy",
+      "copyright": "© {year} Prokolpo"
     }
   }
 }
