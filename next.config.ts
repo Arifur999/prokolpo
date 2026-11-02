@@ -1,17 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
+  // .next/standalone: a minimal server.js plus only the traced node_modules. The Dockerfile ships that.
+  output: "standalone",
+  // No "X-Powered-By: Next.js".
+  poweredByHeader: false,
 };
 
 export default nextConfig;

@@ -1,0 +1,67 @@
+"use client";
+
+import { useMutation, useQueryClient, type QueryKey } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { useCallback, useLayoutEffect, useRef } from "react";
+import { toast } from "sonner";
+import type { ApiResult } from "@/types/api.types";
+
+interface UseActionMutationOptions<TVariables, TData> {
+  action: (variables: TVariables) => Promise<ApiResult<TData>>;
+  successMessage: string | ((data: TData) => string);
+  errorMessage?: string;
+  // Keys whose cached data this mutation makes stale.
+  invalidateKeys?: QueryKey[];
+  onSuccess?: (data: TData) => void;
+  // Re-render the Server Component half of the page (summary cards, counts).
+  refreshRoute?: boolean;
+}
+
+// The post-mutation sequence in one place: toast, invalidate (which refetches the active
+// queries), router.refresh(). `run` resolves true on success so the caller closes its
+// dialog and resets its form.
+//
+// `run` keeps one identity for the component's lifetime while reading the latest options:
+// it ends up in memoized columns and row actions, and TanStack Table renders `cell` as a
+// component type, so a new function per render would remount every cell.
+export function useActionMutation<TVariables, TData = unknown>(options: UseActionMutationOptions<TVariables, TData>) {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+  const optionsRef = useRef(options);
+  useLayoutEffect(() => {
+    optionsRef.current = options;
+  });
+
+  const { mutateAsync, isPending } = useMutation({
+    mutationFn: (variables: TVariables) => optionsRef.current.action(variables),
+  });
+
+  const run = useCallback(
+    async (variables: TVariables): Promise<boolean> => {
+      const { successMessage, errorMessage = "Something went wrong", invalidateKeys = [], onSuccess, refreshRoute = true } = optionsRef.current;
+
+      let result: ApiResult<TData>;
+      try {
+        result = await mutateAsync(variables);
+      } catch {
+        // Actions never throw; this is the Next server itself being unreachable.
+        toast.error("Unable to reach the server. Please try again.");
+        return false;
+      }
+
+      if (!result.success) {
+        toast.error(result.message || errorMessage);
+        return false;
+      }
+
+      toast.success(result.message || (typeof successMessage === "function" ? successMessage(result.data) : successMessage));
+      onSuccess?.(result.data);
+      await Promise.all(invalidateKeys.map((queryKey) => queryClient.invalidateQueries({ queryKey })));
+      if (refreshRoute) router.refresh();
+      return true;
+    },
+    [mutateAsync, queryClient, router],
+  );
+
+  return { run, isPending };
+}
