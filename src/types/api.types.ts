@@ -18,6 +18,8 @@ export interface ApiResponse<TData = unknown> {
 export interface ApiErrorResponse {
   success: false;
   message: string;
+  // The API's stable error code (ACCOUNT_SUSPENDED, ...) when the screen must branch on it.
+  code?: string;
   fieldErrors?: Record<string, string>;
 }
 
@@ -39,5 +41,6 @@ export interface IApiSuccessBody<TData> {
 export interface IApiErrorBody {
   success: false;
   message: string;
+  code?: string;
   errorSource: IApiFieldError[];
 }

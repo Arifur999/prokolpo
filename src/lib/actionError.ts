@@ -23,8 +23,17 @@ const getFieldErrors = (error: unknown): Record<string, string> | undefined => {
   return Object.fromEntries((source as IApiFieldError[]).map((field) => [field.path, field.message]));
 };
 
+const getErrorCode = (error: unknown): string | undefined => {
+  if (!isAxiosError(error)) return undefined;
+  const code = (error.response?.data as { code?: unknown } | undefined)?.code;
+  return typeof code === "string" ? code : undefined;
+};
+
 export const toActionError = (error: unknown, fallback: string): ApiErrorResponse => {
+  const result: ApiErrorResponse = { success: false, message: getActionErrorMessage(error, fallback) };
+  const code = getErrorCode(error);
   const fieldErrors = getFieldErrors(error);
-  const message = getActionErrorMessage(error, fallback);
-  return fieldErrors ? { success: false, message, fieldErrors } : { success: false, message };
+  if (code) result.code = code;
+  if (fieldErrors) result.fieldErrors = fieldErrors;
+  return result;
 };

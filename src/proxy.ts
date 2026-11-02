@@ -10,6 +10,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { canAccessRoute, DEFAULT_DASHBOARD, isProtected, LOGIN_ROUTE, SESSION_EXPIRED_REASON } from "./lib/authUtils";
 import { jwtUtils } from "./lib/jwtUtils";
+import { LOCALE_COOKIE } from "./i18n/config";
+import { forwardHeadersFrom } from "./lib/forwardHeaders";
 import {
   ACCESS_TOKEN_COOKIE,
   ACCESS_TOKEN_MAX_AGE_SECONDS,
@@ -18,17 +20,18 @@ import {
   getTokenSecondsRemaining,
   isTokenExpiringSoon,
   REFRESH_TOKEN_COOKIE,
+  secondsUntil,
 } from "./lib/tokenUtils";
-import { refreshAccessToken } from "./services/auth.services";
-import type { IAccessTokenPayload } from "./types/auth.types";
+import { refreshSession } from "./services/auth.services";
+import type { IAccessTokenPayload, ISession } from "./types/auth.types";
 
 export async function proxy(request: NextRequest) {
   const { pathname, search, searchParams } = request.nextUrl;
-  const isLogin = pathname === LOGIN_ROUTE;
+  const isAuthPage = pathname === LOGIN_ROUTE || pathname === "/register";
 
   // The API rejected a token this proxy would still accept: clear it and show the login
   // page, instead of redirecting straight back to the dashboard in a loop.
-  if (isLogin && searchParams.get("reason") === SESSION_EXPIRED_REASON) {
+  if (isAuthPage && searchParams.get("reason") === SESSION_EXPIRED_REASON) {
     const response = NextResponse.next();
     response.cookies.delete(ACCESS_TOKEN_COOKIE);
     response.cookies.delete(REFRESH_TOKEN_COOKIE);
@@ -37,11 +40,12 @@ export async function proxy(request: NextRequest) {
 
   let accessToken = request.cookies.get(ACCESS_TOKEN_COOKIE)?.value;
   const refreshToken = request.cookies.get(REFRESH_TOKEN_COOKIE)?.value;
-  let refreshed: string | null = null;
+  let refreshed: ISession | null = null;
 
   if (refreshToken && (!accessToken || isTokenExpiringSoon(accessToken))) {
-    refreshed = await refreshAccessToken(refreshToken);
-    if (refreshed) accessToken = refreshed;
+    // The API rotates refresh tokens, so a successful refresh replaces both cookies.
+    refreshed = await refreshSession(refreshToken, forwardHeadersFrom(request.headers, request.cookies.get(LOCALE_COOKIE)?.value));
+    if (refreshed) accessToken = refreshed.accessToken;
   }
 
   const payload = accessToken ? jwtUtils.decodeToken<IAccessTokenPayload>(accessToken) : null;
@@ -51,12 +55,13 @@ export async function proxy(request: NextRequest) {
   // included; otherwise the very next request refreshes again.
   const pass = (response: NextResponse) => {
     if (refreshed) {
-      response.cookies.set(ACCESS_TOKEN_COOKIE, refreshed, cookieOptions(cookieMaxAge(refreshed, ACCESS_TOKEN_MAX_AGE_SECONDS)));
+      response.cookies.set(ACCESS_TOKEN_COOKIE, refreshed.accessToken, cookieOptions(cookieMaxAge(refreshed.accessToken, ACCESS_TOKEN_MAX_AGE_SECONDS)));
+      response.cookies.set(REFRESH_TOKEN_COOKIE, refreshed.refreshToken, cookieOptions(secondsUntil(refreshed.refreshTokenExpiresAt)));
     }
     return response;
   };
 
-  if (session && isLogin) {
+  if (session && isAuthPage) {
     return pass(NextResponse.redirect(new URL(DEFAULT_DASHBOARD[session.role], request.url)));
   }
 
@@ -75,5 +80,5 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   // Keep every protected area (and any route.ts that streams files) under these prefixes.
-  matcher: ["/login", "/dashboard/:path*", "/admin/:path*"],
+  matcher: ["/login", "/register", "/dashboard/:path*", "/projects/:path*", "/billing/:path*", "/profile/:path*", "/admin/:path*"],
 };

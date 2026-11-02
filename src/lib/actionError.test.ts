@@ -22,6 +22,12 @@ describe("toActionError", () => {
     });
   });
 
+  it("passes the API's error code through", () => {
+    const error = apiError(403, { success: false, message: "Suspended", code: "ACCOUNT_SUSPENDED", errorSource: [] });
+
+    expect(toActionError(error, "Could not log in")).toEqual({ success: false, message: "Suspended", code: "ACCOUNT_SUSPENDED" });
+  });
+
   it("leaves fieldErrors out when errorSource is empty", () => {
     const error = apiError(404, { success: false, message: "Project not found.", errorSource: [] });
 

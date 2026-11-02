@@ -7,10 +7,10 @@ export const LOGIN_ROUTE = "/login";
 export const SESSION_EXPIRED_REASON = "session-expired";
 export const SESSION_EXPIRED_LOGIN_ROUTE = `${LOGIN_ROUTE}?reason=${SESSION_EXPIRED_REASON}`;
 
+// Staff land in the app too; the admin panel opens from their user menu.
 export const DEFAULT_DASHBOARD: Record<UserRole, string> = {
-  ADMIN: "/admin/dashboard",
-  MANAGER: "/dashboard",
-  STAFF: "/dashboard",
+  user: "/dashboard",
+  staff: "/dashboard",
 };
 
 type RouteRule = { pattern: RegExp; roles: UserRole[] };
@@ -18,9 +18,8 @@ type RouteRule = { pattern: RegExp; roles: UserRole[] };
 // The route ownership table: the only thing proxy.ts consults. First match wins,
 // so list specific paths before their parents.
 export const ROUTE_RULES: RouteRule[] = [
-  { pattern: /^\/admin(\/|$)/, roles: ["ADMIN"] },
-  { pattern: /^\/dashboard\/settings(\/|$)/, roles: ["ADMIN", "MANAGER"] },
-  { pattern: /^\/dashboard(\/|$)/, roles: ["ADMIN", "MANAGER", "STAFF"] },
+  { pattern: /^\/admin(\/|$)/, roles: ["staff"] },
+  { pattern: /^\/(dashboard|projects|billing|profile)(\/|$)/, roles: ["user", "staff"] },
 ];
 
 export const isProtected = (pathname: string) => ROUTE_RULES.some((rule) => rule.pattern.test(pathname));
@@ -35,14 +34,3 @@ export const safeRedirect = (target: string | null | undefined, role: UserRole):
   if (pathname === LOGIN_ROUTE || !canAccessRoute(pathname, role)) return DEFAULT_DASHBOARD[role];
   return target;
 };
-
-// Which roles may mutate each area. Pages hide controls that would only 403; the API
-// enforces the same rule, this is UX.
-export const MANAGE_ROLES = {
-  inventory: ["ADMIN", "MANAGER"],
-  settings: ["ADMIN"],
-} satisfies Record<string, UserRole[]>;
-
-export type ManageArea = keyof typeof MANAGE_ROLES;
-
-export const canManage = (role: UserRole | null | undefined, area: ManageArea) => Boolean(role && (MANAGE_ROLES[area] as UserRole[]).includes(role));

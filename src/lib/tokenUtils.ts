@@ -1,14 +1,14 @@
 import "server-only";
 import { cookies } from "next/headers";
+import type { ISession } from "@/types/auth.types";
 import { jwtUtils } from "./jwtUtils";
 
 // Cookie names are a contract with proxy.ts. Keep every cookie/token touchpoint in this file.
 export const ACCESS_TOKEN_COOKIE = "accessToken";
 export const REFRESH_TOKEN_COOKIE = "refreshToken";
 
-// Fallbacks for a token with no readable `exp`. Must match the backend's expiry settings.
+// Fallback for an access token with no readable `exp`. Matches the backend's ACCESS_TOKEN_TTL.
 export const ACCESS_TOKEN_MAX_AGE_SECONDS = 15 * 60;
-export const REFRESH_TOKEN_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
 
 // proxy.ts refreshes an access token once it has less than this left.
 export const REFRESH_THRESHOLD_SECONDS = 60;
@@ -36,10 +36,13 @@ export const cookieOptions = (maxAge: number) => ({
   maxAge,
 });
 
-export const setAuthCookies = async (accessToken: string, refreshToken: string) => {
+// Refresh tokens are opaque, so their lifetime comes from the API (30 days with "remember me", else one).
+export const secondsUntil = (isoInstant: string) => Math.max(0, Math.floor((Date.parse(isoInstant) - Date.now()) / 1000));
+
+export const setAuthCookies = async (session: Pick<ISession, "accessToken" | "refreshToken" | "refreshTokenExpiresAt">) => {
   const store = await cookies();
-  store.set(ACCESS_TOKEN_COOKIE, accessToken, cookieOptions(cookieMaxAge(accessToken, ACCESS_TOKEN_MAX_AGE_SECONDS)));
-  store.set(REFRESH_TOKEN_COOKIE, refreshToken, cookieOptions(cookieMaxAge(refreshToken, REFRESH_TOKEN_MAX_AGE_SECONDS)));
+  store.set(ACCESS_TOKEN_COOKIE, session.accessToken, cookieOptions(cookieMaxAge(session.accessToken, ACCESS_TOKEN_MAX_AGE_SECONDS)));
+  store.set(REFRESH_TOKEN_COOKIE, session.refreshToken, cookieOptions(secondsUntil(session.refreshTokenExpiresAt)));
 };
 
 export const clearAuthCookies = async () => {

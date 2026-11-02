@@ -2,6 +2,7 @@ import "server-only";
 import axios from "axios";
 import { cookies } from "next/headers";
 import { getEnv } from "@/env";
+import { getForwardHeaders } from "@/lib/forwardHeaders";
 import { ACCESS_TOKEN_COOKIE } from "@/lib/tokenUtils";
 import type { ApiResponse, IApiSuccessBody } from "@/types/api.types";
 import { logServiceError } from "./logServiceError";
@@ -16,6 +17,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(async (config) => {
   config.baseURL = getEnv().API_BASE_URL;
+  for (const [name, value] of Object.entries(await getForwardHeaders())) config.headers.set(name, value);
   const token = (await cookies()).get(ACCESS_TOKEN_COOKIE)?.value;
   if (token) config.headers.set("Authorization", `Bearer ${token}`);
   return config;

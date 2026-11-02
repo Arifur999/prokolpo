@@ -453,5 +453,70 @@
       "terms": "Terms & privacy",
       "copyright": "© {year} Prokolpo"
     }
+  },
+  "Auth": {
+    "brand": {
+      "homeLabel": "Prokolpo — home page",
+      "aboutLabel": "About Prokolpo",
+      "title": "Every taka of your project, in one place",
+      "lead": "Building a house or running a joint project — expenses, dues, partner money and installments stay in one ledger.",
+      "points": {
+        "dues": {
+          "title": "Expenses and dues",
+          "body": "What you owe each shop and each worker — at a glance"
+        },
+        "partners": {
+          "title": "Clear accounts for partners",
+          "body": "Who paid what and who still owes — every partner sees the same numbers"
+        },
+        "sales": {
+          "title": "Sales and installments",
+          "body": "Flat sales, installment dates and receipts — all in order"
+        }
+      },
+      "audience": "For home owners, joint building groups and small developers",
+      "languageLabel": "Language"
+    },
+    "login": {
+      "title": "Log in to your account",
+      "subtitle": "Use your mobile number or email",
+      "identifier": "Mobile number or email",
+      "password": "Password",
+      "forgot": "Forgot password?",
+      "remember": "Remember me",
+      "rememberHint": "(stay logged in for 30 days)",
+      "submit": "Log in",
+      "submitting": "Logging in…",
+      "noAccount": "No account yet?",
+      "createAccount": "Create an account",
+      "failed": "Couldn't log in — please try again",
+      "sessionExpired": "Your session has ended — please log in again"
+    },
+    "suspended": {
+      "title": "Your account is temporarily suspended — please contact support",
+      "body": "Support will call to explain why and how it can be reopened. None of your project accounts were deleted — other members keep working as before.",
+      "contact": "Write to support",
+      "whatsapp": "or WhatsApp:"
+    },
+    "password": {
+      "show": "Show password",
+      "hide": "Hide password"
+    },
+    "validation": {
+      "identifierMissing": "Enter your mobile number or email",
+      "passwordMissing": "Enter your password",
+      "firstMissing": "Enter your first name",
+      "firstShort": "First name must be at least 2 characters",
+      "firstLong": "First name can't be longer than 30 characters",
+      "lastMissing": "Enter your last name",
+      "lastLong": "Last name can't be longer than 30 characters",
+      "companyShort": "Company name must be at least 2 characters",
+      "companyLong": "Company name can't be longer than 80 characters",
+      "emailBad": "Enter a valid email",
+      "phoneBad": "Enter a valid mobile number (e.g. 01712345678)",
+      "passwordWeak": "Password must be at least 8 characters with letters and numbers",
+      "confirmMismatch": "Passwords don't match",
+      "termsMissing": "Please accept the terms"
+    }
   }
 }
