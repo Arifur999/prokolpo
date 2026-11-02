@@ -3621,5 +3621,51 @@
       "login_locked": "পরপর 5 বার ভুল কোড — প্যানেল 15 মিনিট লক",
       "other": "{action}"
     }
+  },
+  "AdminUsers": {
+    "title": "ইউজার",
+    "sub": "প্রকল্প অ্যাপের সব অ্যাকাউন্ট — কারো প্রজেক্টের টাকার হিসাব এখান থেকে দেখা যায় না",
+    "makeStaff": "স্টাফ বানাতে:",
+    "teamLink": "টিম ও সেটিংস",
+    "listLabel": "ইউজারের তালিকা",
+    "filterLabel": "কাদের দেখাবে",
+    "filters": {
+      "ALL": "সব",
+      "NEW": "এই সপ্তাহে নতুন",
+      "NOEMAIL": "ইমেইল নেই",
+      "SUSPENDED": "বন্ধ",
+      "STAFF": "স্টাফ"
+    },
+    "search": "ইউজার খুঁজুন",
+    "searchPlaceholder": "নাম, মোবাইল বা ইমেইল",
+    "cols": {
+      "user": "ইউজার",
+      "contact": "যোগাযোগ",
+      "joined": "যোগ দিয়েছেন",
+      "last": "শেষ সক্রিয়",
+      "projects": "প্রজেক্ট",
+      "status": "অবস্থা",
+      "open": "খুলুন"
+    },
+    "noCompany": "কোম্পানি নেই",
+    "noEmail": "ইমেইল নেই",
+    "suspendedNote": "বন্ধ — {reason}",
+    "ticketNote": "সাপোর্ট অনুরোধ #S-{number} চলছে",
+    "owned": "{count}টার মালিক",
+    "member": "{count}টায় মেম্বার",
+    "noProjects": "কোনো প্রজেক্ট নেই",
+    "never": "লগইন করেননি",
+    "active": "সক্রিয়",
+    "suspended": "বন্ধ",
+    "openLabel": "{name}-এর বিস্তারিত",
+    "emptyTitle": "এই খোঁজায় কাউকে পাওয়া যায়নি",
+    "emptySub": "নামের অংশ, নম্বরের শেষ কয়েকটা অঙ্ক বা ইমেইল লিখে দেখুন",
+    "clear": "খোঁজা মুছুন",
+    "footAll": "মোট {total} জন · শেষ সক্রিয় অনুযায়ী সাজানো",
+    "footFilter": "{label} · মোট {total} জন",
+    "footSearch": "খোঁজার ফল: {total} জন",
+    "page": "পাতা {page} / {pages}",
+    "prev": "আগের পাতা",
+    "next": "পরের পাতা"
   }
 }

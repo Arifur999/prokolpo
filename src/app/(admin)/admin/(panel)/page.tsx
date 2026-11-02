@@ -23,6 +23,7 @@ export default async function AdminDashboardPage() {
   return (
     <>
       <AdminPageHeader
+        dated
         title={t("title")}
         subtitle={t("sub")}
         actions={

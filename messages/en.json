@@ -3640,5 +3640,51 @@
       "login_locked": "five wrong codes — panel locked for 15 minutes",
       "other": "{action}"
     }
+  },
+  "AdminUsers": {
+    "title": "Users",
+    "sub": "Every Prokolpo account — nobody's project money is visible from here",
+    "makeStaff": "To add staff:",
+    "teamLink": "Team & settings",
+    "listLabel": "User list",
+    "filterLabel": "Show",
+    "filters": {
+      "ALL": "All",
+      "NEW": "New this week",
+      "NOEMAIL": "No email",
+      "SUSPENDED": "Suspended",
+      "STAFF": "Staff"
+    },
+    "search": "Search users",
+    "searchPlaceholder": "Name, mobile or email",
+    "cols": {
+      "user": "User",
+      "contact": "Contact",
+      "joined": "Joined",
+      "last": "Last active",
+      "projects": "Projects",
+      "status": "Status",
+      "open": "Open"
+    },
+    "noCompany": "No company",
+    "noEmail": "No email",
+    "suspendedNote": "Suspended — {reason}",
+    "ticketNote": "Support request #S-{number} open",
+    "owned": "owns {count}",
+    "member": "member of {count}",
+    "noProjects": "No projects",
+    "never": "Never signed in",
+    "active": "Active",
+    "suspended": "Suspended",
+    "openLabel": "{name}'s details",
+    "emptyTitle": "Nobody matches this search",
+    "emptySub": "Try part of a name, the last few digits of a number, or an email",
+    "clear": "Clear search",
+    "footAll": "{total} in all · most recently active first",
+    "footFilter": "{label} · {total} in all",
+    "footSearch": "Search results: {total}",
+    "page": "Page {page} / {pages}",
+    "prev": "Previous page",
+    "next": "Next page"
   }
 }
