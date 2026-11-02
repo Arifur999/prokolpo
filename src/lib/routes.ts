@@ -8,6 +8,7 @@ export const ROUTES = {
   dashboard: "/dashboard",
   support: "/support",
   terms: "/terms",
+  privacy: "/privacy",
 } as const;
 
 // Support page pre-filled for where the person came from (see app/(auth)/support/page.tsx).
