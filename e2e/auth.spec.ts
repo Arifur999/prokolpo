@@ -38,7 +38,7 @@ test("registering signs in and opens the dashboard", async ({ page, context }) =
   await fillRegistration(page, randomPhone());
   await page.getByRole("button", { name: "অ্যাকাউন্ট খুলুন" }).click();
 
-  await expect(page).toHaveURL(/\/dashboard$/);
+  await expect(page).toHaveURL(/\/dashboard(\?welcome)?$/);
   const cookies = await context.cookies();
   expect(cookies.map((cookie) => cookie.name)).toEqual(expect.arrayContaining(["accessToken", "refreshToken"]));
 });
@@ -67,7 +67,7 @@ test("login refuses a wrong password, then accepts the right one", async ({ page
 
   await page.locator("#login-pass").fill(account.password);
   await page.getByRole("button", { name: "লগইন করুন" }).click();
-  await expect(page).toHaveURL(/\/dashboard$/);
+  await expect(page).toHaveURL(/\/dashboard(\?welcome)?$/);
 });
 
 test("forgot password emails a reset link", async ({ page }) => {
