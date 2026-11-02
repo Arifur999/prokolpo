@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { ISale, IScheduleRow } from "@/types/sales.types";
-import { allocate, monthRows, overdueRows, quickAmounts, saleState } from "./saleLook";
+import { addMonths, allocate, monthRows, overdueRows, planInstallments, quickAmounts, saleState } from "./saleLook";
 
 const row = (no: number, due: string, amount: number, paid = 0) => ({ no, due, amount, paid, paidOn: null, lastPaidOn: null }) as IScheduleRow;
 const rows = [row(1, "2026-08-05", 100_000, 100_000), row(2, "2026-09-05", 100_000, 40_000), row(3, "2026-10-05", 100_000), row(4, "2026-11-05", 100_000)];
@@ -25,5 +25,15 @@ describe("sale look", () => {
     expect(saleState(standing(0, false))).toBe("PAID");
     expect(saleState(standing(5, true))).toBe("LATE");
     expect(saleState(standing(5, false))).toBe("RUNNING");
+  });
+});
+
+describe("planned installments", () => {
+  it("rounds like the API and keeps the month's last day", () => {
+    const plan = planInstallments(1_000_000, 0, 3, 3, "2026-05-10");
+    expect(plan.each).toBe(333_300);
+    expect(plan.last).toBe(333_400);
+    expect(plan.rows.map((r) => r.due)).toEqual(["2026-05-10", "2026-08-10", "2026-11-10"]);
+    expect(addMonths("2026-01-31", 1)).toBe("2026-02-28");
   });
 });

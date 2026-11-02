@@ -40,3 +40,21 @@ export const quickAmounts = (rows: IScheduleRow[], due: number) => {
   const two = open.slice(0, 2).reduce((n, r) => n + left(r), 0);
   return { first, two: open.length > 1 ? two : 0, all: due };
 };
+
+// "2026-01-31" + 1 month -> "2026-02-28": the same day, or the month's last day.
+export const addMonths = (iso: string, months: number) => {
+  const [y = 2026, m = 1, d = 1] = iso.split("-").map(Number);
+  const last = new Date(Date.UTC(y, m - 1 + months + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(y, m - 1 + months, Math.min(d, last))).toISOString().slice(0, 10);
+};
+
+// A sale's installments before it is saved, rounded as the API rounds them: even parts down
+// to ৳100, the last one taking the rest.
+export const planInstallments = (price: number, down: number, count: number, intervalMonths: number, firstDue: string) => {
+  const rest = price - down;
+  if (count <= 0 || rest <= 0 || !firstDue) return { each: 0, last: 0, rows: [] as { no: number; due: string; amount: number }[] };
+  const each = Math.floor(rest / count / 100) * 100;
+  const last = rest - each * (count - 1);
+  const rows = Array.from({ length: count }, (_, i) => ({ no: i + 1, due: addMonths(firstDue, i * intervalMonths), amount: i === count - 1 ? last : each }));
+  return { each, last, rows };
+};
