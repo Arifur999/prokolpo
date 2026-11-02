@@ -17,10 +17,11 @@ export type SaleDraft = {
 
 export type SaleProblem = "errQty" | "errRate" | "errBuyer" | "errGot";
 
-// The batch a new sale most likely belongs to: the one still running, else the latest.
+// The batch a new sale most likely belongs to: the one still running, else the latest,
+// else the first on a farm with nothing written yet.
 export const defaultBatch = (batches: IBatch[]) => {
   const live = batches.filter((b) => b.startedOn || b.cost > 0 || b.sales > 0);
-  return (live.findLast((b) => !b.endedOn) ?? live.at(-1))?.id ?? "";
+  return (live.findLast((b) => !b.endedOn) ?? live.at(-1) ?? batches[0])?.id ?? "";
 };
 
 export const figures = (d: SaleDraft) => {

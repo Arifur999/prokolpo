@@ -19,6 +19,8 @@ const signIn = async (context: BrowserContext, baseURL: string) => {
 };
 
 test("a new building project opens on its overview and shows on the dashboard", async ({ page, context, baseURL }) => {
+  // Saving compiles the overview on a cold dev server.
+  test.setTimeout(60_000);
   await signIn(context, baseURL!);
   await page.goto("/dashboard");
   await expect(page.getByRole("heading", { name: "এখনো কোনো প্রজেক্ট নেই" })).toBeVisible();
@@ -38,7 +40,7 @@ test("a new building project opens on its overview and shows on the dashboard", 
   await expect(page.getByText("ধাপ (7টা)")).toBeVisible();
 
   await page.getByRole("button", { name: "প্রজেক্ট তৈরি করুন" }).click();
-  await expect(page).toHaveURL(/\/projects\/[0-9a-f-]+\?created$/);
+  await expect(page).toHaveURL(/\/projects\/[0-9a-f-]+\?created$/, { timeout: 30_000 });
   await expect(page.getByText("প্রজেক্ট তৈরি হয়েছে — মিরপুর ৬ তলা ভবন")).toBeVisible();
   await expect(page.getByRole("heading", { name: "তলা অনুযায়ী বাজেট" })).toBeVisible();
   await expect(page.getByText("২য় তলা")).toBeVisible();

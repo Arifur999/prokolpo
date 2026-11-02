@@ -55,10 +55,8 @@ export function ProduceSaleDialog({ projectId, projectName, book, accounts, toda
   const problem = submitted ? saleProblem(draft) : null;
 
   const batchChoices = [
-    ...book.batches
-      .filter(batchStarted)
-      .reverse()
-      .map((b) => ({ value: b.id, label: batchRunning(b) ? t("form.running", { name: b.name }) : b.name })),
+    // Every batch, latest first: a new farm sells from a batch before it has dates.
+    ...book.batches.toReversed().map((b) => ({ value: b.id, label: batchStarted(b) && batchRunning(b) ? t("form.running", { name: b.name }) : b.name })),
     { value: "", label: t("form.noBatch") },
   ];
   const buyerChips = book.buyers.slice(0, 4).map((b) => {
