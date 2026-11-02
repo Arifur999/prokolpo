@@ -3883,5 +3883,119 @@
     "title": "Page not found",
     "home": "Go to the dashboard",
     "admin": "Go to the admin panel"
+  },
+  "Profile": {
+    "title": "Profile and account",
+    "breadcrumbLabel": "Location",
+    "breadcrumbHome": "My projects",
+    "failed": "Couldn't save — please try again",
+    "info": {
+      "title": "Your details",
+      "sub": "Account opened {date} · in {count, plural, one {# project} other {# projects}}",
+      "first": "First name",
+      "last": "Last name",
+      "company": "Company name",
+      "email": "Email",
+      "optional": "(optional)",
+      "companyHint": "New projects print this name on their receipts",
+      "firstMissing": "Enter your name",
+      "emailBad": "Enter a valid email, or leave it blank",
+      "phoneLabel": "Mobile number — you log in with it",
+      "changePhone": "Change number",
+      "clean": "Everything is saved",
+      "dirty": "You have unsaved changes",
+      "cancel": "Cancel",
+      "save": "Save details",
+      "saved": "Your details are saved"
+    },
+    "phone": {
+      "title": "Change mobile number",
+      "sub": "You'll log in with the new number from then on",
+      "close": "Close",
+      "newPhone": "New mobile number",
+      "password": "Enter your password to confirm",
+      "note": "Projects where members know you by the old number will show the new one. An invitation someone sends to the old number later won't reach you.",
+      "cancel": "Cancel",
+      "submit": "Change number",
+      "bad": "Enter a valid mobile number",
+      "same": "This is already your number",
+      "passwordMissing": "Enter your password",
+      "done": "Mobile number changed — log in with {phone} from now on"
+    },
+    "password": {
+      "title": "Change password",
+      "lastChanged": "Last changed {date}",
+      "neverChanged": "Not changed since the account was opened",
+      "show": "Show passwords",
+      "hide": "Hide passwords",
+      "current": "Current password",
+      "next": "New password",
+      "again": "New password again",
+      "matches": "✓ Passwords match",
+      "mismatch": "Passwords don't match",
+      "currentMissing": "Enter your current password",
+      "same": "The new password can't be the same as the old one",
+      "logoutOthers": "Log out of every other device after the change",
+      "submit": "Change password",
+      "done": "Password changed",
+      "doneOthers": "Password changed — every other device was logged out"
+    },
+    "devices": {
+      "title": "Where you're logged in",
+      "sub": "If you see something you don't recognise, log it out and change your password",
+      "endAll": "Log out of all other devices",
+      "endOne": "Log out",
+      "endOneLabel": "Log out of {name}",
+      "endedOne": "Logged out of {name}",
+      "endedAll": "Logged out of {count, plural, one {# other device} other {# other devices}}",
+      "thisDevice": "This device",
+      "activeNow": "Active now",
+      "today": "Today {time}",
+      "yesterday": "Yesterday {time}",
+      "kinds": {
+        "phone": "{os} phone",
+        "tablet": "{os} tablet",
+        "pc": "{os} computer"
+      },
+      "osOther": "Unknown",
+      "more": "Show {count} more",
+      "less": "Show fewer"
+    },
+    "language": {
+      "title": "Language and format",
+      "sub": "Which language the app's menus, buttons and messages use — just for you",
+      "today": "Today",
+      "month": "Month",
+      "money": "Money",
+      "rule": "Numbers use 0-9 digits in both languages, and money is grouped in lakh and crore. Names of projects, heads and people stay as they were written. Receipts and reports follow the project's settings.",
+      "current": "Now in use: {name}",
+      "note": {
+        "bn": "The whole app will show in Bangla — you can switch back to English any time",
+        "en": "The whole app will show in English — you can switch back to Bangla any time"
+      },
+      "switch": {
+        "bn": "বাংলায় চালু করুন",
+        "en": "Switch to English"
+      }
+    },
+    "projects": {
+      "title": "My projects and roles",
+      "sub": "{count, plural, one {# project} other {# projects}} · owner of {owned}",
+      "none": "Not in any project yet",
+      "note": "A project's owner changes roles — from the project's \"Members\" page."
+    },
+    "delete": {
+      "title": "Delete account",
+      "body": "Deleting your account takes you out of every project. Projects you own have to be handed over or deleted first.",
+      "owned": "You own {count, plural, one {# project} other {# projects}} right now — so the account can't be deleted yet.",
+      "staff": "Staff accounts can't be deleted here — ask a super admin.",
+      "button": "Delete account",
+      "confirmTitle": "Delete your account?",
+      "confirmSub": "This can't be undone — you'll leave every project and be logged out",
+      "password": "Enter your password to confirm",
+      "passwordMissing": "Enter your password",
+      "cancel": "Cancel",
+      "confirm": "Delete account"
+    }
   }
 }
