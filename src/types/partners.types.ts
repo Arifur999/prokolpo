@@ -1,5 +1,6 @@
 // prokolpo-backend's partner views (internal/partners).
 import type { ProjectRole } from "./project.types";
+import type { IReceiptPrint } from "./settings.types";
 
 export interface IPartner {
   id: string;
@@ -105,6 +106,8 @@ export interface IPartnerReceipt {
   location: string | null;
   company: string;
   ownerPhone: string;
+  // How the owner set receipts up in settings.
+  print: IReceiptPrint;
   callDate: string | null;
   reason: string | null;
   callTotal: number | null;

@@ -127,7 +127,9 @@ export const partnerReceiptDoc = (r: IPartnerReceipt, lang: DocLang): ReceiptDoc
     amount: `৳ ${formatAmount(r.amount)}`,
     words: lang === "en" ? englishWords(r.amount) : lang === "both" ? `${banglaWords(r.amount)}\n${englishWords(r.amount)}` : banglaWords(r.amount),
     receiver: role ? `${r.takenBy} (${role})` : r.takenBy,
-    foot: `${bn ? "কম্পিউটারে তৈরি রশিদ · অ্যাপে লেখা " : "Computer-generated receipt · entered "}${formatDateTime(new Date(r.writtenAt))}`,
+    foot: [r.print.footer, `${bn ? "কম্পিউটারে তৈরি রশিদ · অ্যাপে লেখা " : "Computer-generated receipt · entered "}${formatDateTime(new Date(r.writtenAt))}`]
+      .filter(Boolean)
+      .join(" · "),
     copyKey: "partner",
     facts: [
       { label: "should", value: `৳ ${formatAmount(r.should)}`, tone: "ink" },
@@ -186,7 +188,9 @@ export const saleReceiptDoc = (r: ISaleReceipt, lang: DocLang): ReceiptDoc => {
     amount: `৳ ${formatAmount(r.amount)}`,
     words: lang === "en" ? englishWords(r.amount) : lang === "both" ? `${banglaWords(r.amount)}\n${englishWords(r.amount)}` : banglaWords(r.amount),
     receiver: role ? `${r.takenBy} (${role})` : r.takenBy,
-    foot: `${bn ? "কম্পিউটারে তৈরি রশিদ · অ্যাপে লেখা " : "Computer-generated receipt · entered "}${formatDateTime(new Date(r.writtenAt))}`,
+    foot: [r.print.footer, `${bn ? "কম্পিউটারে তৈরি রশিদ · অ্যাপে লেখা " : "Computer-generated receipt · entered "}${formatDateTime(new Date(r.writtenAt))}`]
+      .filter(Boolean)
+      .join(" · "),
     copyKey: "cust",
     facts: [
       { label: "price", value: `৳ ${formatAmount(r.price)}`, tone: "ink" },

@@ -57,6 +57,7 @@ export default async function SaleReceiptPage({ params }: PageProps<"/receipts/[
       }))}
       currentId={r.paymentId}
       whatsapp={{ phone: r.payerPhone, text: t("whatsappText", { no: r.no, amount: formatAmount(r.amount), project: r.project }) }}
+      start={{ paper: r.print.paper, lang: r.print.lang }}
       onPrinted={markPaymentPrintedAction.bind(null, projectId, paymentId)}
     />
   );

@@ -1,5 +1,6 @@
 // prokolpo-backend's sales views (internal/sales).
 import type { ProjectRole } from "./project.types";
+import type { IReceiptPrint } from "./settings.types";
 
 export const UNIT_TYPES = ["FLAT", "SHOP", "PARKING", "PLOT", "OTHER"] as const;
 export type UnitType = (typeof UNIT_TYPES)[number];
@@ -153,6 +154,8 @@ export interface ISaleReceipt {
   location: string | null;
   company: string;
   ownerPhone: string;
+  // How the owner set receipts up in settings.
+  print: IReceiptPrint;
   account: string;
   accountKind: "CASH" | "BANK" | "MOBILE";
   note: string | null;

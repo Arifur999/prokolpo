@@ -22,16 +22,18 @@ type ReceiptViewProps = {
   currentId: string;
   whatsapp: { phone: string; text: string };
   onPrinted: () => Promise<unknown>;
+  // The paper and language set in the project's settings, which the view starts on.
+  start: { paper: "A4" | "A5"; lang: DocLang };
 };
 
 type Layout = "A4" | "A5";
 
 // The receipt print view (board ReceiptPartner): A4 with two copies to cut, or one A5; the
 // receipt's language; what this receipt is; and the payer's other receipts.
-export function ReceiptView({ back, headSub, docs, info, listTitle, list, currentId, whatsapp, onPrinted }: ReceiptViewProps) {
+export function ReceiptView({ back, headSub, docs, info, listTitle, list, currentId, whatsapp, onPrinted, start }: ReceiptViewProps) {
   const t = useTranslations("Receipts");
-  const [layout, setLayout] = useState<Layout>("A4");
-  const [lang, setLang] = useState<DocLang>("bn");
+  const [layout, setLayout] = useState<Layout>(start.paper);
+  const [lang, setLang] = useState<DocLang>(start.lang);
   const [prints, setPrints] = useState(info.prints);
   const doc = docs[lang];
   const copies = layout === "A4" ? [docLabel(lang, doc.copyKey, true), docLabel(lang, "office", true)] : [docLabel(lang, doc.copyKey, true)];
