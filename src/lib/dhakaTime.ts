@@ -37,3 +37,29 @@ export const formatClock = (date: Date, locale: Locale) => {
   if (locale === "en") return `${twelveHour(hour)}:${pad(minute)} ${hour < 12 ? "am" : "pm"}`;
   return `${banglaPartOfDay(hour)} ${twelveHour(hour)}:${pad(minute)}`;
 };
+
+// Which greeting fits now: "শুভ সকাল" before noon, "শুভ দুপুর" until five, then "শুভ সন্ধ্যা".
+export type DayPart = "morning" | "afternoon" | "evening";
+export const dayPart = (date: Date): DayPart => {
+  const { hour } = dhakaParts(date);
+  if (hour >= 4 && hour < 12) return "morning";
+  if (hour >= 12 && hour < 17) return "afternoon";
+  return "evening";
+};
+
+// "30/09/2026", the design's date everywhere.
+export const formatDate = (date: Date) => new Intl.DateTimeFormat("en-GB", { timeZone: DHAKA, day: "2-digit", month: "2-digit", year: "numeric" }).format(date);
+
+// "30/09/2026 21:40".
+export const formatDateTime = (date: Date) =>
+  `${formatDate(date)} ${new Intl.DateTimeFormat("en-GB", { timeZone: DHAKA, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(date)}`;
+
+// "বুধবার, 30/09/2026" / "Wednesday, 30/09/2026".
+export const formatWeekdayDate = (date: Date, locale: Locale) =>
+  `${new Intl.DateTimeFormat(locale === "bn" ? "bn-BD" : "en-GB", { timeZone: DHAKA, weekday: "long" }).format(date)}, ${formatDate(date)}`;
+
+// Today in Dhaka as YYYY-MM-DD, for date inputs and the API.
+export const dhakaToday = (date = new Date()) => new Intl.DateTimeFormat("en-CA", { timeZone: DHAKA }).format(date);
+
+// Whole days left until `later`, never below zero.
+export const daysUntil = (later: Date, now = new Date()) => Math.max(0, Math.ceil((later.getTime() - now.getTime()) / 86_400_000));
