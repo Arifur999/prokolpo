@@ -42,6 +42,7 @@ export interface ISale {
   firstDue: string | null;
   installment: number;
   standing: IStanding;
+  rows: IScheduleRow[] | null;
 }
 
 export interface IUnit {

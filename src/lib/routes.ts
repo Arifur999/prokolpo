@@ -27,3 +27,4 @@ export const SUPPORT_WHATSAPP = "01700-000111";
 
 // A receipt opens on its own print page, outside the project's sidebar.
 export const partnerReceiptHref = (projectId: string, depositId: string) => `/receipts/${projectId}/deposits/${depositId}`;
+export const saleReceiptHref = (projectId: string, paymentId: string) => `/receipts/${projectId}/payments/${paymentId}`;
