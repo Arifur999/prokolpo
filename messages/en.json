@@ -1178,5 +1178,11 @@
       "remaining": "Left ৳ {amount}",
       "account": "Profile & log out"
     }
+  },
+  "AppError": {
+    "title": "Something went wrong",
+    "body": "This page hit a problem. Try again, or come back in a little while.",
+    "reference": "Reference: {digest}",
+    "retry": "Try again"
   }
 }
