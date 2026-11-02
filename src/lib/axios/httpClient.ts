@@ -3,7 +3,7 @@ import axios from "axios";
 import { cookies } from "next/headers";
 import { getEnv } from "@/env";
 import { ACCESS_TOKEN_COOKIE } from "@/lib/tokenUtils";
-import type { ApiResponse, IPaginatedBody } from "@/types/api.types";
+import type { ApiResponse, IApiSuccessBody } from "@/types/api.types";
 import { logServiceError } from "./logServiceError";
 
 // One shared instance (connection reuse). Per-request auth is added by the request
@@ -35,10 +35,10 @@ export interface ApiRequestOptions {
 
 type Method = "get" | "post" | "put" | "patch" | "delete";
 
-// The API answers with raw bodies; wrap them in the app's envelope. `message` stays empty,
-// so callers supply their own toast text (`result.message || "Product created"`).
+// The API answers in its envelope; unwrap it so callers get data, the API's message (toast text)
+// and, for lists, meta. Non-2xx answers throw and become ApiErrorResponse in actionError.
 const send = async <TData>(method: Method, url: string, body?: unknown, options?: ApiRequestOptions): Promise<ApiResponse<TData>> => {
-  const { data } = await instance.request<TData>({
+  const { data: envelope } = await instance.request<IApiSuccessBody<TData>>({
     method,
     url,
     params: options?.params,
@@ -46,14 +46,13 @@ const send = async <TData>(method: Method, url: string, body?: unknown, options?
     signal: options?.signal,
     data: method === "get" || method === "delete" ? undefined : (body ?? {}),
   });
-  return { success: true, message: "", data };
+  return envelope.meta
+    ? { success: true, message: envelope.message, data: envelope.data, meta: envelope.meta }
+    : { success: true, message: envelope.message, data: envelope.data };
 };
 
-// For `{ data, meta }` list endpoints: lifts meta onto the envelope.
-const getPaginated = async <TItem>(url: string, options?: ApiRequestOptions): Promise<ApiResponse<TItem[]>> => {
-  const { data: body } = await send<IPaginatedBody<TItem>>("get", url, undefined, options);
-  return { success: true, message: "", data: body.data, meta: body.meta };
-};
+// List endpoints: same envelope, with meta. Kept as its own name so list services read as such.
+const getPaginated = <TItem>(url: string, options?: ApiRequestOptions) => send<TItem[]>("get", url, undefined, options);
 
 export const httpClient = {
   get: <T>(url: string, options?: ApiRequestOptions) => send<T>("get", url, undefined, options),

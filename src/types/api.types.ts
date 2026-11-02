@@ -1,6 +1,6 @@
 // The envelope every service returns and every _action.ts resolves to.
 // Callers narrow on `success` and never touch an axios error.
-// Key names must match the API. totalPages is the standard; cashfo's admin API still sends totalPage.
+// Key names match prokolpo-backend's envelope (README, "API contract").
 export interface PaginationMeta {
   page: number;
   limit: number;
@@ -23,8 +23,21 @@ export interface ApiErrorResponse {
 
 export type ApiResult<TData = unknown> = ApiResponse<TData> | ApiErrorResponse;
 
-// Raw body of a `{ data, meta }` list endpoint, before httpClient lifts meta.
-export interface IPaginatedBody<TItem> {
-  data: TItem[];
-  meta: PaginationMeta;
+// What the API sends on the wire. httpClient unwraps the success body; actionError reads the error body.
+export interface IApiFieldError {
+  path: string;
+  message: string;
+}
+
+export interface IApiSuccessBody<TData> {
+  success: true;
+  message: string;
+  data: TData;
+  meta?: PaginationMeta;
+}
+
+export interface IApiErrorBody {
+  success: false;
+  message: string;
+  errorSource: IApiFieldError[];
 }
