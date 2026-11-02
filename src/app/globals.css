@@ -97,6 +97,16 @@
   --color-share-4: #7a5ac8;
   --color-success-line: #cfe3d8;
 
+  /* Money account colours (board Accounts), in the order accounts are opened. */
+  --color-acc-1: #1a9a6c;
+  --color-acc-1-tint: #e3f4ec;
+  --color-acc-2: #2a78d6;
+  --color-acc-2-tint: #e6effb;
+  --color-acc-3: #d55181;
+  --color-acc-3-tint: #fbe8ef;
+  --color-acc-4: #7a5ac8;
+  --color-acc-4-tint: #efeafa;
+
   --color-canvas: #f5f4ef;
   --color-canvas-deep: #eceae3;
   --color-surface-2: #f7f6f2;
