@@ -54,12 +54,15 @@ export const shopFigures = (book: IShopBook, today: string) => {
   };
 };
 
+// A khata name as the API matches it: trimmed, any case.
+export const nameKey = (name: string) => name.trim().toLowerCase();
+
 // The credit book once a day's lines are written: new credit adds, paybacks subtract.
 export const khataAfter = (khata: IKhataPerson[], credits: IShopLine[], collects: IShopLine[]) => {
-  const due = new Map(khata.map((k) => [k.name.toLowerCase(), k.due]));
-  for (const c of credits) if (c.name.trim() && c.amount) due.set(c.name.trim().toLowerCase(), (due.get(c.name.trim().toLowerCase()) ?? 0) + c.amount);
+  const due = new Map(khata.map((k) => [nameKey(k.name), k.due]));
+  for (const c of credits) if (c.name.trim() && c.amount) due.set(nameKey(c.name), (due.get(nameKey(c.name)) ?? 0) + c.amount);
   for (const c of collects) {
-    const key = c.name.trim().toLowerCase();
+    const key = nameKey(c.name);
     if (due.has(key)) due.set(key, (due.get(key) ?? 0) - c.amount);
   }
   return [...due.values()].filter((n) => n > 0).reduce((n, v) => n + v, 0);

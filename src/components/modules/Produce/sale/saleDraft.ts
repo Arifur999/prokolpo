@@ -33,7 +33,7 @@ export const figures = (d: SaleDraft) => {
 export const saleProblem = (d: SaleDraft): SaleProblem | null => {
   const { amount, got } = figures(d);
   if (!Number(d.quantity)) return "errQty";
-  if (!Number(d.rate)) return "errRate";
+  if (!Number(d.rate) || !amount) return "errRate";
   if (!d.buyer.trim()) return "errBuyer";
   if (got > amount) return "errGot";
   return null;

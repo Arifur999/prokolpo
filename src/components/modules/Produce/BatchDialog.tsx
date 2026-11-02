@@ -46,7 +46,7 @@ export function BatchDialog({ projectId, batch, farmType, today, onClose }: Batc
     <FormDialog
       title={t("title")}
       subtitle={batch.name}
-      closeLabel={t("title")}
+      closeLabel={t("close")}
       onClose={onClose}
       size="sm"
       footer={<DialogButtons cancel={t("cancel")} submit={t("save")} onCancel={onClose} onSubmit={save} pending={isPending} />}

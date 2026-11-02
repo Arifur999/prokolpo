@@ -10,7 +10,7 @@ import { DialogButtons, FormDialog } from "@/components/shared/FormDialog";
 import { formatWeekdayDate } from "@/lib/dhakaTime";
 import { dayFirst } from "@/lib/expenseText";
 import { formatAmount } from "@/lib/money";
-import { khataAfter, sameWeekday } from "@/lib/shopLook";
+import { khataAfter, nameKey, sameWeekday } from "@/lib/shopLook";
 import type { IAccount } from "@/types/books.types";
 import type { IShopBook, IShopDay } from "@/types/shop.types";
 import { DayAside, type Flow } from "./DayAside";
@@ -53,8 +53,8 @@ export function DayDialog({ projectId, book, accounts, date, onClose, onSaved }:
     ...k,
     due:
       k.due -
-      was.credits.filter((l) => l.name === k.name).reduce((n, l) => n + l.amount, 0) +
-      was.collects.filter((l) => l.name === k.name).reduce((n, l) => n + l.amount, 0),
+      was.credits.filter((l) => nameKey(l.name) === nameKey(k.name)).reduce((n, l) => n + l.amount, 0) +
+      was.collects.filter((l) => nameKey(l.name) === nameKey(k.name)).reduce((n, l) => n + l.amount, 0),
   }));
   const flows: Flow[] = [];
   if (cash) flows.push({ key: "cash", title: cash.name, before: cash.balance - wasCash, after: cash.balance - wasCash + totals.cashIn, up: "good" });

@@ -1,4 +1,5 @@
 import type { IKhataPerson, IShopDay, IShopLine } from "@/types/shop.types";
+import { nameKey } from "@/lib/shopLook";
 
 // One typed row: a name and whole-taka digits.
 export type DraftLine = { name: string; amount: string };
@@ -41,9 +42,9 @@ export const dayTotals = (d: DayDraft) => {
 // What a person may still pay back in this entry: what the book shows, plus what this day
 // already took from them when it is being edited.
 export const payable = (khata: IKhataPerson[], editing: IShopDay | null, name: string) => {
-  const key = name.trim().toLowerCase();
-  const person = khata.find((k) => k.name.toLowerCase() === key);
-  const before = editing?.collects.filter((l) => l.name.toLowerCase() === key).reduce((n, l) => n + l.amount, 0) ?? 0;
+  const key = nameKey(name);
+  const person = khata.find((k) => nameKey(k.name) === key);
+  const before = editing?.collects.filter((l) => nameKey(l.name) === key).reduce((n, l) => n + l.amount, 0) ?? 0;
   return person || before ? (person?.due ?? 0) + before : null;
 };
 
