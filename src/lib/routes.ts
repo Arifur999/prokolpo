@@ -24,3 +24,6 @@ export const supportHref = (from: "forgot" | "suspended", phone?: string | null)
 
 // Shown wherever the design offers WhatsApp support (suspended login, reset email).
 export const SUPPORT_WHATSAPP = "01700-000111";
+
+// A receipt opens on its own print page, outside the project's sidebar.
+export const partnerReceiptHref = (projectId: string, depositId: string) => `/receipts/${projectId}/deposits/${depositId}`;

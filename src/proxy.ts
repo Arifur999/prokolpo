@@ -94,6 +94,7 @@ export const config = {
     "/register",
     "/dashboard/:path*",
     "/projects/:path*",
+    "/receipts/:path*",
     "/billing/:path*",
     "/profile/:path*",
     "/admin/:path*",

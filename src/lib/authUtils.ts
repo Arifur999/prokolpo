@@ -19,7 +19,7 @@ type RouteRule = { pattern: RegExp; roles: UserRole[] };
 // so list specific paths before their parents.
 export const ROUTE_RULES: RouteRule[] = [
   { pattern: /^\/admin(\/|$)/, roles: ["staff"] },
-  { pattern: /^\/(dashboard|projects|billing|profile)(\/|$)/, roles: ["user", "staff"] },
+  { pattern: /^\/(dashboard|projects|receipts|billing|profile)(\/|$)/, roles: ["user", "staff"] },
 ];
 
 export const isProtected = (pathname: string) => ROUTE_RULES.some((rule) => rule.pattern.test(pathname));
