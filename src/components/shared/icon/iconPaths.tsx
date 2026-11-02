@@ -3,6 +3,12 @@ import type { ReactNode } from "react";
 // Stroke icon bodies copied from the design canvas (24x24, lucide-style). Kept here instead of
 // lucide-react because several glyphs in the design predate lucide's current paths.
 export const ICON_PATHS = {
+  arrowLeft: (
+    <>
+      <path d="m12 19-7-7 7-7" />
+      <path d="M19 12H5" />
+    </>
+  ),
   arrowRight: (
     <>
       <path d="M5 12h14" />

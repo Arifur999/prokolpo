@@ -6,6 +6,8 @@ import { jwtUtils } from "./jwtUtils";
 // Cookie names are a contract with proxy.ts. Keep every cookie/token touchpoint in this file.
 export const ACCESS_TOKEN_COOKIE = "accessToken";
 export const REFRESH_TOKEN_COOKIE = "refreshToken";
+// The admin panel's session after the second sign-in step; the API ends it after 30 idle minutes.
+export const ADMIN_SESSION_COOKIE = "adminSession";
 
 // Fallback for an access token with no readable `exp`. Matches the backend's ACCESS_TOKEN_TTL.
 export const ACCESS_TOKEN_MAX_AGE_SECONDS = 15 * 60;
@@ -49,6 +51,7 @@ export const clearAuthCookies = async () => {
   const store = await cookies();
   store.delete(ACCESS_TOKEN_COOKIE);
   store.delete(REFRESH_TOKEN_COOKIE);
+  store.delete(ADMIN_SESSION_COOKIE);
 };
 
 export const getAccessToken = async () => (await cookies()).get(ACCESS_TOKEN_COOKIE)?.value;

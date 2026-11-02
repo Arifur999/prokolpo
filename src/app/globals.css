@@ -222,3 +222,10 @@
     radial-gradient(circle at 10% 0%, rgb(233 162 59 / 0.16), rgb(233 162 59 / 0) 40%),
     radial-gradient(circle at 92% 100%, rgb(22 73 58 / 0.1), rgb(22 73 58 / 0) 45%), var(--color-canvas);
 }
+
+/* The admin sign-in steps: ink with a gold glow top-left and green bottom-right (board AdminTwoFactor). */
+@utility bg-admin-gate {
+  background:
+    radial-gradient(circle at 12% 8%, rgb(233 162 59 / 0.12), rgb(233 162 59 / 0) 38%),
+    radial-gradient(circle at 88% 92%, rgb(30 107 69 / 0.35), rgb(30 107 69 / 0) 45%), var(--color-ink);
+}
