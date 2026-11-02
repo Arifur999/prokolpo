@@ -2,6 +2,8 @@ import { cookies } from "next/headers";
 import { getEnv } from "@/env";
 import { ACCESS_TOKEN_COOKIE } from "@/lib/tokenUtils";
 
+const SAFE_IMAGE = /^image\/(jpeg|png|webp)\b/;
+
 // Streams a memo photo from the API with the reader's token, so an <img> or a new tab can
 // show it. The API checks that the reader is a member of the project.
 export async function GET(_request: Request, { params }: RouteContext<"/api/projects/[projectId]/expenses/[expenseId]/memo">) {
@@ -14,9 +16,13 @@ export async function GET(_request: Request, { params }: RouteContext<"/api/proj
     cache: "no-store",
   });
   if (!upstream.ok || !upstream.body) return new Response(null, { status: upstream.status === 404 ? 404 : 502 });
+  // Served from our own origin, so only a photo goes out: never HTML or SVG that could run script.
+  const type = upstream.headers.get("Content-Type") ?? "";
+  if (!SAFE_IMAGE.test(type)) return new Response(null, { status: 502 });
   return new Response(upstream.body, {
     headers: {
-      "Content-Type": upstream.headers.get("Content-Type") ?? "application/octet-stream",
+      "Content-Type": type,
+      "Content-Disposition": "inline",
       "Cache-Control": "private, max-age=300",
       "X-Content-Type-Options": "nosniff",
     },
