@@ -30,22 +30,24 @@ export async function PartnersShowcase() {
         </span>
         <span className="text-xs text-ink-3">{t("shareCaption")}</span>
       </div>
-      {PARTNERS.map((partner) => (
-        <div key={partner.key} className="grid grid-cols-[10px_minmax(0,1fr)_auto] items-center gap-2.5 px-5 py-2 last:pb-3">
-          <span className={cn("size-2.5 rounded-full", partner.dot)} />
-          <span className="text-[15px] font-semibold">
-            {t(`rows.${partner.key}.name`)} <span className="font-medium text-ink-3">{t(`rows.${partner.key}.share`)}</span>
-          </span>
-          <span
-            className={cn(
-              "rounded-full px-[9px] py-px text-[13px] font-semibold",
-              partner.isPaidUp ? "bg-brand-tint text-success" : "bg-gold-tint text-gold-ink",
-            )}
-          >
-            {t(`rows.${partner.key}.status`)}
-          </span>
-        </div>
-      ))}
+      <div className="pb-1">
+        {PARTNERS.map((partner) => (
+          <div key={partner.key} className="grid grid-cols-[10px_minmax(0,1fr)_auto] items-center gap-2.5 px-5 py-2">
+            <span className={cn("size-2.5 rounded-full", partner.dot)} />
+            <span className="text-[15px] font-semibold">
+              {t(`rows.${partner.key}.name`)} <span className="font-medium text-ink-3">{t(`rows.${partner.key}.share`)}</span>
+            </span>
+            <span
+              className={cn(
+                "rounded-full px-[9px] py-px text-[13px] font-semibold",
+                partner.isPaidUp ? "bg-brand-tint text-success" : "bg-gold-tint text-gold-ink",
+              )}
+            >
+              {t(`rows.${partner.key}.status`)}
+            </span>
+          </div>
+        ))}
+      </div>
     </ShowcaseCard>
   );
 }
