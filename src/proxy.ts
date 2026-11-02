@@ -23,6 +23,8 @@ import {
   secondsUntil,
 } from "./lib/tokenUtils";
 import { refreshSession } from "./services/auth.services";
+import { getPlatformStatus } from "./services/status.services";
+import { ROUTES } from "./lib/routes";
 import type { IAccessTokenPayload, ISession } from "./types/auth.types";
 
 export async function proxy(request: NextRequest) {
@@ -61,6 +63,13 @@ export async function proxy(request: NextRequest) {
     return response;
   };
 
+  // Maintenance: everyone but staff waits on /maintenance. Login stays open so staff can sign
+  // in, and /maintenance itself sends people home once it is over.
+  if (pathname !== ROUTES.maintenance && pathname !== LOGIN_ROUTE && session?.role !== "staff") {
+    const status = await getPlatformStatus();
+    if (status?.maintenance.enabled) return pass(NextResponse.redirect(new URL(ROUTES.maintenance, request.url)));
+  }
+
   if (session && isAuthPage) {
     return pass(NextResponse.redirect(new URL(DEFAULT_DASHBOARD[session.role], request.url)));
   }
@@ -80,5 +89,16 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   // Keep every protected area (and any route.ts that streams files) under these prefixes.
-  matcher: ["/login", "/register", "/dashboard/:path*", "/projects/:path*", "/billing/:path*", "/profile/:path*", "/admin/:path*"],
+  matcher: [
+    "/login",
+    "/register",
+    "/dashboard/:path*",
+    "/projects/:path*",
+    "/billing/:path*",
+    "/profile/:path*",
+    "/admin/:path*",
+    "/support",
+    "/forgot-password",
+    "/reset-password",
+  ],
 };

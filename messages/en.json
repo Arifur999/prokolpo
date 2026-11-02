@@ -702,5 +702,16 @@
     "switchLanguage": "বাংলা",
     "login": "Log in",
     "register": "Create account"
+  },
+  "Maintenance": {
+    "title": "We're doing some maintenance",
+    "back": "Prokolpo is being upgraded — we'll be back by around <strong>{time}</strong>.",
+    "backSoon": "Prokolpo is being upgraded — we'll be back shortly.",
+    "safe": "All your records are safe — nothing will be lost.",
+    "retry": "Try again",
+    "checked": "Still working — checked at {time}. Please try again a little later.",
+    "whatsapp": "Urgent? WhatsApp <strong>{phone}</strong> (9 am – 9 pm)",
+    "staff": "Prokolpo staff? Open the admin panel",
+    "homeLabel": "Prokolpo — home page"
   }
 }

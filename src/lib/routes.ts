@@ -9,6 +9,7 @@ export const ROUTES = {
   support: "/support",
   terms: "/terms",
   privacy: "/privacy",
+  maintenance: "/maintenance",
 } as const;
 
 // Support page pre-filled for where the person came from (see app/(auth)/support/page.tsx).
