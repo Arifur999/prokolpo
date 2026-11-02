@@ -51,7 +51,8 @@ export const dayPart = (date: Date): DayPart => {
 export const formatDate = (date: Date) => new Intl.DateTimeFormat("en-GB", { timeZone: DHAKA, day: "2-digit", month: "2-digit", year: "numeric" }).format(date);
 
 // "21:40".
-export const formatTime = (date: Date) => new Intl.DateTimeFormat("en-GB", { timeZone: DHAKA, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(date);
+export const formatTime = (date: Date) =>
+  new Intl.DateTimeFormat("en-GB", { timeZone: DHAKA, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(date);
 
 // "30/09/2026 21:40".
 export const formatDateTime = (date: Date) => `${formatDate(date)} ${formatTime(date)}`;

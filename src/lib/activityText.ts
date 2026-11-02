@@ -8,7 +8,20 @@ export type Translate = (key: string, values?: Record<string, string | number>) 
 
 export type ActivityLine = { area: string; text: string; sub: string };
 
-const AREAS = new Set(["expense", "payment", "transfer", "supplier", "contractor", "extra", "attendance", "account", "category", "member", "invite", "password"]);
+const AREAS = new Set([
+  "expense",
+  "payment",
+  "transfer",
+  "supplier",
+  "contractor",
+  "extra",
+  "attendance",
+  "account",
+  "category",
+  "member",
+  "invite",
+  "password",
+]);
 
 // "রড · 5 টন": a bill's head with the quantity bought.
 const billTitle = (it: IActivityItem) => {
@@ -39,7 +52,9 @@ export function activityLine(it: IActivityItem, t: Translate): ActivityLine {
     case "payment.CREATE": {
       const purpose = it.purpose ? t(`purpose.${it.purpose}`) : null;
       const text = it.party
-        ? t("text.paymentCreate", { party: it.party, amount, kind: t(it.purpose === "WAGE" ? "text.wage" : "text.payment") }).replace(/\s+/g, " ").trim()
+        ? t("text.paymentCreate", { party: it.party, amount, kind: t(it.purpose === "WAGE" ? "text.wage" : "text.payment") })
+            .replace(/\s+/g, " ")
+            .trim()
         : t("text.paymentCreateNoParty", { amount });
       return line(text, [it.account && t("sub.fromAccount", { account: it.account }), purpose, it.note]);
     }

@@ -1041,76 +1041,16 @@
         "Transport",
         "Other"
       ],
-      "RENOVATION": [
-        "Paint",
-        "Tiles",
-        "Sanitary",
-        "Electrical",
-        "Wood & furniture",
-        "Thai glass/grill",
-        "Mason wages",
-        "Transport",
-        "Other"
-      ],
-      "OTHER": [
-        "Materials",
-        "Wages",
-        "Transport",
-        "Fees & paperwork",
-        "Other"
-      ],
-      "POULTRY": [
-        "Chicks",
-        "Feed",
-        "Medicine & vaccines",
-        "Shed building",
-        "Litter/husk",
-        "Electricity",
-        "Labour wages",
-        "Transport",
-        "Other"
-      ],
-      "CATTLE": [
-        "Animals",
-        "Feed (grass/bran)",
-        "Medicine & vet",
-        "Shed building",
-        "Labour wages",
-        "Electricity & water",
-        "Transport",
-        "Other"
-      ],
-      "FISH": [
-        "Pond digging/repair",
-        "Fingerlings",
-        "Feed",
-        "Medicine & lime",
-        "Nets & gear",
-        "Labour wages",
-        "Electricity/pump",
-        "Other"
-      ],
-      "CROP": [
-        "Land lease",
-        "Seeds/seedlings",
-        "Fertiliser",
-        "Pesticide",
-        "Irrigation",
-        "Labour wages",
-        "Transport",
-        "Other"
-      ]
+      "RENOVATION": ["Paint", "Tiles", "Sanitary", "Electrical", "Wood & furniture", "Thai glass/grill", "Mason wages", "Transport", "Other"],
+      "OTHER": ["Materials", "Wages", "Transport", "Fees & paperwork", "Other"],
+      "POULTRY": ["Chicks", "Feed", "Medicine & vaccines", "Shed building", "Litter/husk", "Electricity", "Labour wages", "Transport", "Other"],
+      "CATTLE": ["Animals", "Feed (grass/bran)", "Medicine & vet", "Shed building", "Labour wages", "Electricity & water", "Transport", "Other"],
+      "FISH": ["Pond digging/repair", "Fingerlings", "Feed", "Medicine & lime", "Nets & gear", "Labour wages", "Electricity/pump", "Other"],
+      "CROP": ["Land lease", "Seeds/seedlings", "Fertiliser", "Pesticide", "Irrigation", "Labour wages", "Transport", "Other"]
     },
     "phases": {
-      "buildingStart": [
-        "Land & design",
-        "Piling",
-        "Foundation"
-      ],
-      "buildingEnd": [
-        "Roof",
-        "Finishing"
-      ],
+      "buildingStart": ["Land & design", "Piling", "Foundation"],
+      "buildingEnd": ["Roof", "Finishing"],
       "floor": "{ordinal} floor",
       "batch": "Batch {n}",
       "season": "Season {n}",
@@ -1120,24 +1060,9 @@
         "FISH": "Pond preparation",
         "CROP": "Land preparation"
       },
-      "LAND": [
-        "Purchase & registry",
-        "Mutation & papers",
-        "Development (filling, roads)",
-        "Plot sales"
-      ],
-      "BUSINESS": [
-        "Finding the shop",
-        "Decoration",
-        "Stocking up",
-        "Opening"
-      ],
-      "RENOVATION": [
-        "Demolition & cleanup",
-        "Plumbing & electrical",
-        "Tiles & paint",
-        "Finishing"
-      ]
+      "LAND": ["Purchase & registry", "Mutation & papers", "Development (filling, roads)", "Plot sales"],
+      "BUSINESS": ["Finding the shop", "Decoration", "Stocking up", "Opening"],
+      "RENOVATION": ["Demolition & cleanup", "Plumbing & electrical", "Tiles & paint", "Finishing"]
     },
     "menus": {
       "partners": "Partners",
@@ -1657,18 +1582,7 @@
       "হার্ডওয়্যার",
       "অন্যান্য"
     ],
-    "works": [
-      "রাজমিস্ত্রি",
-      "রড মিস্ত্রি",
-      "রং",
-      "টাইলস",
-      "স্যানিটারি",
-      "ইলেকট্রিক",
-      "কাঠমিস্ত্রি",
-      "লেবার/যোগালি",
-      "পাইলিং",
-      "অন্যান্য"
-    ]
+    "works": ["রাজমিস্ত্রি", "রড মিস্ত্রি", "রং", "টাইলস", "স্যানিটারি", "ইলেকট্রিক", "কাঠমিস্ত্রি", "লেবার/যোগালি", "পাইলিং", "অন্যান্য"]
   },
   "Ledger": {
     "breadcrumbLabel": "Breadcrumb",

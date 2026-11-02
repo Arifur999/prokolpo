@@ -10,7 +10,11 @@ export const ROLE_AVATAR: Record<IMember["role"], string> = {
 
 // "আব্দুল করিম" -> "আক": first letters of the first and last word, "মোঃ" skipped.
 export const nameInitials = (name: string) => {
-  const words = name.replace(/^মোঃ\s*/, "").trim().split(/\s+/).filter(Boolean);
+  const words = name
+    .replace(/^মোঃ\s*/, "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
   const first = words[0] ?? "";
   const last = words.length > 1 ? (words.at(-1) ?? "") : "";
   return [first, last].map((word) => Array.from(word)[0] ?? "").join("");

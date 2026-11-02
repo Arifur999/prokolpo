@@ -7,11 +7,7 @@ import { NewPasswordForm } from "./NewPasswordForm";
 import { PhoneStep, type FoundAccount } from "./PhoneStep";
 import { ResetSteps } from "./ResetSteps";
 
-type Step =
-  | { name: "phone" }
-  | { name: "choose"; account: FoundAccount }
-  | { name: "sent"; account: FoundAccount }
-  | { name: "code"; account: FoundAccount };
+type Step = { name: "phone" } | { name: "choose"; account: FoundAccount } | { name: "sent"; account: FoundAccount } | { name: "code"; account: FoundAccount };
 
 // Phone, then a way to reset, then "check your email" or the owner's code with a new password.
 export function ForgotPasswordFlow() {

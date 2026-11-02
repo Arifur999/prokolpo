@@ -30,7 +30,20 @@ test("an owner adds a member, gives a reset code, and the member resets with it"
   await register("রাশেদ", memberPhone);
   const project = await post<{ id: string }>(
     "/projects",
-    { name: "মিরপুর ভবন", kind: "BUILDING", ownership: "PERSONAL", location: "", description: "", startDate: "2026-01-15", budget: null, farmType: "", landUnit: "", businessType: "", categories: ["রড"], phases: [] },
+    {
+      name: "মিরপুর ভবন",
+      kind: "BUILDING",
+      ownership: "PERSONAL",
+      location: "",
+      description: "",
+      startDate: "2026-01-15",
+      budget: null,
+      farmType: "",
+      landUnit: "",
+      businessType: "",
+      categories: ["রড"],
+      phases: [],
+    },
     owner.accessToken,
   );
   await signIn(context, baseURL!, owner);

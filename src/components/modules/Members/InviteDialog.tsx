@@ -48,13 +48,7 @@ export function InviteDialog({ projectId, onClose }: { projectId: string; onClos
   }, [projectId, normalized]);
 
   const known = normalized && lookup?.phone === normalized ? lookup.result : null;
-  const status: Status = !phone.trim()
-    ? "empty"
-    : !normalized
-      ? "invalid"
-      : !known
-        ? "checking"
-        : (known.status.toLowerCase() as Status);
+  const status: Status = !phone.trim() ? "empty" : !normalized ? "invalid" : !known ? "checking" : (known.status.toLowerCase() as Status);
   const name = known?.name ?? "";
   const blocked = status !== "found" && status !== "new";
 

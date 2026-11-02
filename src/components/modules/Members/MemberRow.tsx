@@ -42,11 +42,14 @@ export function MemberRow({ projectId, member: m, isOwner, confirming, onAskRemo
       router.refresh();
     });
 
-  const changeRole = (role: TeamRole) =>
-    run(() => changeRoleAction(projectId, m.userId, role), t("roleChanged", { name: m.name, role: t(`role.${role}`) }));
+  const changeRole = (role: TeamRole) => run(() => changeRoleAction(projectId, m.userId, role), t("roleChanged", { name: m.name, role: t(`role.${role}`) }));
 
   return (
-    <div role="row" aria-busy={isPending} className={cn("flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line-3 px-5 py-3 lg:min-h-17 lg:gap-x-0 lg:py-0", MEMBER_GRID)}>
+    <div
+      role="row"
+      aria-busy={isPending}
+      className={cn("flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line-3 px-5 py-3 lg:min-h-17 lg:gap-x-0 lg:py-0", MEMBER_GRID)}
+    >
       <span role="cell" className="flex min-w-0 grow items-center gap-3 lg:grow-0">
         <span aria-hidden="true" className={cn("flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-bold", ROLE_AVATAR[m.role])}>
           {nameInitials(m.name)}
@@ -87,7 +90,10 @@ export function MemberRow({ projectId, member: m, isOwner, confirming, onAskRemo
         )}
       </span>
       <span role="cell" className="flex items-center gap-1.5 text-sm text-ink-2">
-        <span aria-hidden="true" className={cn("size-1.75 rounded-full", seen.kind === "online" || seen.kind === "today" ? "bg-brand-mid" : "bg-line-strong")} />
+        <span
+          aria-hidden="true"
+          className={cn("size-1.75 rounded-full", seen.kind === "online" || seen.kind === "today" ? "bg-brand-mid" : "bg-line-strong")}
+        />
         {seenText}
       </span>
       <span role="cell" className="text-[15px] font-semibold lg:pr-2 lg:text-right">
@@ -119,7 +125,10 @@ export function MemberRow({ projectId, member: m, isOwner, confirming, onAskRemo
         )}
       </span>
       {confirming && (
-        <div role="alert" className="col-span-full mb-3 flex w-full flex-wrap items-center justify-between gap-3 rounded-[10px] bg-danger-tint px-3.5 py-2.5 text-sm font-semibold text-danger">
+        <div
+          role="alert"
+          className="col-span-full mb-3 flex w-full flex-wrap items-center justify-between gap-3 rounded-[10px] bg-danger-tint px-3.5 py-2.5 text-sm font-semibold text-danger"
+        >
           <span>{t("removeConfirm", { name: m.name })}</span>
           <span className="flex gap-2">
             <button

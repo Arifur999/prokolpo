@@ -47,13 +47,18 @@ export function PendingInvites({ projectId, projectName, invites, isOwner }: Pen
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-line-2 px-5 py-4">
         <h2 id="pd-title" className="m-0 flex items-center gap-2 text-[17px] font-semibold">
           {t("pendingTitle")}
-          <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-gold-tint px-1.75 text-[13px] font-bold text-gold-ink">{invites.length}</span>
+          <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-gold-tint px-1.75 text-[13px] font-bold text-gold-ink">
+            {invites.length}
+          </span>
         </h2>
         <span className="text-[13px] text-ink-3">{t("pendingNote")}</span>
       </div>
       {invites.map((invite) => (
         <div key={invite.id} className="flex flex-wrap items-center gap-3.5 border-b border-line-3 px-5 py-3.5">
-          <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-full border-[1.5px] border-dashed border-line-strong text-ink-3">
+          <span
+            aria-hidden="true"
+            className="flex size-10 shrink-0 items-center justify-center rounded-full border-[1.5px] border-dashed border-line-strong text-ink-3"
+          >
             <Icon name="smartphone" size={18} strokeWidth={2} />
           </span>
           <span className="flex min-w-0 grow flex-col">

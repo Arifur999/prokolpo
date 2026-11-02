@@ -34,7 +34,12 @@ export function ActivityEntry({ item, avatar, canRestore, restored, onRestore }:
   const tone = TONE[activityTone(item.action)];
 
   return (
-    <li className={cn("relative grid grid-cols-[44px_36px_minmax(0,1fr)] gap-3.5 border-b border-line-3 px-5 py-3.5 lg:grid-cols-[52px_36px_minmax(0,1fr)]", restored && "bg-brand-wash")}>
+    <li
+      className={cn(
+        "relative grid grid-cols-[44px_36px_minmax(0,1fr)] gap-3.5 border-b border-line-3 px-5 py-3.5 lg:grid-cols-[52px_36px_minmax(0,1fr)]",
+        restored && "bg-brand-wash",
+      )}
+    >
       <span className="pt-1.75 text-right text-[13px] text-ink-3">{formatTime(new Date(item.createdAt))}</span>
       <span aria-hidden="true" className={cn("flex size-9 items-center justify-center rounded-full", tone.look)}>
         <Icon name={tone.icon} size={18} strokeWidth={2} />
@@ -64,8 +69,15 @@ export function ActivityEntry({ item, avatar, canRestore, restored, onRestore }:
               <Icon name="chevronDown" size={14} strokeWidth={2.2} className={cn(expanded && "rotate-180")} />
             </button>
             {expanded && (
-              <div role="table" aria-label={t("changesLabel")} className="flex flex-col self-start overflow-hidden rounded-[10px] border border-line-3 text-sm sm:min-w-105">
-                <div role="row" className="grid grid-cols-[130px_110px_110px] bg-surface-2 text-[13px] font-semibold text-ink-2 sm:grid-cols-[150px_130px_130px]">
+              <div
+                role="table"
+                aria-label={t("changesLabel")}
+                className="flex flex-col self-start overflow-hidden rounded-[10px] border border-line-3 text-sm sm:min-w-105"
+              >
+                <div
+                  role="row"
+                  className="grid grid-cols-[130px_110px_110px] bg-surface-2 text-[13px] font-semibold text-ink-2 sm:grid-cols-[150px_130px_130px]"
+                >
                   <span role="columnheader" className="px-3 py-1.5">
                     {t("colField")}
                   </span>
@@ -116,4 +128,3 @@ export function ActivityEntry({ item, avatar, canRestore, restored, onRestore }:
     </li>
   );
 }
-
