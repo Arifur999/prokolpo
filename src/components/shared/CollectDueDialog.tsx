@@ -13,7 +13,7 @@ import { Icon } from "./icon/Icon";
 
 type CollectDueDialogProps = {
   // The copy: both namespaces carry the same keys.
-  namespace: "Produce.collect";
+  namespace: "Produce.collect" | "Shop.collect";
   name: string;
   due: number;
   // Which account the money goes into; leave out when it always goes to cash.

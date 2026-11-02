@@ -61,6 +61,10 @@ export const formatDateTime = (date: Date) => `${formatDate(date)} ${formatTime(
 export const formatWeekdayDate = (date: Date, locale: Locale) =>
   `${new Intl.DateTimeFormat(locale === "bn" ? "bn-BD" : "en-GB", { timeZone: DHAKA, weekday: "long" }).format(date)}, ${formatDate(date)}`;
 
+// "শনিবার" / "Saturday".
+export const weekdayName = (date: Date, locale: Locale) =>
+  new Intl.DateTimeFormat(locale === "bn" ? "bn-BD" : "en-GB", { timeZone: DHAKA, weekday: "long" }).format(date);
+
 // Today in Dhaka as YYYY-MM-DD, for date inputs and the API.
 export const dhakaToday = (date = new Date()) => new Intl.DateTimeFormat("en-CA", { timeZone: DHAKA }).format(date);
 
