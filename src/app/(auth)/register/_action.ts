@@ -22,5 +22,5 @@ export const registerAction = async (values: unknown): Promise<ApiErrorResponse>
   }
 
   // Outside the try/catch: redirect() throws NEXT_REDIRECT, which the catch would swallow.
-  redirect(ROUTES.dashboard);
+  redirect(`${ROUTES.dashboard}?welcome`);
 };
