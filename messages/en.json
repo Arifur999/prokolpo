@@ -227,6 +227,105 @@
           "addOwn": "Add your own"
         }
       }
+    },
+    "features": {
+      "eyebrow": "What you can do",
+      "title": "The accounts that cause the most trouble, made easy",
+      "lead": "From shop credit to partners' money — make an entry and every balance updates itself. Nobody has to add and subtract by hand.",
+      "dues": {
+        "title": "What you owe shops and builders — at a glance",
+        "body": "Buy on credit and log the expense, and it adds to the supplier's balance; pay them and it goes down. Builders' wages are worked out from the attendance book too.",
+        "points": {
+          "p1": "How much each shop is owed, and since when",
+          "p2": "Daily crews and fixed contracts — two kinds of contractor",
+          "p3": "Overpayments stay on as an advance"
+        },
+        "card": {
+          "title": "Who is owed how much",
+          "totalLabel": "Total",
+          "total": "৳ 16,83,000",
+          "rows": {
+            "r1": {
+              "name": "Karim Rod Store",
+              "sub": "Supplier · last bill 30/09/2026",
+              "amount": "৳ 3,20,000"
+            },
+            "r2": {
+              "name": "Messrs Rahman Cement",
+              "sub": "Supplier · last bill 29/09/2026",
+              "amount": "৳ 2,89,000"
+            },
+            "r3": {
+              "name": "Jamal (mason)",
+              "sub": "Contractor · daily crew · wages from attendance",
+              "amount": "৳ 1,85,000"
+            }
+          },
+          "footer": "Expenses bought on credit add up here; payments bring them down"
+        }
+      },
+      "partners": {
+        "title": "Clear accounts with your partners",
+        "body": "Who has paid how much and who still owes — every partner sees the same numbers. Need more money? Make a capital call and each partner's part is worked out by share.",
+        "points": {
+          "p1": "What each partner should pay by share, and what they have paid",
+          "p2": "A receipt for every deposit, a separate book for each partner",
+          "p3": "Partners set as viewers can look but not change"
+        },
+        "card": {
+          "title": "Partner accounts",
+          "paidLabel": "Paid",
+          "paid": "৳ 2,02,00,000",
+          "target": "/ ৳ 2,20,00,000",
+          "shareCaption": "Shares — 100% together",
+          "rows": {
+            "r1": {
+              "name": "Abdul Karim",
+              "share": "· 40%",
+              "status": "Fully paid"
+            },
+            "r2": {
+              "name": "Saiful Islam",
+              "share": "· 25%",
+              "status": "Fully paid"
+            },
+            "r3": {
+              "name": "Tania Rahman",
+              "share": "· 20%",
+              "status": "Owes ৳ 10,00,000"
+            },
+            "r4": {
+              "name": "Mahbub Alam",
+              "share": "· 15%",
+              "status": "Owes ৳ 8,00,000"
+            }
+          },
+          "footer": "Capital call 15/08/2026 · ৳ 20,00,000 — each partner's part worked out by share"
+        }
+      },
+      "sales": {
+        "title": "Flat sales, instalments and receipts",
+        "body": "Set up the instalment schedule once when you sell. Take a payment and the receipt is ready — print it or send it on WhatsApp. Late instalments turn red on their own.",
+        "points": {
+          "p1": "Payments clear the oldest overdue instalment first",
+          "p2": "Two copies on A4 or one on A5",
+          "p3": "Receipts in Bangla, English or both"
+        },
+        "card": {
+          "title": "Flat 3-B · Nasrin Akter",
+          "priceLabel": "Price",
+          "price": "৳ 54,00,000",
+          "progress": "6 of 24 instalments paid · ৳ 85,000 each",
+          "legend": {
+            "paid": "Paid",
+            "next": "Next instalment 25/10/2026",
+            "upcoming": "Upcoming"
+          },
+          "receiptMeta": "Money receipt · PRK-000148 · 29/09/2026",
+          "receiptAmount": "৳ 85,000 — eighty-five thousand taka only",
+          "stamp": "Received"
+        }
+      }
     }
   }
 }
