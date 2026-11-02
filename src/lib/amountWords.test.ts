@@ -11,5 +11,6 @@ describe("amount in words", () => {
   it("writes taka in English with lakh and crore", () => {
     expect(englishWords(3_360_000)).toBe("Thirty-Three Lakh Sixty Thousand Taka Only");
     expect(englishWords(85_000)).toBe("Eighty-Five Thousand Taka Only");
+    expect(englishWords(999.6)).toBe("One Thousand Taka Only");
   });
 });

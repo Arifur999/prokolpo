@@ -5,6 +5,7 @@ describe("money", () => {
   it("groups taka the Indian way", () => {
     expect(formatAmount(15640500)).toBe("1,56,40,500");
     expect(formatAmount(0)).toBe("0");
+    expect(formatAmount(-0.4)).toBe("0");
   });
 
   it("writes percentages with at most one decimal", () => {
@@ -19,6 +20,7 @@ describe("money", () => {
 
   it("reads Bangla digits and drops separators", () => {
     expect(toLatinDigits("২,৫০,০০০ টাকা")).toBe("250000");
+    expect(toLatinDigits("1200.50")).toBe("1200");
   });
 
   it("splits an amount into crore, lakh and thousand", () => {

@@ -3,7 +3,8 @@
 const grouping = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });
 const percentFormat = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 1 });
 
-export const formatAmount = (amount: number) => grouping.format(Math.round(amount));
+// "|| 0" keeps a loss under half a taka from printing as "-0".
+export const formatAmount = (amount: number) => grouping.format(Math.round(amount) || 0);
 
 const quantityFormat = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 3 });
 
@@ -22,8 +23,13 @@ export const budgetTone = (percent: number): BudgetTone => (percent > 100 ? "ove
 
 const BANGLA_DIGITS = "০১২৩৪৫৬৭৮৯";
 
-// Typed input may come in Bangla digits; keep only the digits, in Latin.
-export const toLatinDigits = (value: string) => value.replace(/[০-৯]/g, (d) => String(BANGLA_DIGITS.indexOf(d))).replace(/[^0-9]/g, "");
+// Typed input may come in Bangla digits; keep only the digits, in Latin. Money is whole taka,
+// so a pasted "1200.50" keeps 1200 rather than turning into 120050.
+export const toLatinDigits = (value: string) =>
+  value
+    .replace(/[০-৯]/g, (d) => String(BANGLA_DIGITS.indexOf(d)))
+    .replace(/[.৷].*$/, "")
+    .replace(/[^0-9]/g, "");
 
 // A typed quantity: Latin digits and at most one point with three decimals ("1050", "2.5").
 export const toDecimalDigits = (value: string) => {

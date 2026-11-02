@@ -40,7 +40,7 @@ const EN_SCALE: Scale = {
 };
 
 const inWords = (amount: number, s: Scale): string => {
-  let n = Math.floor(amount);
+  let n = Math.round(amount);
   if (n === 0) return s.under100(0);
   const parts: string[] = [];
   const crore = Math.floor(n / 10_000_000);
