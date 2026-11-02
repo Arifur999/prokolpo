@@ -1901,7 +1901,11 @@
       "TRANSFER_IN": "টাকা সরানো",
       "TRANSFER_OUT": "টাকা সরানো",
       "DEPOSIT": "পার্টনারের জমা",
-      "COLLECTION": "বিক্রির টাকা"
+      "COLLECTION": "বিক্রির টাকা",
+      "PRODUCE": "উৎপাদন বিক্রি",
+      "SHOP_CASH": "দিনের বিক্রি",
+      "SHOP_MOBILE": "দিনের বিক্রি",
+      "KHATA": "বাকি আদায়"
     },
     "openingTitle": "শুরুর ব্যালেন্স",
     "paymentTo": "{party}-কে পেমেন্ট",
@@ -1955,7 +1959,9 @@
     },
     "failed": "কাজটা হয়নি — আবার চেষ্টা করুন",
     "depositFrom": "{party}-এর জমা",
-    "collectionFrom": "{party}-এর জমা"
+    "collectionFrom": "{party}-এর জমা",
+    "paidBy": "{party}-এর জমা",
+    "dayTakings": "দিনের বিক্রি"
   },
   "Members": {
     "title": "মেম্বার",
@@ -2117,7 +2123,12 @@
       "unit": "ইউনিট",
       "customer": "কাস্টমার",
       "sale": "বিক্রি",
-      "installment": "কিস্তি"
+      "installment": "কিস্তি",
+      "produce": "উৎপাদন বিক্রি",
+      "produce_payment": "উৎপাদন বিক্রি",
+      "batch": "ব্যাচ",
+      "shop_day": "দিনের হিসাব",
+      "khata_payment": "বাকির খাতা"
     },
     "role": {
       "OWNER": "মালিক",
@@ -2158,7 +2169,13 @@
       "unitDelete": "{name} মুছেছেন",
       "customerCreate": "নতুন কাস্টমার যোগ করেছেন — {name}",
       "saleCreate": "{unit} বিক্রি করেছেন — {party} · ৳ {amount}",
-      "installmentCreate": "{party}-এর কিস্তি জমা নিয়েছেন — ৳ {amount}"
+      "installmentCreate": "{party}-এর কিস্তি জমা নিয়েছেন — ৳ {amount}",
+      "produceCreate": "{party}-এর কাছে বিক্রি লিখেছেন — ৳ {amount}",
+      "duePaid": "{party}-এর বাকি জমা নিয়েছেন — ৳ {amount}",
+      "batchUpdate": "{name}-এর তথ্য এডিট করেছেন",
+      "batchEnded": "{name} শেষ করেছেন",
+      "shopDayCreate": "{date}-এর হিসাব লিখেছেন — বিক্রি ৳ {amount}",
+      "shopDayUpdate": "{date}-এর হিসাব এডিট করেছেন — বিক্রি ৳ {amount}"
     },
     "sub": {
       "cash": "নগদে কেনা",
@@ -2169,7 +2186,8 @@
       "inviteWaits": "অ্যাকাউন্ট খোলা হলে নিজে থেকে যোগ হবে",
       "entriesStay": "তাঁর আগের এন্ট্রিগুলো থেকে গেছে",
       "signedOut": "সব ডিভাইস থেকে লগআউট হয়েছে",
-      "receipt": "রশিদ {no}"
+      "receipt": "রশিদ {no}",
+      "left": "বাকি ৳ {amount}"
     },
     "purpose": {
       "WAGE": "সাপ্তাহিক মজুরি",

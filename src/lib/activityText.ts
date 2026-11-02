@@ -28,6 +28,11 @@ const AREAS = new Set([
   "customer",
   "sale",
   "installment",
+  "produce",
+  "produce_payment",
+  "batch",
+  "shop_day",
+  "khata_payment",
 ]);
 
 // "রড · 5 টন": a bill's head with the quantity bought.
@@ -115,6 +120,23 @@ export function activityLine(it: IActivityItem, t: Translate): ActivityLine {
         it.account && t("sub.fromAccount", { account: it.account }),
         it.details.receipt && t("sub.receipt", { no: it.details.receipt }),
       ]);
+    case "produce.CREATE":
+      return line(t("text.produceCreate", { party: it.summary, amount: formatAmount(Number(it.details.amount ?? 0)) }), [
+        Number(it.details.left) > 0 && t("sub.left", { amount: formatAmount(Number(it.details.left)) }),
+      ]);
+    case "produce_payment.CREATE":
+    case "khata_payment.CREATE":
+      return line(t("text.duePaid", { party: it.summary, amount: formatAmount(Number(it.details.amount ?? 0)) }));
+    case "batch.UPDATE":
+      return line(t(it.details.ended ? "text.batchEnded" : "text.batchUpdate", { name: it.summary }), [it.details.ended && dayFirst(it.details.ended)]);
+    case "shop_day.CREATE":
+    case "shop_day.UPDATE":
+      return line(
+        t(it.action === "CREATE" ? "text.shopDayCreate" : "text.shopDayUpdate", {
+          date: dayFirst(it.summary),
+          amount: formatAmount(Number(it.details.amount ?? 0)),
+        }),
+      );
     case "password.UPDATE":
       return line(t("text.passwordUpdate"), [t("sub.signedOut")]);
     default:

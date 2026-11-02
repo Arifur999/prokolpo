@@ -72,4 +72,19 @@ describe("activity lines", () => {
     );
     expect(activityLine(item({ entity: "something-new", summary: "x" }), t)).toMatchObject({ area: "অন্যান্য", text: "x" });
   });
+
+  it("words farm sales, batches and the shop's day book", () => {
+    expect(activityLine(item({ entity: "produce", summary: "মামুন পোল্ট্রি", details: { amount: "295680", left: "12000" } }), t)).toEqual({
+      area: "উৎপাদন বিক্রি",
+      text: "মামুন পোল্ট্রি-এর কাছে বিক্রি লিখেছেন — ৳ 2,95,680",
+      sub: "বাকি ৳ 12,000",
+    });
+    expect(activityLine(item({ entity: "batch", action: "UPDATE", summary: "৪র্থ ব্যাচ", details: { ended: "2026-08-24" } }), t).text).toBe(
+      "৪র্থ ব্যাচ শেষ করেছেন",
+    );
+    expect(activityLine(item({ entity: "shop_day", action: "UPDATE", summary: "2026-10-03", details: { amount: "16850" } }), t).text).toBe(
+      "03/10/2026-এর হিসাব এডিট করেছেন — বিক্রি ৳ 16,850",
+    );
+    expect(activityLine(item({ entity: "khata_payment", summary: "সেলিম মিস্ত্রি", details: { amount: "3000" } }), t).area).toBe("বাকির খাতা");
+  });
 });

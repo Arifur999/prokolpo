@@ -1920,7 +1920,11 @@
       "TRANSFER_IN": "Transfer",
       "TRANSFER_OUT": "Transfer",
       "DEPOSIT": "Partner deposit",
-      "COLLECTION": "Sale collection"
+      "COLLECTION": "Sale collection",
+      "PRODUCE": "Produce sale",
+      "SHOP_CASH": "Day's takings",
+      "SHOP_MOBILE": "Day's takings",
+      "KHATA": "Credit paid back"
     },
     "openingTitle": "Opening balance",
     "paymentTo": "Payment to {party}",
@@ -1974,7 +1978,9 @@
     },
     "failed": "That didn't work — please try again",
     "depositFrom": "Deposit from {party}",
-    "collectionFrom": "Paid by {party}"
+    "collectionFrom": "Paid by {party}",
+    "paidBy": "Paid by {party}",
+    "dayTakings": "Day's takings"
   },
   "Members": {
     "title": "Members",
@@ -2136,7 +2142,12 @@
       "unit": "Unit",
       "customer": "Customer",
       "sale": "Sale",
-      "installment": "Installment"
+      "installment": "Installment",
+      "produce": "Produce",
+      "produce_payment": "Produce",
+      "batch": "Batch",
+      "shop_day": "Day book",
+      "khata_payment": "Credit book"
     },
     "role": {
       "OWNER": "Owner",
@@ -2177,7 +2188,13 @@
       "unitDelete": "deleted {name}",
       "customerCreate": "added a customer — {name}",
       "saleCreate": "sold {unit} — {party} · ৳ {amount}",
-      "installmentCreate": "took an installment from {party} — ৳ {amount}"
+      "installmentCreate": "took an installment from {party} — ৳ {amount}",
+      "produceCreate": "recorded a sale to {party} — ৳ {amount}",
+      "duePaid": "took {party}'s payment — ৳ {amount}",
+      "batchUpdate": "edited {name}",
+      "batchEnded": "closed {name}",
+      "shopDayCreate": "wrote up {date} — ৳ {amount} sold",
+      "shopDayUpdate": "edited {date} — ৳ {amount} sold"
     },
     "sub": {
       "cash": "Paid on the spot",
@@ -2188,7 +2205,8 @@
       "inviteWaits": "Joins on their own when the account opens",
       "entriesStay": "Their past entries stay",
       "signedOut": "Signed out on every device",
-      "receipt": "Receipt {no}"
+      "receipt": "Receipt {no}",
+      "left": "৳ {amount} owed"
     },
     "purpose": {
       "WAGE": "Weekly wages",

@@ -168,7 +168,7 @@ export interface IAccount {
 
 export interface IMovement {
   ref: string;
-  kind: "OPENING" | "PAYMENT" | "BUY" | "DEPOSIT" | "COLLECTION" | "TRANSFER_IN" | "TRANSFER_OUT";
+  kind: "OPENING" | "PAYMENT" | "BUY" | "DEPOSIT" | "COLLECTION" | "PRODUCE" | "SHOP_CASH" | "SHOP_MOBILE" | "KHATA" | "TRANSFER_IN" | "TRANSFER_OUT";
   accountId: string;
   accountName: string;
   date: string;
