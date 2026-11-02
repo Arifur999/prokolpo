@@ -33,6 +33,7 @@ const AREAS = new Set([
   "batch",
   "shop_day",
   "khata_payment",
+  "settings",
 ]);
 
 // "রড · 5 টন": a bill's head with the quantity bought.
@@ -137,12 +138,39 @@ export function activityLine(it: IActivityItem, t: Translate): ActivityLine {
           amount: formatAmount(Number(it.details.amount ?? 0)),
         }),
       );
+    case "settings.UPDATE":
+      return line(settingsText(it, t, role));
     case "password.UPDATE":
       return line(t("text.passwordUpdate"), [t("sub.signedOut")]);
     default:
       return line(t("text.other", { name: it.summary }));
   }
 }
+
+// A change on the settings page, by its section (internal/settings logSettings).
+const settingsText = (it: IActivityItem, t: Translate, role: (key: string | undefined) => string) => {
+  const section = it.details.section ?? "";
+  switch (section) {
+    case "general":
+      return it.details.status ? t("text.settingsStatus", { status: t(`status.${it.details.status}`) }) : t("text.settingsGeneral");
+    case "categoryAdd":
+    case "category":
+    case "categoryHide":
+    case "categoryShow":
+    case "categoryDelete":
+      return t(`text.settings_${section}`, { name: it.summary });
+    case "supportOn":
+      return t("text.settings_supportOn", { hours: it.details.hours ?? "" });
+    case "owner":
+      return t("text.settings_owner", { name: it.summary, role: role("MANAGER") });
+    case "phases":
+    case "receipt":
+    case "supportOff":
+      return t(`text.settings_${section}`);
+    default:
+      return t("text.other", { name: it.summary });
+  }
+};
 
 const MONEY_FIELDS = new Set(["rate", "amount"]);
 

@@ -2147,7 +2147,8 @@
       "produce_payment": "Produce",
       "batch": "Batch",
       "shop_day": "Day book",
-      "khata_payment": "Credit book"
+      "khata_payment": "Credit book",
+      "settings": "Settings"
     },
     "role": {
       "OWNER": "Owner",
@@ -2194,7 +2195,19 @@
       "batchUpdate": "edited {name}",
       "batchEnded": "closed {name}",
       "shopDayCreate": "wrote up {date} — ৳ {amount} sold",
-      "shopDayUpdate": "edited {date} — ৳ {amount} sold"
+      "shopDayUpdate": "edited {date} — ৳ {amount} sold",
+      "settingsGeneral": "changed the project's details",
+      "settingsStatus": "set the project's status to {status}",
+      "settings_phases": "changed the floors and phases",
+      "settings_receipt": "changed the receipt settings",
+      "settings_categoryAdd": "added a head: {name}",
+      "settings_category": "changed a head: {name}",
+      "settings_categoryHide": "hid a head: {name}",
+      "settings_categoryShow": "showed a head again: {name}",
+      "settings_categoryDelete": "deleted a head: {name}",
+      "settings_supportOn": "let support view the project for {hours} hours",
+      "settings_supportOff": "turned off support's access",
+      "settings_owner": "made {name} the owner — now a {role}"
     },
     "sub": {
       "cash": "Paid on the spot",
@@ -2226,6 +2239,11 @@
       "date": "Date",
       "description": "Description",
       "memo": "Memo"
+    },
+    "status": {
+      "ACTIVE": "Active",
+      "ON_HOLD": "On hold",
+      "DONE": "Done"
     }
   },
   "Partners": {
@@ -3996,6 +4014,244 @@
       "passwordMissing": "Enter your password",
       "cancel": "Cancel",
       "confirm": "Delete account"
+    }
+  },
+  "Settings": {
+    "title": "Project settings",
+    "intro": "Only the owner can change these — managers and viewers can only look",
+    "youOwn": "You're the owner",
+    "readOnly": "You can only view",
+    "navLabel": "Settings sections",
+    "failed": "Couldn't save — please try again",
+    "clean": "Everything is saved",
+    "dirty": "You have unsaved changes",
+    "cancel": "Cancel",
+    "save": "Save changes",
+    "tabs": {
+      "general": {
+        "label": "Project details",
+        "sub": "Name, address, status"
+      },
+      "phases": {
+        "label": "Floors and phases",
+        "sub": "Name, budget, order"
+      },
+      "categories": {
+        "label": "Expense heads",
+        "sub": "New heads, hidden, budget"
+      },
+      "receipt": {
+        "label": "Receipts and printing",
+        "sub": "Name and number on receipts"
+      },
+      "danger": {
+        "label": "Ownership and delete",
+        "sub": "Backup, hand over, delete"
+      }
+    },
+    "general": {
+      "title": "Project details",
+      "kind": "Project type",
+      "ownership": "Ownership",
+      "floors": "{count, plural, one {# floor} other {# floors}}",
+      "partners": "{count, plural, one {# partner} other {# partners}}",
+      "fixed": "A project's type and ownership can't change after it is created — its heads, phases and menus are built on them.",
+      "name": "Project name",
+      "nameShort": "The name needs at least 3 characters",
+      "location": "Address / area",
+      "start": "Start date",
+      "description": "Description",
+      "optional": "(optional)",
+      "status": "Project status",
+      "statusSub": {
+        "ACTIVE": "Everything works as usual",
+        "ON_HOLD": "Work paused — entries still allowed, \"On hold\" on the dashboard",
+        "DONE": "View only — set it going again to add entries"
+      },
+      "saved": "Project details saved"
+    },
+    "phases": {
+      "title": "Floors and phases",
+      "sub": "Expenses are filed under these phases · the order here is the order in reports",
+      "total": "Total budget",
+      "no": "No.",
+      "name": "Phase name",
+      "budget": "Budget (৳)",
+      "spent": "Spent",
+      "use": "Used",
+      "actions": "Actions",
+      "nameAria": "Name of phase {no}",
+      "budgetAria": "Budget for {name}",
+      "noBudget": "No budget",
+      "up": "Move {name} up",
+      "down": "Move {name} down",
+      "delete": "Delete {name}",
+      "locked": "Has expenses — can't be deleted",
+      "add": "New phase",
+      "newName": "New phase",
+      "lockedNote": "A phase with expenses can't be deleted — you can rename it",
+      "nameMissing": "Every phase needs a name, and no name twice",
+      "cleanNote": "Everything is saved · the total budget goes to the overview and reports",
+      "dirtyNote": "Unsaved changes · total budget ৳ {from} → ৳ {to}",
+      "saved": "Floors and phases saved"
+    },
+    "categories": {
+      "title": "Expense heads",
+      "sub": "Hidden heads don't show on the expense form, but old expenses and reports keep them",
+      "count": "{count, plural, one {# head} other {# heads}}",
+      "countHidden": "{count, plural, one {# head} other {# heads}} · {hidden} hidden",
+      "name": "Head",
+      "entries": "Entries",
+      "spent": "Spent",
+      "budget": "Budget (optional)",
+      "actions": "Actions",
+      "nameAria": "Head name: {name}",
+      "budgetAria": "Budget for {name}",
+      "entryCount": "{count}",
+      "hiddenTag": "Hidden",
+      "hide": "Hide {name}",
+      "show": "Show {name} again",
+      "hidden": "{name} is hidden",
+      "shown": "{name} is back on the expense form",
+      "delete": "Delete {name}",
+      "locked": "{count, plural, one {# expense uses it} other {# expenses use it}} — it can't be deleted, but you can hide it",
+      "deleted": "Head {name} deleted",
+      "renamed": "The head is now called {name}",
+      "budgetSaved": "Budget for {name} saved",
+      "newLabel": "New head's name",
+      "newPlaceholder": "New head's name, e.g. Lift",
+      "add": "Add head",
+      "added": "Head {name} added",
+      "nameMissing": "Enter the head's name",
+      "taken": "A head with this name already exists"
+    },
+    "receipt": {
+      "title": "Receipts and printing",
+      "sub": "What customers' and partners' money receipts print",
+      "company": "Name on receipts",
+      "companyHint": "Comes from your registered company name — change it for this project only",
+      "address": "Address",
+      "phone": "Phone",
+      "prefix": "Receipt number prefix",
+      "prefixHelp": "2–5 English capital letters",
+      "prefixBad": "Use 2–5 English letters",
+      "lang": "Language of receipts, reports and messages",
+      "langs": {
+        "bn": "বাংলা",
+        "en": "English",
+        "both": "Both languages"
+      },
+      "langHelp": "What you give customers, partners and suppliers — receipts, PDF reports and installment reminders — comes in this language. You can pick another language for a single receipt when printing. Your own app language is set in your profile.",
+      "paper": "Usual paper",
+      "papers": {
+        "A4": "A4 · two copies",
+        "A5": "A5 · one copy"
+      },
+      "footer": "Footer text",
+      "optional": "(optional)",
+      "footerPlaceholder": "E.g. Pay each installment by the 10th of the month",
+      "previewTitle": "How the top of a receipt will look",
+      "previewLabel": "Receipt preview",
+      "nextNote": "Next receipt: <strong>{no}</strong>. A new prefix doesn't change earlier receipt numbers — only new ones start with it.",
+      "reminderTitle": "How installment reminders will read",
+      "reminderLabel": "Sample reminder message",
+      "reminder": {
+        "bn": "নাসরিন আক্তার, ফ্ল্যাট ৩-বি-এর কিস্তি 7/24 — ৳ 85,000 — দেওয়ার শেষ তারিখ 25/10/2026। {company}, {phone}",
+        "en": "Dear Nasrin Akter, installment 7/24 for flat 3-B — ৳ 85,000 — is due on 25/10/2026. {company}, {phone}"
+      },
+      "saved": "Receipt settings saved"
+    },
+    "support": {
+      "title": "Let support look in",
+      "body": "Numbers not adding up, or something you don't understand? You can let the Prokolpo support team view your project for a while.",
+      "on": "On",
+      "off": "Off",
+      "until": "Support can view only — until {until}",
+      "since": "{name} allowed it {at} · {left}",
+      "leftHours": "{count, plural, one {# hour} other {# hours}} left",
+      "leftDays": "{count, plural, one {# day} other {# days}} left",
+      "lastOpened": "Last opened by {name} · {at}",
+      "notOpened": "Nobody has opened it yet",
+      "activity": "See it in activity",
+      "revoke": "Turn off now",
+      "revoked": "Support access is off — they can't view the project any more",
+      "offNote": "Off now — Prokolpo support can't see your project's books, only a summary like its name and member count.",
+      "howLong": "For how long",
+      "durations": {
+        "24": "24 hours",
+        "72": "3 days",
+        "168": "7 days"
+      },
+      "durationUntil": "Until {until}",
+      "grant": "Allow — {duration}",
+      "granted": "Support can view your project for {duration} — until {until}",
+      "rules": {
+        "read": "View only — they can't add, change, delete or download anything",
+        "logged": "Who opened it and when goes in the activity; the members page shows it in a yellow row",
+        "ends": "It turns off by itself when the time is up — or turn it off sooner"
+      }
+    },
+    "backup": {
+      "title": "Download all data",
+      "body": "Expenses, payments, sales, installments, partners — all in one Excel file, a sheet each. Keep a backup now and then.",
+      "button": "Download Excel",
+      "done": "Downloading {file}",
+      "empty": "No entries yet — nothing to download",
+      "sheets": {
+        "expenses": "Expenses",
+        "payments": "Payments",
+        "sales": "Installments and sales",
+        "deposits": "Partner deposits",
+        "produce": "Farm sales",
+        "shop": "Shop days",
+        "transfers": "Transfers"
+      },
+      "columns": {
+        "date": "Date",
+        "category": "Head",
+        "phase": "Phase",
+        "party": "With",
+        "description": "Description",
+        "quantity": "Quantity",
+        "amount": "Amount",
+        "account": "Account",
+        "note": "Note",
+        "receipt": "Receipt no.",
+        "customer": "Customer",
+        "unit": "Unit",
+        "partner": "Partner",
+        "product": "Product",
+        "cash": "Cash",
+        "mobile": "Mobile",
+        "other": "Other income",
+        "from": "From",
+        "to": "To"
+      }
+    },
+    "transfer": {
+      "title": "Hand the project over",
+      "body": "The new owner gets settings, members and delete. You stay on as a manager.",
+      "pick": "Who becomes owner",
+      "pickFirst": "Pick someone",
+      "none": "Nobody else is in this project — add a member from the members page first.",
+      "share": "partner {share}%",
+      "button": "Make {name} the owner",
+      "confirmTitle": "Make {name} the owner?",
+      "confirmBody": "{name} gets settings, members and delete. You become a manager — only the new owner can undo this.",
+      "cancel": "Cancel",
+      "done": "{name} now owns this project"
+    },
+    "delete": {
+      "title": "Delete project",
+      "body": "The project disappears for every member. You can bring it back within 30 days; after that it is gone for good.",
+      "button": "Delete project…",
+      "confirmTitle": "Delete \"{name}\"?",
+      "confirmBody": "It holds {summary}. {members, plural, one {# member} other {# members}} will lose access. You can restore it within 30 days.",
+      "summary": "{expenses} expenses, {sales} sales, {partners} partners and {receipts} receipts",
+      "typeName": "Type the project's name exactly to confirm",
+      "cancel": "Cancel",
+      "confirm": "Delete project",
+      "done": "Project deleted — you can restore it from the dashboard within 30 days"
     }
   }
 }

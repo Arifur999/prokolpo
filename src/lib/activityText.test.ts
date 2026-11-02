@@ -87,4 +87,16 @@ describe("activity lines", () => {
     );
     expect(activityLine(item({ entity: "khata_payment", summary: "সেলিম মিস্ত্রি", details: { amount: "3000" } }), t).area).toBe("বাকির খাতা");
   });
+
+  it("words settings changes by their section", () => {
+    const settings = (summary: string, details: Record<string, string>) => item({ entity: "settings", action: "UPDATE", summary, details });
+    expect(activityLine(settings("মিরপুর ভবন", { section: "general", status: "DONE", from: "ACTIVE" }), t)).toEqual({
+      area: "সেটিংস",
+      text: "প্রজেক্টের অবস্থা করেছেন: শেষ",
+      sub: "",
+    });
+    expect(activityLine(settings("লিফট", { section: "categoryAdd" }), t).text).toBe("নতুন খাত যোগ করেছেন: লিফট");
+    expect(activityLine(settings("72", { section: "supportOn", hours: "72" }), t).text).toBe("সাপোর্টকে 72 ঘণ্টা প্রজেক্ট দেখার অনুমতি দিয়েছেন");
+    expect(activityLine(settings("রাশেদ খান", { section: "owner" }), t).text).toBe("রাশেদ খান-কে মালিক করেছেন — নিজে এখন ম্যানেজার");
+  });
 });
