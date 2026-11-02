@@ -17,6 +17,14 @@ type KeyFiguresProps = {
 export function KeyFigures({ figures: f, features, accountCount }: KeyFiguresProps) {
   const t = useTranslations("Overview.stats");
   const taka = (amount: number) => `৳ ${formatAmount(amount)}`;
+  // "গত মাসের চেয়ে 19% কম", or a nudge when nothing is entered yet.
+  const monthNote = (now: number, last: number) => {
+    if (!now && !last) return t("monthSpentNote");
+    if (!last) return "";
+    const change = Math.round(((now - last) / last) * 100);
+    if (change === 0) return t("monthSame");
+    return t(change < 0 ? "monthLess" : "monthMore", { percent: Math.abs(change) });
+  };
 
   const cards: Figure[] = [
     { key: "cash", icon: "wallet", title: t("cash"), value: taka(f.cash), note: t("cashNote", { count: accountCount }) },
@@ -52,7 +60,7 @@ export function KeyFigures({ figures: f, features, accountCount }: KeyFiguresPro
       },
     );
   }
-  cards.push({ key: "monthSpent", icon: "receipt", title: t("monthSpent"), value: taka(f.monthSpent), note: f.monthSpent ? "" : t("monthSpentNote") });
+  cards.push({ key: "monthSpent", icon: "receipt", title: t("monthSpent"), value: taka(f.monthSpent), note: monthNote(f.monthSpent, f.lastMonthSpent) });
 
   return (
     <section aria-label={t("label")} className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-5">

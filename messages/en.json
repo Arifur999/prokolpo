@@ -1127,7 +1127,10 @@
       "overdueNote": "৳ {amount} to collect",
       "monthSpent": "Spent this month",
       "monthSpentNote": "No expenses entered yet",
-      "nothingYet": "Nothing entered yet"
+      "nothingYet": "Nothing entered yet",
+      "monthLess": "{percent}% less than last month",
+      "monthMore": "{percent}% more than last month",
+      "monthSame": "Same as last month"
     },
     "byMonth": {
       "title": "Spending by month",
@@ -1142,12 +1145,19 @@
       "title": "Spending by category",
       "subtitle": "Total ৳ {amount} · highest first",
       "all": "All categories",
-      "empty": "Once you add expenses, this shows where the money went"
+      "empty": "Once you add expenses, this shows where the money went",
+      "labour": "Labour (contractors)",
+      "rest": "{count} other categories"
     },
     "recent": {
       "title": "Recent entries",
       "all": "See all",
-      "empty": "No entries yet — add the first expense with the buttons above"
+      "empty": "No entries yet — add the first expense with the buttons above",
+      "kindEXPENSE": "Expense",
+      "kindPAYMENT": "Payment",
+      "paymentTo": "Payment to {party}",
+      "payment": "Payment",
+      "fromAccount": "From {account}"
     },
     "phaseBudget": {
       "title": "Budget by phase",

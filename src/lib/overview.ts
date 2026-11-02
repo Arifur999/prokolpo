@@ -1,3 +1,4 @@
+import type { IOverviewData } from "@/types/books.types";
 import type { IProject } from "@/types/project.types";
 import { menusFor } from "./projectPlan";
 
@@ -12,14 +13,9 @@ export const overviewFeatures = (project: Pick<IProject, "kind" | "ownership">) 
   };
 };
 
-// The money figures on the overview. Every one is 0 until its books have entries; the
-// expense, payment and sales modules fill them in as they arrive.
-export type OverviewFigures = {
-  cash: number;
-  supplierDue: number;
-  supplierCount: number;
-  contractorDue: number;
-  contractorCount: number;
+// The money figures on the overview. Partner and sales figures read 0 until the sales
+// books (Phase 7) fill them.
+export type OverviewFigures = IOverviewData["figures"] & {
   partnerDue: number;
   partnersOwing: number;
   partnerCount: number;
@@ -29,15 +25,10 @@ export type OverviewFigures = {
   monthInstallmentCount: number;
   overdueAmount: number;
   overdueCount: number;
-  monthSpent: number;
 };
 
-export const startingFigures = (): OverviewFigures => ({
-  cash: 0,
-  supplierDue: 0,
-  supplierCount: 0,
-  contractorDue: 0,
-  contractorCount: 0,
+export const overviewFigures = (books: IOverviewData["figures"]): OverviewFigures => ({
+  ...books,
   partnerDue: 0,
   partnersOwing: 0,
   partnerCount: 0,
@@ -47,5 +38,12 @@ export const startingFigures = (): OverviewFigures => ({
   monthInstallmentCount: 0,
   overdueAmount: 0,
   overdueCount: 0,
-  monthSpent: 0,
 });
+
+// The five biggest heads, then the rest grouped as one grey row (board Main).
+export const topCategories = (categories: IOverviewData["categories"], labourLabel: string, restLabel: (count: number) => string) => {
+  const named = categories.map((c) => ({ name: c.labour ? labourLabel : c.name, amount: c.amount }));
+  const top = named.slice(0, 5);
+  const rest = named.slice(5);
+  return rest.length ? [...top, { name: restLabel(rest.length), amount: rest.reduce((sum, c) => sum + c.amount, 0), rest: true }] : top;
+};

@@ -25,7 +25,7 @@ export function Panel({ title, subtitle, link, aside, children, className }: Pan
         {link && (
           <Link href={link.href} className="flex min-h-8 shrink-0 items-center gap-1 text-sm font-semibold no-underline">
             {link.label}
-            <Icon name="arrowRight" size={16} strokeWidth={2} />
+            <Icon name="chevronRight" size={16} strokeWidth={2} />
           </Link>
         )}
       </div>

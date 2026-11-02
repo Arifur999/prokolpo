@@ -16,11 +16,13 @@ import type { Locale } from "@/i18n/config";
 import { dayPart, formatDate, formatWeekdayDate } from "@/lib/dhakaTime";
 import { initials } from "@/lib/initials";
 import { monthName, monthRange, recentMonths } from "@/lib/months";
-import { overviewFeatures, startingFigures } from "@/lib/overview";
+import { overviewFeatures, overviewFigures, topCategories } from "@/lib/overview";
 import { projectNav } from "@/lib/projectNav";
 import { projectHref } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { getUserInfo } from "@/services/auth.services";
+import { getOverview } from "@/services/books.services";
+import { RecentEntries } from "@/components/modules/Overview/RecentEntries";
 import { loadProject } from "./loadProject";
 
 export async function generateMetadata({ params }: PageProps<"/projects/[projectId]">): Promise<Metadata> {
@@ -31,12 +33,13 @@ export async function generateMetadata({ params }: PageProps<"/projects/[project
 // Boards Main, MainEn and Mobile: the project at a glance.
 export default async function OverviewPage({ params, searchParams }: PageProps<"/projects/[projectId]">) {
   const [{ projectId }, { created }] = await Promise.all([params, searchParams]);
-  const [project, user, t, locale, common] = await Promise.all([
+  const [project, user, t, locale, common, books] = await Promise.all([
     loadProject(projectId),
     getUserInfo(),
     getTranslations("Overview"),
     getLocale() as Promise<Locale>,
     getTranslations("Common"),
+    getOverview(projectId).then((response) => response.data),
   ]);
   if (!project || !user) notFound();
 
@@ -76,17 +79,19 @@ export default async function OverviewPage({ params, searchParams }: PageProps<"
 
         <BudgetHero project={project} greeting={greeting} startedOn={formatDate(new Date(project.startDate))} />
         <QuickActions projectId={project.id} features={features} salesPage={salesPage} />
-        <KeyFigures figures={startingFigures()} features={features} accountCount={project.accountCount} />
+        <KeyFigures figures={overviewFigures(books.figures)} features={features} accountCount={project.accountCount} />
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-4">
           <MonthlySpend months={months.map((month) => ({ label: monthName(month, locale), amount: 0 }))} range={monthRange(months.slice(-6), locale)} />
-          <CategorySpend rows={[]} total={project.spent} allHref={projectHref(project.id, "reports")} />
+          <CategorySpend
+            rows={topCategories(books.categories, t("byCategory.labour"), (count) => t("byCategory.rest", { count }))}
+            total={project.spent}
+            allHref={projectHref(project.id, "reports")}
+          />
         </div>
 
         <div className="grid grow grid-cols-1 gap-5 lg:grid-cols-4">
-          <Panel title={t("recent.title")} link={{ href: projectHref(project.id, "expenses"), label: t("recent.all") }} className="gap-2 lg:col-span-2">
-            <PanelEmpty>{t("recent.empty")}</PanelEmpty>
-          </Panel>
+          <RecentEntries projectId={project.id} entries={books.recent} />
           <PhaseBudgets phases={project.phases} byFloor={project.kind === "BUILDING"} className={cn(!features.installments && "lg:col-span-2")} />
           {features.installments && (
             <Panel title={t("overdue.title")} className="gap-2 lg:px-5">
