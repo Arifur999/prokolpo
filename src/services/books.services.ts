@@ -59,6 +59,9 @@ export const getAttendance = async (projectId: string, week?: string) =>
 export const saveAttendance = async (projectId: string, cells: { contractorId: string; day: string; headcount: number; halfDay: boolean }[]) =>
   httpClient.put<null>(`${base(projectId)}/attendance`, { cells });
 
+export const deletePayment = async (projectId: string, id: string, reason = "") =>
+  httpClient.post<null>(`${base(projectId)}/payments/${one(id)}/delete`, { reason });
+
 export const getAccounts = cache(async (projectId: string) => httpClient.get<IAccount[]>(`${base(projectId)}/accounts`));
 export const getAccountLedger = async (projectId: string) => httpClient.get<IMovement[]>(`${base(projectId)}/accounts/ledger`);
 export const createAccount = async (projectId: string, payload: unknown) => httpClient.post<IAccount>(`${base(projectId)}/accounts`, payload);

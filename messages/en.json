@@ -1019,76 +1019,16 @@
         "Transport",
         "Other"
       ],
-      "RENOVATION": [
-        "Paint",
-        "Tiles",
-        "Sanitary",
-        "Electrical",
-        "Wood & furniture",
-        "Thai glass/grill",
-        "Mason wages",
-        "Transport",
-        "Other"
-      ],
-      "OTHER": [
-        "Materials",
-        "Wages",
-        "Transport",
-        "Fees & paperwork",
-        "Other"
-      ],
-      "POULTRY": [
-        "Chicks",
-        "Feed",
-        "Medicine & vaccines",
-        "Shed building",
-        "Litter/husk",
-        "Electricity",
-        "Labour wages",
-        "Transport",
-        "Other"
-      ],
-      "CATTLE": [
-        "Animals",
-        "Feed (grass/bran)",
-        "Medicine & vet",
-        "Shed building",
-        "Labour wages",
-        "Electricity & water",
-        "Transport",
-        "Other"
-      ],
-      "FISH": [
-        "Pond digging/repair",
-        "Fingerlings",
-        "Feed",
-        "Medicine & lime",
-        "Nets & gear",
-        "Labour wages",
-        "Electricity/pump",
-        "Other"
-      ],
-      "CROP": [
-        "Land lease",
-        "Seeds/seedlings",
-        "Fertiliser",
-        "Pesticide",
-        "Irrigation",
-        "Labour wages",
-        "Transport",
-        "Other"
-      ]
+      "RENOVATION": ["Paint", "Tiles", "Sanitary", "Electrical", "Wood & furniture", "Thai glass/grill", "Mason wages", "Transport", "Other"],
+      "OTHER": ["Materials", "Wages", "Transport", "Fees & paperwork", "Other"],
+      "POULTRY": ["Chicks", "Feed", "Medicine & vaccines", "Shed building", "Litter/husk", "Electricity", "Labour wages", "Transport", "Other"],
+      "CATTLE": ["Animals", "Feed (grass/bran)", "Medicine & vet", "Shed building", "Labour wages", "Electricity & water", "Transport", "Other"],
+      "FISH": ["Pond digging/repair", "Fingerlings", "Feed", "Medicine & lime", "Nets & gear", "Labour wages", "Electricity/pump", "Other"],
+      "CROP": ["Land lease", "Seeds/seedlings", "Fertiliser", "Pesticide", "Irrigation", "Labour wages", "Transport", "Other"]
     },
     "phases": {
-      "buildingStart": [
-        "Land & design",
-        "Piling",
-        "Foundation"
-      ],
-      "buildingEnd": [
-        "Roof",
-        "Finishing"
-      ],
+      "buildingStart": ["Land & design", "Piling", "Foundation"],
+      "buildingEnd": ["Roof", "Finishing"],
       "floor": "{ordinal} floor",
       "batch": "Batch {n}",
       "season": "Season {n}",
@@ -1098,24 +1038,9 @@
         "FISH": "Pond preparation",
         "CROP": "Land preparation"
       },
-      "LAND": [
-        "Purchase & registry",
-        "Mutation & papers",
-        "Development (filling, roads)",
-        "Plot sales"
-      ],
-      "BUSINESS": [
-        "Finding the shop",
-        "Decoration",
-        "Stocking up",
-        "Opening"
-      ],
-      "RENOVATION": [
-        "Demolition & cleanup",
-        "Plumbing & electrical",
-        "Tiles & paint",
-        "Finishing"
-      ]
+      "LAND": ["Purchase & registry", "Mutation & papers", "Development (filling, roads)", "Plot sales"],
+      "BUSINESS": ["Finding the shop", "Decoration", "Stocking up", "Opening"],
+      "RENOVATION": ["Demolition & cleanup", "Plumbing & electrical", "Tiles & paint", "Finishing"]
     },
     "menus": {
       "partners": "Partners",
@@ -1635,5 +1560,53 @@
       "হার্ডওয়্যার",
       "অন্যান্য"
     ]
+  },
+  "Ledger": {
+    "breadcrumbLabel": "Breadcrumb",
+    "print": "Print",
+    "addBill": "Add bill",
+    "pay": "Make payment",
+    "summary": "Summary",
+    "billed": "Total billed",
+    "billedNote": "{count, plural, one {# bill} other {# bills}} · first {date}",
+    "billedNone": "No bills yet",
+    "paid": "Total paid",
+    "paidNote": "{count, plural, one {# payment} other {# payments}}",
+    "due": "Due now",
+    "dueNote": "Last payment {date} · ৳ {amount}",
+    "dueNoPayment": "No payments yet",
+    "advance": "Advance ৳ {amount}",
+    "tableTitle": "Ledger",
+    "tableSub": "Bills and payments by date, with the running due on each row",
+    "kindLabel": "Choose type",
+    "all": "All",
+    "bills": "Bills",
+    "payments": "Payments",
+    "date": "Date",
+    "description": "Description",
+    "kind": "Type",
+    "bill": "Bill (৳)",
+    "payment": "Payment (৳)",
+    "running": "Running due (৳)",
+    "options": "Options",
+    "opening": "Brought forward",
+    "openingSub": "From before the app",
+    "kindBILL": "Bill",
+    "kindPAYMENT": "Payment",
+    "kindOPENING": "Opening",
+    "paymentTitle": "Payment",
+    "fromAccount": "From {account}",
+    "settled": "Settled",
+    "total": "Total for this period",
+    "empty": "No entries yet — bills and payments show here",
+    "more": "More options",
+    "editBill": "Edit bill",
+    "deletePayment": "Delete payment",
+    "deleteTitle": "Delete this payment?",
+    "deleteBody": "৳ {amount} — {date}. The due and the account balance go back to how they were. It is recorded in activity.",
+    "cancel": "Cancel",
+    "confirmDelete": "Delete payment",
+    "deleted": "Payment deleted",
+    "failed": "That didn't work — please try again"
   }
 }

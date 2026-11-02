@@ -2,7 +2,7 @@
 
 import { getTranslations } from "next-intl/server";
 import { runAction } from "@/lib/runAction";
-import { createSupplier, getExpenses, paySupplier } from "@/services/books.services";
+import { createSupplier, deletePayment, getExpenses, paySupplier } from "@/services/books.services";
 import type { ApiResult } from "@/types/api.types";
 import type { IExpense, IPaymentPayload, ISupplier } from "@/types/books.types";
 
@@ -31,3 +31,6 @@ export const openBillsAction = async (projectId: string, supplierId: string): Pr
     return [];
   }
 };
+
+export const deletePaymentAction = async (projectId: string, paymentId: string): Promise<ApiResult<null>> =>
+  runAction((await getTranslations("Ledger"))("failed"), () => deletePayment(projectId, paymentId));
