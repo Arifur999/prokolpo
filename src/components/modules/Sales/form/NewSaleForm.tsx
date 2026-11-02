@@ -48,8 +48,8 @@ export function NewSaleForm({ projectId, units, customers, accounts, today, unit
   const kist = draft.plan === "KIST";
   const down = kist ? Number(draft.down || 0) : Number(draft.price || 0);
   const picked = customers.find((c) => c.id === draft.customerId);
-  const buyer =
-    draft.mode === "NEW" ? t("newCust", { name: draft.customer.name.trim() || t("newBuyer") }) : picked ? t("oldCust", { name: picked.name }) : t("noBuyer");
+  const buyerName = draft.mode === "NEW" ? draft.customer.name.trim() || t("newBuyer") : (picked?.name ?? t("noBuyer"));
+  const buyer = draft.mode === "NEW" ? t("newCust", { name: buyerName }) : picked ? t("oldCust", { name: buyerName }) : buyerName;
   const buyerNote = draft.mode === "NEW" ? t("newCustNote") : picked ? t("oldCustNote", { units: picked.sales.map((s) => s.unitName).join(", ") || "—" }) : "";
 
   const save = () => {
@@ -163,6 +163,7 @@ export function NewSaleForm({ projectId, units, customers, accounts, today, unit
       <SaleImpact
         draft={draft}
         unitName={unit?.name ?? ""}
+        buyerName={buyerName}
         buyer={buyer}
         buyerNote={buyerNote}
         account={accounts.find((a) => a.id === draft.accountId)}

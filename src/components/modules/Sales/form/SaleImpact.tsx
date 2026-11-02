@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import type { PickableAccount } from "@/components/shared/form/AccountPicker";
 import type { SaleDraft } from "./saleDraft";
 
-type SaleImpactProps = { draft: SaleDraft; unitName: string; buyer: string; buyerNote: string; account?: PickableAccount; owedNow: number };
+type SaleImpactProps = { draft: SaleDraft; unitName: string; buyerName: string; buyer: string; buyerNote: string; account?: PickableAccount; owedNow: number };
 
 // "সেভ করলে যা হবে" (board SaleNew): the unit's new state, the buyer, the money in today,
 // what customers will owe, and the installment schedule.
-export function SaleImpact({ draft, unitName, buyer, buyerNote, account, owedNow }: SaleImpactProps) {
+export function SaleImpact({ draft, unitName, buyerName, buyer, buyerNote, account, owedNow }: SaleImpactProps) {
   const t = useTranslations("SaleNew");
   const price = Number(draft.price || 0);
   const kist = draft.plan === "KIST";
@@ -31,7 +31,7 @@ export function SaleImpact({ draft, unitName, buyer, buyerNote, account, owedNow
         </span>
         <span className="text-[30px] leading-[1.25] font-bold">৳ {formatAmount(price)}</span>
         <span className="text-sm text-white/80">
-          {unitName} · {buyer}
+          {unitName} · {buyerName}
         </span>
       </div>
       <div className="flex flex-col px-6 pt-1 pb-2">
