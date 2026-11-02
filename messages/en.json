@@ -683,5 +683,24 @@
       "email": "Enter a valid email",
       "message": "Tell us a little about the problem — at least 10 characters"
     }
+  },
+  "Legal": {
+    "title": "Terms & privacy",
+    "lead": "In plain words — the rules Prokolpo runs by and how your information is kept. Last changed: {date}",
+    "tabsLabel": "Section",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "tocLabel": "On this page",
+    "summary": "In short",
+    "questions": "Any questions? Write to us — we usually call within 1 working day.",
+    "support": "Help & contact",
+    "backToRegister": "Back to registration"
+  },
+  "PublicHeader": {
+    "homeLabel": "Prokolpo — home page",
+    "support": "Help & contact",
+    "switchLanguage": "বাংলা",
+    "login": "Log in",
+    "register": "Create account"
   }
 }

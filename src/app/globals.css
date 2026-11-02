@@ -50,6 +50,8 @@
   /* Prokolpo palette, named by role. Values come straight from the design canvas. */
   --color-ink: #16211d;
   --color-ink-2: #4e5853;
+  /* Long-form reading text (terms, privacy). */
+  --color-ink-body: #2e3833;
   --color-ink-3: #616a65;
   --color-ink-4: #6e7571;
   --color-ink-5: #8c918e;
@@ -115,6 +117,8 @@
   --shadow-showcase: 0 1px 2px rgba(22, 33, 29, 0.04), 0 16px 40px rgba(22, 33, 29, 0.08);
   --shadow-raised: 0 12px 32px rgba(22, 33, 29, 0.16);
   --shadow-dialog: 0 24px 64px rgba(15, 31, 26, 0.28);
+  /* The raised option in a segmented control. */
+  --shadow-segment: 0 1px 3px rgba(22, 33, 29, 0.14);
   --shadow-focus: 0 0 0 3px rgba(22, 73, 58, 0.14);
   --shadow-hero: 0 24px 60px rgba(8, 28, 22, 0.35);
 }
