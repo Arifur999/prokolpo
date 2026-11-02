@@ -53,6 +53,15 @@ export const resetWithCode = (phone: string, code: string, password: string) => 
 
 export const checkInvite = (phone: string) => post<IInviteCheck>("/auth/invite", { phone });
 
+// The profile's password change: the API answers with this device's new session, whose raw
+// tokens must stay on the server (the action puts them in cookies).
+export const changePassword = async (currentPassword: string, password: string, logoutOthers: boolean) =>
+  post<ISession>(
+    "/me/password",
+    { currentPassword, password, logoutOthers },
+    { ...(await getForwardHeaders()), Authorization: `Bearer ${await getAccessToken()}` },
+  );
+
 // Layout, sidebar and page all need the user in one request; cache() makes that one round trip.
 // Returns null ONLY when the API says the token is no good (401/403). Anything else (API down,
 // 5xx, timeout) throws to error.tsx: an outage must not log everyone out.
