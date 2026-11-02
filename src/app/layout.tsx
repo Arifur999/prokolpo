@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Toaster } from "@/components/ui/sonner";
+import { AppToaster } from "@/components/shared/AppToaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { bodyFont, displayFont } from "@/lib/fonts";
 import QueryProvider from "./providers/QueryProvider";
@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <NextIntlClientProvider>
           <QueryProvider>
             <TooltipProvider>{children}</TooltipProvider>
-            <Toaster richColors position="top-center" />
+            <AppToaster />
           </QueryProvider>
         </NextIntlClientProvider>
       </body>
