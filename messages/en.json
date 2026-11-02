@@ -628,5 +628,60 @@
       "backToLogin": "Back to login",
       "failed": "Couldn't change the password — please try again"
     }
+  },
+  "Support": {
+    "title": "Help & contact",
+    "subtitle": "Tell us what's wrong — our team will call your number to help.",
+    "backToLogin": "Back to login",
+    "backToDashboard": "Back to dashboard",
+    "home": "Go to home page",
+    "notes": {
+      "forgot": "You came from \"Forgot password\" — your number and topic are filled in.",
+      "suspended": "You saw \"account suspended\" when logging in — your number is filled in. Tell us what you need; support will call this number.",
+      "app": "You're logged in as {name} — name, number and email come from your account, and the request is linked to it."
+    },
+    "name": "Your name",
+    "namePlaceholder": "e.g. Tania Rahman",
+    "phone": "Mobile number",
+    "phonePlaceholder": "01XXX-XXXXXX",
+    "phoneHelp": "We'll call this number",
+    "email": "Email",
+    "optional": "(optional)",
+    "emailPlaceholder": "If you have one",
+    "topic": "About",
+    "topics": {
+      "login": "Login & password",
+      "project": "Projects & accounts",
+      "members": "Members & partners",
+      "other": "Something else"
+    },
+    "message": "What's the problem?",
+    "messageHints": {
+      "login": "e.g. I forgot my password and have no email on the account. I can't reach the project owner.",
+      "project": "e.g. An expense was entered twice, or I deleted a project by mistake.",
+      "members": "e.g. I can't add a partner, or I want to change someone's role.",
+      "other": "Tell us what you'd like to know."
+    },
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "failed": "Couldn't send the request — try again or message us on WhatsApp",
+    "safety": "Our team will never ask for your password. To confirm it's you, they'll ask a few questions on the phone — such as which project you're in.",
+    "sentTitle": "Request received",
+    "reference": "Request number {reference}",
+    "sentBody": "We usually call {phone} within 1 working day. If it's urgent, send the request number to the WhatsApp number below.",
+    "sentLogin": "About your password: once we've confirmed it's you on the phone, we'll give you a 6-digit code. Enter it on the \"Forgot password\" page to set a new password. The code is only ever said on the phone — never by SMS or link.",
+    "sentSuspended": "About your account: support will call to explain why it was suspended and hear you out — they may ask for documents. You'll hear the decision by phone; if it's reopened, your old password still works.",
+    "sentProjectBefore": "To let us see the accounts: in the project's",
+    "sentProjectPlace": "Settings › Ownership & deletion",
+    "sentProjectAfter": "turn on \"allow support to view\". Without it, support only sees a summary — no money figures.",
+    "whatsapp": "Urgent? WhatsApp:",
+    "hours": "· 9 am – 9 pm",
+    "faq": "FAQ",
+    "validation": {
+      "name": "Enter your name",
+      "phone": "Enter a valid mobile number (e.g. 01712-345678)",
+      "email": "Enter a valid email",
+      "message": "Tell us a little about the problem — at least 10 characters"
+    }
   }
 }

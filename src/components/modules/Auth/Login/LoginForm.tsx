@@ -10,6 +10,7 @@ import { visibleFieldError } from "@/components/shared/form/fieldError";
 import { FormField } from "@/components/shared/form/FormField";
 import { PasswordInput } from "@/components/shared/form/PasswordInput";
 import { TextInput } from "@/components/shared/form/TextInput";
+import { normalizePhone } from "@/lib/phone";
 import { ROUTES } from "@/lib/routes";
 import { AUTH_ERROR_CODES } from "@/types/auth.types";
 import type { ApiErrorResponse } from "@/types/api.types";
@@ -42,7 +43,7 @@ export function LoginForm({ redirectTo }: { redirectTo?: string }) {
       }}
       className="flex flex-col gap-5"
     >
-      {isSuspended && <SuspendedNotice />}
+      {isSuspended && <SuspendedNotice phone={normalizePhone(form.state.values.identifier)} />}
       {failure && !isSuspended && (
         <div role="alert" className="rounded-xl border border-danger-line bg-danger-tint px-4 py-3 text-[15px] font-semibold text-danger-ink">
           {failure.message}

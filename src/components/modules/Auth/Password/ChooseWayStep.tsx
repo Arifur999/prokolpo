@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { sendResetLinkAction } from "@/app/(auth)/forgot-password/_action";
-import { ROUTES } from "@/lib/routes";
+import { supportHref } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { AuthHeading } from "../AuthHeading";
 import { SubmitButton } from "../SubmitButton";
@@ -104,7 +104,7 @@ export function ChooseWayStep({ account, onChangeNumber, onSent }: ChooseWayStep
       </form>
       <p className="m-0 text-[13px] leading-[1.55] text-ink-3">
         {t("supportNote")}{" "}
-        <Link href={ROUTES.support} className="font-semibold">
+        <Link href={supportHref("forgot", account.phone)} className="font-semibold">
           {t("supportLink")}
         </Link>
       </p>

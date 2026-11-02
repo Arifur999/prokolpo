@@ -10,5 +10,9 @@ export const ROUTES = {
   terms: "/terms",
 } as const;
 
+// Support page pre-filled for where the person came from (see app/(auth)/support/page.tsx).
+export const supportHref = (from: "forgot" | "suspended", phone?: string | null) =>
+  `${ROUTES.support}?${new URLSearchParams({ from, ...(phone ? { phone } : {}) }).toString()}`;
+
 // Shown wherever the design offers WhatsApp support (suspended login, reset email).
 export const SUPPORT_WHATSAPP = "01700-000111";

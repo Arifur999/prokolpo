@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Icon } from "@/components/shared/icon/Icon";
-import { ROUTES, SUPPORT_WHATSAPP } from "@/lib/routes";
+import { SUPPORT_WHATSAPP, supportHref } from "@/lib/routes";
 
-export function SuspendedNotice() {
+export function SuspendedNotice({ phone }: { phone: string | null }) {
   const t = useTranslations("Auth.suspended");
 
   return (
@@ -14,7 +14,7 @@ export function SuspendedNotice() {
         <span className="text-sm leading-[1.6] text-danger-ink-2">{t("body")}</span>
         <span className="flex flex-wrap items-center gap-x-3.5 gap-y-2">
           <Link
-            href={ROUTES.support}
+            href={supportHref("suspended", phone)}
             className="flex h-9.5 items-center rounded-lg bg-danger-strong px-3.5 text-sm font-semibold text-white no-underline hover:text-white"
           >
             {t("contact")}
