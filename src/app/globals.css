@@ -144,3 +144,14 @@
     font-family: inherit;
   }
 }
+
+/* Side gutter of the marketing and auth pages: 120px at the design's 1440px width. */
+@utility px-page {
+  padding-inline: 1rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 120px;
+  }
+}
