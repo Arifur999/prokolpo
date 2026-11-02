@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Icon } from "@/components/shared/icon/Icon";
-import { whenText } from "@/lib/dayLabel";
+import { whenText } from "@/lib/whenText";
 import type { IAdminUserDetail } from "@/types/admin.types";
 import { deviceLabel } from "./deviceLabel";
 
@@ -24,7 +24,7 @@ export function UserDevices({ u, now }: { u: IAdminUserDetail; now: string }) {
         return (
           <div key={i} className="flex items-center gap-3.5 border-b border-line-3 px-5 py-3">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-[10px] bg-surface-4 text-ink-2">
-              <Icon name={label.kind === "phone" ? "smartphone" : "dashboard"} size={20} strokeWidth={2} />
+              <Icon name={label.kind === "pc" ? "dashboard" : "smartphone"} size={20} strokeWidth={2} />
             </span>
             <span className="flex flex-col">
               <span className="text-[15px] font-semibold">{label.name}</span>

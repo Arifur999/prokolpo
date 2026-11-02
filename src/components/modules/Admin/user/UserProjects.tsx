@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Icon } from "@/components/shared/icon/Icon";
-import { whenText } from "@/lib/dayLabel";
+import { whenText } from "@/lib/whenText";
 import type { IAdminUserDetail } from "@/types/admin.types";
 
 // "প্রজেক্ট ও রোল" (board AdminUserDetail): where the account works and in which role; the

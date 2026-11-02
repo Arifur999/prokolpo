@@ -6,7 +6,7 @@ import { useState, useTransition } from "react";
 import { toast } from "sonner";
 import { addNoteAction } from "@/app/(admin)/admin/(panel)/users/[userId]/_action";
 import { TextArea } from "@/components/shared/form/TextArea";
-import { whenText } from "@/lib/dayLabel";
+import { whenText } from "@/lib/whenText";
 import { cn } from "@/lib/utils";
 import type { IAdminUserDetail } from "@/types/admin.types";
 

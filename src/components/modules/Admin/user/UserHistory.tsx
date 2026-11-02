@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { auditLine } from "@/lib/auditText";
-import { whenText } from "@/lib/dayLabel";
+import { whenText } from "@/lib/whenText";
 import { cn } from "@/lib/utils";
 import type { IAdminUserDetail } from "@/types/admin.types";
 import { deviceLabel } from "./deviceLabel";
@@ -27,7 +27,7 @@ export function UserHistory({ u, now }: { u: IAdminUserDetail; now: string }) {
   const line = (h: IAdminUserDetail["history"][number]) => {
     switch (h.kind) {
       case "admin": {
-        const a = auditLine({ action: h.text, summary: name, details: h.details }, audit);
+        const a = auditLine({ action: h.text, summary: name, details: h.details }, audit, (key) => ta.has(key as Parameters<typeof ta>[0]));
         return { text: `${h.details.actor ?? ""} ${a.text}`.trim(), sub: a.reason ? t("reason", { reason: a.reason }) : "" };
       }
       case "support":

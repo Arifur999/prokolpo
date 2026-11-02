@@ -32,7 +32,7 @@ export function AuditFeed({ lines, now }: { lines: IAuditLine[]; now: string }) 
       {lines.length ? (
         <ol className="m-0 list-none py-1">
           {lines.map((x) => {
-            const line = auditLine(x, translate);
+            const line = auditLine(x, translate, (key) => ta.has(key as Parameters<typeof ta>[0]));
             const initials = x.actor
               .split(/\s+/)
               .map((p) => Array.from(p)[0] ?? "")

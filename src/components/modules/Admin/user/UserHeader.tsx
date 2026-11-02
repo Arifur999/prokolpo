@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Icon } from "@/components/shared/icon/Icon";
-import { whenText } from "@/lib/dayLabel";
+import { whenText } from "@/lib/whenText";
 import { displayPhone } from "@/lib/phone";
 import { cn } from "@/lib/utils";
 import type { IAdminUserDetail } from "@/types/admin.types";
