@@ -3,12 +3,17 @@
 import { useState } from "react";
 import { ChooseWayStep } from "./ChooseWayStep";
 import { LinkSentStep } from "./LinkSentStep";
+import { NewPasswordForm } from "./NewPasswordForm";
 import { PhoneStep, type FoundAccount } from "./PhoneStep";
 import { ResetSteps } from "./ResetSteps";
 
-type Step = { name: "phone" } | { name: "choose"; account: FoundAccount } | { name: "sent"; account: FoundAccount };
+type Step =
+  | { name: "phone" }
+  | { name: "choose"; account: FoundAccount }
+  | { name: "sent"; account: FoundAccount }
+  | { name: "code"; account: FoundAccount };
 
-// Phone, then a way to reset, then "check your email". The owner-code way joins with project members.
+// Phone, then a way to reset, then "check your email" or the owner's code with a new password.
 export function ForgotPasswordFlow() {
   const [step, setStep] = useState<Step>({ name: "phone" });
   const [phone, setPhone] = useState("");
@@ -30,8 +35,10 @@ export function ForgotPasswordFlow() {
           account={step.account}
           onChangeNumber={() => setStep({ name: "phone" })}
           onSent={() => setStep({ name: "sent", account: step.account })}
+          onCode={() => setStep({ name: "code", account: step.account })}
         />
       )}
+      {step.name === "code" && <NewPasswordForm codeFrom={{ phone: step.account.phone, ownerName: step.account.ownerName ?? "" }} />}
       {step.name === "sent" && <LinkSentStep phone={step.account.phone} maskedEmail={step.account.maskedEmail ?? ""} />}
     </>
   );

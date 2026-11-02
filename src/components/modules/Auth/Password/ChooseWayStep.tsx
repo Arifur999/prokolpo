@@ -19,11 +19,13 @@ type ChooseWayStepProps = {
   account: FoundAccount;
   onChangeNumber: () => void;
   onSent: () => void;
+  onCode: () => void;
 };
 
-export function ChooseWayStep({ account, onChangeNumber, onSent }: ChooseWayStepProps) {
+export function ChooseWayStep({ account, onChangeNumber, onSent, onCode }: ChooseWayStepProps) {
   const t = useTranslations("Auth.forgot");
-  const [way, setWay] = useState<Way | null>(account.canUseEmail ? "email" : null);
+  // A member is most likely to reach their owner; an owner can only use email.
+  const [way, setWay] = useState<Way | null>(account.canUseOwnerCode ? "code" : account.canUseEmail ? "email" : null);
   const [error, setError] = useState<string>();
   const [isPending, startTransition] = useTransition();
 
@@ -34,7 +36,12 @@ export function ChooseWayStep({ account, onChangeNumber, onSent }: ChooseWayStep
       body: account.maskedEmail ? t("emailWayOn", { email: account.maskedEmail }) : t("emailWayOff"),
       enabled: account.canUseEmail,
     },
-    { key: "code", title: t("codeWay"), body: t("codeWayOff"), enabled: account.canUseOwnerCode },
+    {
+      key: "code",
+      title: t("codeWay"),
+      body: account.canUseOwnerCode ? t("codeWayOn", { owner: account.ownerName ?? "", project: account.projectName ?? "" }) : t("codeWayOwner"),
+      enabled: account.canUseOwnerCode,
+    },
   ];
 
   const send = () =>
@@ -97,10 +104,11 @@ export function ChooseWayStep({ account, onChangeNumber, onSent }: ChooseWayStep
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          send();
+          if (way === "code") onCode();
+          else send();
         }}
       >
-        <SubmitButton isSubmitting={isPending} disabled={way !== "email"} label={t("sendLink")} submittingLabel={t("sending")} />
+        <SubmitButton isSubmitting={isPending} disabled={!way} label={way === "code" ? t("codeNext") : t("sendLink")} submittingLabel={t("sending")} />
       </form>
       <p className="m-0 text-[13px] leading-[1.55] text-ink-3">
         {t("supportNote")}{" "}

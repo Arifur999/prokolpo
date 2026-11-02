@@ -559,7 +559,22 @@
       "submitting": "Creating account…",
       "failed": "Couldn't create the account — please try again",
       "haveAccount": "Already have an account?",
-      "login": "Log in"
+      "login": "Log in",
+      "invitePhone": "The number that was invited",
+      "inviteCheck": "Check invitation",
+      "inviteChecking": "Checking…",
+      "inviteGo": "Open an account with this number",
+      "inviteEmpty": "Enter the number that was invited",
+      "inviteBad": "Enter a valid mobile number — 11 digits starting with 01",
+      "inviteFound": "Invitation found — {project} · {role}",
+      "inviteFoundSub": "{by} invited you on {date} · you join when the account opens",
+      "invitedSubtitle": "Opening an account with an invited number",
+      "invitedNote": "Invited number — when the account opens you join \"{project}\" as {role}. The number can't be changed.",
+      "role": {
+        "OWNER": "Owner",
+        "MANAGER": "Manager",
+        "VIEWER": "Viewer"
+      }
     },
     "forgot": {
       "stepsLabel": "Steps",
@@ -581,7 +596,6 @@
       "emailWayOn": "A link goes to {email} — it works for 30 minutes",
       "emailWayOff": "Your account has no email address",
       "codeWay": "Get a code from the project owner",
-      "codeWayOff": "Owner codes are coming soon — use email or support for now",
       "sendLink": "Email me a link",
       "sending": "Sending…",
       "supportNote": "If neither works, write to Prokolpo support — we'll check your name and mobile number and help.",
@@ -594,7 +608,15 @@
       "backToLogin": "Back to login",
       "remembered": "Remembered your password?",
       "login": "Log in",
-      "failed": "Something went wrong — please try again"
+      "failed": "Something went wrong — please try again",
+      "codeWayOn": "Call {owner}. They give you a 6-digit code from the members page of \"{project}\" — it works for 30 minutes.",
+      "codeWayOwner": "You own your projects — reset by email",
+      "codeNext": "I have the code — continue",
+      "codeTitle": "New password with a code",
+      "codeHint": "Enter the 6-digit code {owner} gave you, then a new password",
+      "code": "6-digit reset code",
+      "codeShort": "Enter all 6 digits of the code",
+      "codeDoneBody": "Log in with your new password. For safety you were signed out on every other device, and the project's activity shows the code was used."
     },
     "reset": {
       "title": "Set a new password",
@@ -1019,16 +1041,76 @@
         "Transport",
         "Other"
       ],
-      "RENOVATION": ["Paint", "Tiles", "Sanitary", "Electrical", "Wood & furniture", "Thai glass/grill", "Mason wages", "Transport", "Other"],
-      "OTHER": ["Materials", "Wages", "Transport", "Fees & paperwork", "Other"],
-      "POULTRY": ["Chicks", "Feed", "Medicine & vaccines", "Shed building", "Litter/husk", "Electricity", "Labour wages", "Transport", "Other"],
-      "CATTLE": ["Animals", "Feed (grass/bran)", "Medicine & vet", "Shed building", "Labour wages", "Electricity & water", "Transport", "Other"],
-      "FISH": ["Pond digging/repair", "Fingerlings", "Feed", "Medicine & lime", "Nets & gear", "Labour wages", "Electricity/pump", "Other"],
-      "CROP": ["Land lease", "Seeds/seedlings", "Fertiliser", "Pesticide", "Irrigation", "Labour wages", "Transport", "Other"]
+      "RENOVATION": [
+        "Paint",
+        "Tiles",
+        "Sanitary",
+        "Electrical",
+        "Wood & furniture",
+        "Thai glass/grill",
+        "Mason wages",
+        "Transport",
+        "Other"
+      ],
+      "OTHER": [
+        "Materials",
+        "Wages",
+        "Transport",
+        "Fees & paperwork",
+        "Other"
+      ],
+      "POULTRY": [
+        "Chicks",
+        "Feed",
+        "Medicine & vaccines",
+        "Shed building",
+        "Litter/husk",
+        "Electricity",
+        "Labour wages",
+        "Transport",
+        "Other"
+      ],
+      "CATTLE": [
+        "Animals",
+        "Feed (grass/bran)",
+        "Medicine & vet",
+        "Shed building",
+        "Labour wages",
+        "Electricity & water",
+        "Transport",
+        "Other"
+      ],
+      "FISH": [
+        "Pond digging/repair",
+        "Fingerlings",
+        "Feed",
+        "Medicine & lime",
+        "Nets & gear",
+        "Labour wages",
+        "Electricity/pump",
+        "Other"
+      ],
+      "CROP": [
+        "Land lease",
+        "Seeds/seedlings",
+        "Fertiliser",
+        "Pesticide",
+        "Irrigation",
+        "Labour wages",
+        "Transport",
+        "Other"
+      ]
     },
     "phases": {
-      "buildingStart": ["Land & design", "Piling", "Foundation"],
-      "buildingEnd": ["Roof", "Finishing"],
+      "buildingStart": [
+        "Land & design",
+        "Piling",
+        "Foundation"
+      ],
+      "buildingEnd": [
+        "Roof",
+        "Finishing"
+      ],
       "floor": "{ordinal} floor",
       "batch": "Batch {n}",
       "season": "Season {n}",
@@ -1038,9 +1120,24 @@
         "FISH": "Pond preparation",
         "CROP": "Land preparation"
       },
-      "LAND": ["Purchase & registry", "Mutation & papers", "Development (filling, roads)", "Plot sales"],
-      "BUSINESS": ["Finding the shop", "Decoration", "Stocking up", "Opening"],
-      "RENOVATION": ["Demolition & cleanup", "Plumbing & electrical", "Tiles & paint", "Finishing"]
+      "LAND": [
+        "Purchase & registry",
+        "Mutation & papers",
+        "Development (filling, roads)",
+        "Plot sales"
+      ],
+      "BUSINESS": [
+        "Finding the shop",
+        "Decoration",
+        "Stocking up",
+        "Opening"
+      ],
+      "RENOVATION": [
+        "Demolition & cleanup",
+        "Plumbing & electrical",
+        "Tiles & paint",
+        "Finishing"
+      ]
     },
     "menus": {
       "partners": "Partners",
@@ -1560,7 +1657,18 @@
       "হার্ডওয়্যার",
       "অন্যান্য"
     ],
-    "works": ["রাজমিস্ত্রি", "রড মিস্ত্রি", "রং", "টাইলস", "স্যানিটারি", "ইলেকট্রিক", "কাঠমিস্ত্রি", "লেবার/যোগালি", "পাইলিং", "অন্যান্য"]
+    "works": [
+      "রাজমিস্ত্রি",
+      "রড মিস্ত্রি",
+      "রং",
+      "টাইলস",
+      "স্যানিটারি",
+      "ইলেকট্রিক",
+      "কাঠমিস্ত্রি",
+      "লেবার/যোগালি",
+      "পাইলিং",
+      "অন্যান্য"
+    ]
   },
   "Ledger": {
     "breadcrumbLabel": "Breadcrumb",
@@ -1946,5 +2054,220 @@
       "added": "Account added — {name}"
     },
     "failed": "That didn't work — please try again"
+  },
+  "Members": {
+    "title": "Members",
+    "subtitle": "Who can see this project or make entries",
+    "add": "Add member",
+    "listTitle": "Project members ({count})",
+    "ownerOnly": "Only the owner can change roles, give reset codes and remove members",
+    "colMember": "Member",
+    "colRole": "Role",
+    "colLast": "Last active",
+    "colEntries": "Entries this month",
+    "colActions": "Actions",
+    "you": "You",
+    "role": {
+      "OWNER": "Owner",
+      "MANAGER": "Manager",
+      "VIEWER": "Viewer"
+    },
+    "roleLabel": "{name}'s role",
+    "sub": "{phone} · joined {date}",
+    "online": "Online now",
+    "today": "Today {time}",
+    "never": "Not yet signed in",
+    "resetTitle": "Password reset code",
+    "resetLabel": "Password reset code for {name}",
+    "removeTitle": "Remove from project",
+    "removeLabel": "Remove {name} from the project",
+    "removeConfirm": "Remove {name}? Their past entries stay.",
+    "no": "No",
+    "yesRemove": "Yes, remove",
+    "removed": "{name} was removed",
+    "roleChanged": "{name} is now {role}",
+    "pendingTitle": "Pending invitations",
+    "pendingNote": "They join on their own when this number opens an account",
+    "pendingSub": "{by} invited on {date} · no account yet",
+    "copyMessage": "Copy message",
+    "copied": "Message copied — send it by WhatsApp or SMS",
+    "inviteMessage": "You have been added to the \"{project}\" project on Prokolpo as {role}. Open an account with this number ({phone}) to see it: {link}",
+    "cancel": "Cancel",
+    "cancelled": "Invitation cancelled",
+    "noPending": "No invitations waiting",
+    "permTitle": "What each role can do",
+    "permTask": "Task",
+    "perm": {
+      "view": "See all the books",
+      "write": "Add, edit and delete expenses, payments, attendance",
+      "team": "Add members, change roles, reset codes",
+      "settings": "Project settings, deleting the project"
+    },
+    "allowed": "Allowed",
+    "notAllowed": "Not allowed",
+    "partnerTip": "Add partners as viewers: they can see all the books on their own phone, but can't change anything by mistake.",
+    "activityTip": "Who did what and when is on the <link>Activity</link> page.",
+    "failed": "That didn't work — please try again",
+    "invite": {
+      "title": "Add member",
+      "subtitle": "By mobile number — they don't need an account yet",
+      "close": "Close",
+      "phone": "Mobile number",
+      "statusEmptyTitle": "Enter a number",
+      "statusEmpty": "Like 01712345678 — +880 works too",
+      "statusInvalidTitle": "That number isn't right",
+      "statusInvalid": "Enter a valid mobile number (e.g. 01712345678)",
+      "statusMemberTitle": "Already a member",
+      "statusMember": "{name} is already on this project with this number",
+      "statusPendingTitle": "Already invited",
+      "statusPending": "See \"Pending invitations\" below",
+      "statusFoundTitle": "{name} — has a Prokolpo account",
+      "statusFound": "They join this project right away",
+      "statusNewTitle": "No account with this number yet",
+      "statusNew": "The invitation waits — they join on their own when they register with this number",
+      "checking": "Checking…",
+      "role": "Role",
+      "managerNote": "Can add and edit expenses, payments, attendance",
+      "viewerNote": "Can only look, can't change anything",
+      "cancel": "Cancel",
+      "add": "Add",
+      "keep": "Keep invitation",
+      "added": "{name} joined as {role}",
+      "kept": "Invitation kept — {phone}"
+    },
+    "reset": {
+      "close": "Close",
+      "codeFor": "Give this code to {name}",
+      "valid": "Works until {time} (30 minutes) · usable once",
+      "making": "Making a code…",
+      "step1": "Tell {name} the code by phone or WhatsApp",
+      "step2": "On the login page they tap \"Forgot password?\" and choose \"Get a code from the project owner\"",
+      "step3": "They set a new password with the code — you never see their password",
+      "warn": "Give the code only to {name} — whoever has it can change this account's password. When it is used, the activity page records it.",
+      "newCode": "Make a new code",
+      "newCodeDone": "New code made — the old one no longer works",
+      "copy": "Copy",
+      "copied": "Code copied — {code}",
+      "whatsapp": "Send on WhatsApp",
+      "whatsappText": "Your Prokolpo password reset code: {code} — works until {time}."
+    }
+  },
+  "Activity": {
+    "title": "Activity",
+    "subtitle": "Who added, changed or deleted what, and when — everything is kept, nothing is lost",
+    "periodLabel": "Period",
+    "period": {
+      "7": "Last 7 days: {from} – {to}",
+      "30": "Last 30 days: {from} – {to}",
+      "90": "Last 90 days: {from} – {to}",
+      "all": "Everything since the start"
+    },
+    "timeline": "Timeline",
+    "whoLabel": "Whose work",
+    "everyone": "Everyone",
+    "kindLabel": "Kind of change",
+    "kind": {
+      "ALL": "All changes",
+      "CREATE": "Additions only",
+      "UPDATE": "Changes only",
+      "DELETE": "Deletions only"
+    },
+    "todayDay": "Today — {day}",
+    "yesterdayDay": "Yesterday — {day}",
+    "count": "{count}",
+    "showChanges": "See what changed",
+    "hideChanges": "Hide the changes",
+    "changesLabel": "What changed",
+    "colField": "Field",
+    "colBefore": "Before",
+    "colAfter": "Now",
+    "restore": "Restore",
+    "restored": "Restored — it shows in the expense list again",
+    "restoredToast": "Entry restored — {title} ৳ {amount}",
+    "empty": "No activity for this filter",
+    "more": "Show earlier activity",
+    "loading": "Loading…",
+    "weekTitle": "Entries this week, by person",
+    "weekSub": "{from} – {to} · {count} in all",
+    "weekAria": "{name}: {count} entries",
+    "safeTitle": "Nothing is ever lost",
+    "safe1": "A deleted money entry is only hidden. An owner or manager can press \"Restore\" here to bring it back into the books.",
+    "safe2": "When an entry changes, you can see both what it was and what it is now.",
+    "failed": "That didn't work — please try again",
+    "area": {
+      "expense": "Expense",
+      "payment": "Payment",
+      "transfer": "Transfer",
+      "supplier": "Supplier",
+      "contractor": "Contractor",
+      "extra": "Contractor",
+      "attendance": "Attendance",
+      "account": "Account",
+      "category": "Category",
+      "member": "Member",
+      "invite": "Member",
+      "password": "Member",
+      "other": "Other"
+    },
+    "role": {
+      "OWNER": "Owner",
+      "MANAGER": "Manager",
+      "VIEWER": "Viewer"
+    },
+    "text": {
+      "expenseCreate": "added {title} — ৳ {amount}",
+      "expenseUpdate": "changed the {title} bill",
+      "expenseDelete": "deleted an expense — {title} · ৳ {amount}",
+      "expenseRestore": "restored an expense — {title} · ৳ {amount}",
+      "paymentCreate": "paid {party} ৳ {amount} {kind}",
+      "paymentCreateNoParty": "made a payment of ৳ {amount}",
+      "paymentDelete": "deleted the ৳ {amount} payment to {party}",
+      "wage": "in wages",
+      "payment": "",
+      "transferCreate": "moved ৳ {amount} from {from} to {to}",
+      "supplierCreate": "added a new supplier — {name}",
+      "contractorCreate": "added a new contractor — {name}",
+      "accountCreate": "opened a new account — {name}",
+      "categoryCreate": "added a new category — {name}",
+      "extraCreate": "added extra work for {party} — {title} · ৳ {amount}",
+      "attendanceUpdate": "recorded attendance for {party}",
+      "memberJoined": "joined the project from an invitation — as {role}",
+      "memberCreate": "added {name} as {role}",
+      "memberUpdate": "changed {name}'s role — from {from} to {role}",
+      "memberDelete": "removed {name} from the project",
+      "inviteCreate": "invited {phone} as {role}",
+      "inviteDelete": "cancelled the invitation for {phone}",
+      "passwordUpdate": "changed their password with the owner's code",
+      "other": "{name}"
+    },
+    "sub": {
+      "cash": "Paid on the spot",
+      "credit": "On credit",
+      "fromAccount": "From {account}",
+      "reason": "Reason: {reason}",
+      "attendanceDays": "{count} cells",
+      "inviteWaits": "Joins on their own when the account opens",
+      "entriesStay": "Their past entries stay",
+      "signedOut": "Signed out on every device"
+    },
+    "purpose": {
+      "WAGE": "Weekly wages",
+      "ADVANCE": "Advance",
+      "INSTALL": "Work installment",
+      "EXTRA": "For extra work",
+      "FINAL": "Final settlement",
+      "OTHER": "Other"
+    },
+    "field": {
+      "category": "Category",
+      "quantity": "Quantity",
+      "rate": "Rate",
+      "amount": "Total",
+      "party": "From",
+      "phase": "Phase",
+      "date": "Date",
+      "description": "Description",
+      "memo": "Memo"
+    }
   }
 }

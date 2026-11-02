@@ -10,7 +10,10 @@ import { visibleFieldError } from "@/components/shared/form/fieldError";
 import { LabeledInput } from "@/components/shared/form/LabeledInput";
 import { normalizePhone } from "@/lib/phone";
 import { ROUTES } from "@/lib/routes";
+import { Icon } from "@/components/shared/icon/Icon";
+import { displayPhone } from "@/lib/phone";
 import type { ApiErrorResponse } from "@/types/api.types";
+import type { IInviteCheck } from "@/types/auth.types";
 import { registerFormSchema, type IRegisterFormValues } from "@/zod/auth.validation";
 import { SubmitButton } from "../SubmitButton";
 import { PasswordStrengthMeter } from "./PasswordStrengthMeter";
@@ -28,14 +31,15 @@ const DEFAULTS: IRegisterFormValues = {
 
 type FieldName = keyof IRegisterFormValues;
 
-export function RegisterForm() {
+// invite: the number was checked while registration is closed; it stays fixed.
+export function RegisterForm({ invite }: { invite?: IInviteCheck }) {
   const t = useTranslations("Auth.register");
   const schema = registerFormSchema(useMessages().Auth.validation);
   const [failure, setFailure] = useState<ApiErrorResponse | null>(null);
   const [serverErrors, setServerErrors] = useState<Partial<Record<FieldName, string>>>({});
 
   const form = useForm({
-    defaultValues: DEFAULTS,
+    defaultValues: invite ? { ...DEFAULTS, phone: displayPhone(invite.phone) } : DEFAULTS,
     validators: { onBlur: schema, onSubmit: schema },
     onSubmit: async ({ value }) => {
       // Success redirects inside the action; anything that comes back is a failure.
@@ -64,6 +68,12 @@ export function RegisterForm() {
       }}
       className="flex flex-col gap-4"
     >
+      {invite && (
+        <p className="m-0 flex items-start gap-2.5 rounded-[10px] bg-brand-tint px-3 py-2.5 text-sm leading-[1.55] text-brand">
+          <Icon name="checkCircle" size={18} strokeWidth={2} className="mt-px shrink-0" />
+          <span>{t("invitedNote", { project: invite.project, role: t(`role.${invite.role}`) })}</span>
+        </p>
+      )}
       {failure && (
         <div role="alert" className="rounded-xl border border-danger-line bg-danger-tint px-4 py-3 text-[15px] font-semibold text-danger-ink">
           {failure.message}
@@ -158,6 +168,7 @@ export function RegisterForm() {
                       autoComplete="tel"
                       placeholder={t("phonePlaceholder")}
                       aria-required
+                      readOnly={!!invite}
                       value={field.state.value}
                       onChange={(event) => {
                         clearServerError("phone");
@@ -165,7 +176,7 @@ export function RegisterForm() {
                       }}
                       onBlur={field.handleBlur}
                       error={error}
-                      success={savedAs}
+                      success={invite ? undefined : savedAs}
                     />
                   );
                 }}

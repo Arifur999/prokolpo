@@ -6,7 +6,7 @@ import { logServiceError } from "@/lib/axios/logServiceError";
 import { getForwardHeaders } from "@/lib/forwardHeaders";
 import { getAccessToken } from "@/lib/tokenUtils";
 import type { IApiSuccessBody } from "@/types/api.types";
-import type { ILoginPayload, IRegisterPayload, IResetOptions, ISession, IUser, RegistrationMode } from "@/types/auth.types";
+import type { IInviteCheck, ILoginPayload, IRegisterPayload, IResetOptions, ISession, IUser, RegistrationMode } from "@/types/auth.types";
 
 // The one service that is NOT "use server": login, register and refresh return raw tokens,
 // and every export of a "use server" file is a client-callable endpoint. They run only from
@@ -48,6 +48,10 @@ export const sendResetLink = (phone: string) => post<null>("/auth/password/email
 export const checkResetLink = (token: string) => post<{ maskedEmail: string | null }>("/auth/password/check", { token });
 
 export const resetPassword = (token: string, password: string) => post<null>("/auth/password/reset", { token, password });
+
+export const resetWithCode = (phone: string, code: string, password: string) => post<null>("/auth/password/code", { phone, code, password });
+
+export const checkInvite = (phone: string) => post<IInviteCheck>("/auth/invite", { phone });
 
 // Layout, sidebar and page all need the user in one request; cache() makes that one round trip.
 // Returns null ONLY when the API says the token is no good (401/403). Anything else (API down,

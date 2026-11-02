@@ -53,6 +53,17 @@ export interface IResetOptions {
   maskedEmail: string | null;
   canUseEmail: boolean;
   canUseOwnerCode: boolean;
+  ownerName: string | null;
+  projectName: string | null;
+}
+
+// An open invitation for a number, so it can register while registration is closed.
+export interface IInviteCheck {
+  phone: string;
+  project: string;
+  role: "MANAGER" | "VIEWER";
+  invitedBy: string;
+  createdAt: string;
 }
 
 // What the backend signs into the access token.
