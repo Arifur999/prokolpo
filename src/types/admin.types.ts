@@ -94,6 +94,7 @@ export interface IAdminUserDetail {
     owner: string;
     ownerId: string;
     members: number;
+    others: string[];
     role: "OWNER" | "MANAGER" | "VIEWER";
     lastWork: string | null;
   }[];

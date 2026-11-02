@@ -2,7 +2,20 @@ import type { IAuditLine } from "@/types/admin.types";
 import type { Translate } from "./activityText";
 
 // Actions the admin log words; anything newer shows its raw name until it gets copy.
-const KNOWN = new Set(["2fa_enable", "login", "login_backup", "login_failed", "login_locked"]);
+const KNOWN = new Set([
+  "2fa_enable",
+  "login",
+  "login_backup",
+  "login_failed",
+  "login_locked",
+  "user_reset_link",
+  "user_reset_code",
+  "user_logout_all",
+  "user_phone",
+  "user_suspend",
+  "user_unsuspend",
+  "user_code_used",
+]);
 
 // One admin log line as a sentence after the staff member's name (boards AdminDashboard,
 // AdminAudit); t is the "Admin.audit" namespace. The reason, when given, shows under it.
