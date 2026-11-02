@@ -170,6 +170,13 @@ export const ICON_PATHS = {
     </>
   ),
   spinner: <path d="M21 12a9 9 0 1 1-6.219-8.56" />,
+  info: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 16v-4" />
+      <path d="M12 8h.01" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>;
 
 export type IconName = keyof typeof ICON_PATHS;
