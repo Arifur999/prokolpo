@@ -1,4 +1,5 @@
 import type { IPartnerReceipt } from "@/types/partners.types";
+import type { ISaleReceipt } from "@/types/sales.types";
 import { banglaWords, englishWords } from "./amountWords";
 import { formatDateTime } from "./dhakaTime";
 import { dayFirst } from "./expenseText";
@@ -133,6 +134,69 @@ export const partnerReceiptDoc = (r: IPartnerReceipt, lang: DocLang): ReceiptDoc
       { label: "paid", value: `৳ ${formatAmount(r.paidSoFar)}`, tone: "good" },
       { label: "due", value: due > 0 ? `৳ ${formatAmount(due)}` : docLabel(lang, "none", true), tone: due > 0 ? "due" : "good" },
       { label: "share", value: share, tone: "ink" },
+    ],
+  };
+};
+
+const FLOOR_BN = (n: number) =>
+  `${String(n).replace(/[0-9]/g, (d) => "০১২৩৪৫৬৭৮৯".charAt(Number(d)))}${({ 1: "ম", 2: "য়", 3: "য়", 4: "র্থ", 5: "ম", 6: "ষ্ঠ" } as Record<number, string>)[n] ?? "তম"} তলা`;
+const UNIT_TYPE = {
+  bn: { FLAT: "ফ্ল্যাট", SHOP: "দোকান", PARKING: "পার্কিং", PLOT: "প্লট", OTHER: "অন্যান্য" },
+  en: { FLAT: "Flat", SHOP: "Shop", PARKING: "Parking", PLOT: "Plot", OTHER: "Other" },
+};
+
+// A sale payment's receipt in a language (board Receipt): the unit, which installments it
+// paid, and what is next.
+export const saleReceiptDoc = (r: ISaleReceipt, lang: DocLang): ReceiptDoc => {
+  const bn = lang !== "en";
+  const covered = r.covered ?? [];
+  const nos = covered.map((c) => c.no).join(", ");
+  const due = r.price - r.paidSoFar;
+  const role = r.takenByRole ? ROLE[bn ? "bn" : "en"][r.takenByRole] : "";
+  const via = r.accountKind === "BANK" ? ` · ${bn ? "ব্যাংক ট্রান্সফার" : "Bank transfer"}` : "";
+  const firstCovered = covered[0];
+  return {
+    no: r.no,
+    date: dayFirst(r.date.slice(0, 10)),
+    company: r.company,
+    companyLine: [`${bn ? "প্রজেক্ট: " : "Project: "}${r.project}`, r.location, displayPhone(r.ownerPhone)].filter(Boolean).join(" · "),
+    payer: r.payer,
+    payerSub: `${bn ? "মোবাইল " : "Mobile "}${displayPhone(r.payerPhone)}`,
+    forKey: "unit",
+    forText: [r.unit, bn ? FLOOR_BN(r.floor) : `Floor ${r.floor}`, r.size ? `${r.size} sqft` : UNIT_TYPE[bn ? "bn" : "en"][r.unitType]].join(" · "),
+    purpose:
+      r.kind === "DOWN"
+        ? r.installments
+          ? bn
+            ? "ডাউনপেমেন্ট"
+            : "Down payment"
+          : bn
+            ? "পুরো দাম"
+            : "Full price"
+        : `${bn ? "কিস্তি " : "Installment "}${nos}/${r.installments}`,
+    purposeSub:
+      r.kind === "DOWN"
+        ? bn
+          ? "বিক্রির দিন জমা"
+          : "Paid on the day of sale"
+        : firstCovered
+          ? `${bn ? "দেওয়ার তারিখ " : "Due date "}${dayFirst(firstCovered.due.slice(0, 10))}`
+          : "",
+    method: `${r.account}${via}${r.note ? ` · ${r.note}` : ""}`,
+    amount: `৳ ${formatAmount(r.amount)}`,
+    words: lang === "en" ? englishWords(r.amount) : lang === "both" ? `${banglaWords(r.amount)}\n${englishWords(r.amount)}` : banglaWords(r.amount),
+    receiver: role ? `${r.takenBy} (${role})` : r.takenBy,
+    foot: `${bn ? "কম্পিউটারে তৈরি রশিদ · অ্যাপে লেখা " : "Computer-generated receipt · entered "}${formatDateTime(new Date(r.writtenAt))}`,
+    copyKey: "cust",
+    facts: [
+      { label: "price", value: `৳ ${formatAmount(r.price)}`, tone: "ink" },
+      { label: "paid", value: `৳ ${formatAmount(r.paidSoFar)}`, tone: "good" },
+      { label: "due", value: due > 0 ? `৳ ${formatAmount(due)}` : docLabel(lang, "none", true), tone: due > 0 ? "due" : "good" },
+      {
+        label: "next",
+        value: r.next ? `${bn ? "কিস্তি " : "Installment "}${r.next.no} · ${dayFirst(r.next.date.slice(0, 10))}` : "—",
+        tone: "ink",
+      },
     ],
   };
 };
