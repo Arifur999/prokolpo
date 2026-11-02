@@ -19,13 +19,27 @@ type FormDialogProps = {
   // Any other width, e.g. "max-w-180" for a 720px dialog.
   widthClass?: string;
   topClass?: string;
+  // Replaces the padded column the fields sit in, for a body with its own layout.
+  bodyClass?: string;
 };
 
 const WIDTH = { xs: "max-w-135", sm: "max-w-145", md: "max-w-150", lg: "max-w-170" };
 
 // A modal form card: title and close at the top, fields, and a grey footer of actions
 // (boards SupplierAdd, SupplierPay, ContractorAdd, AccountsTransfer).
-export function FormDialog({ title, subtitle, closeLabel, onClose, band, footer, children, size = "md", widthClass, topClass = "top-16" }: FormDialogProps) {
+export function FormDialog({
+  title,
+  subtitle,
+  closeLabel,
+  onClose,
+  band,
+  footer,
+  children,
+  size = "md",
+  widthClass,
+  topClass = "top-16",
+  bodyClass = "flex flex-col gap-4 px-6 py-5",
+}: FormDialogProps) {
   return (
     <Dialog.Root open onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
@@ -54,7 +68,7 @@ export function FormDialog({ title, subtitle, closeLabel, onClose, band, footer,
             </Dialog.Close>
           </div>
           {band}
-          <div className="flex flex-col gap-4 overflow-y-auto px-6 py-5">{children}</div>
+          <div className={cn("overflow-y-auto", bodyClass)}>{children}</div>
           <div className="flex flex-wrap items-center justify-end gap-2.5 border-t border-line-3 bg-surface-3 px-6 py-4">{footer}</div>
         </Dialog.Content>
       </Dialog.Portal>

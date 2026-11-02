@@ -78,6 +78,8 @@
   --color-gold-darkest: #4a3300;
   --color-gold-tint: #fbefd8;
   --color-gold-wash: #fff8ec;
+  /* A row that is still running (a farm batch). */
+  --color-gold-glow: #fffcf5;
 
   --color-success: #1e6b45;
   --color-danger: #a32d24;
@@ -97,6 +99,8 @@
   --color-share-3: #eb6834;
   --color-share-4: #7a5ac8;
   --color-success-line: #cfe3d8;
+  /* Around a green-washed figure card (boards FarmSales, BizSales, Reports). */
+  --color-brand-edge: #d5e6dd;
 
   /* Money account colours (board Accounts), in the order accounts are opened. */
   --color-acc-1: #1a9a6c;
@@ -118,6 +122,8 @@
   --color-line-3: #efeee9;
   --color-line-strong: #c9c6bb;
   --color-rule: #dddad1;
+  /* The baseline under a bar chart. */
+  --color-axis: #b9b5aa;
   /* A stepper button that cannot go further. */
   --color-ink-disabled: #b9b6ac;
   /* Behind a modal dialog. */

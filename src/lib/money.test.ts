@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { amountParts, budgetPercent, budgetTone, formatAmount, formatPercent, toLatinDigits } from "./money";
+import { amountParts, budgetPercent, budgetTone, formatAmount, formatPercent, toLatinDigits, formatQuantity, toDecimalDigits } from "./money";
 
 describe("money", () => {
   it("groups taka the Indian way", () => {
@@ -23,5 +23,13 @@ describe("money", () => {
 
   it("splits an amount into crore, lakh and thousand", () => {
     expect(amountParts(25_012_345)).toEqual({ crore: 2, lakh: 50, thousand: 12, rest: 345 });
+  });
+
+  it("keeps quantities to three decimals", () => {
+    expect(toDecimalDigits("১০৫০")).toBe("1050");
+    expect(toDecimalDigits("2.5.5")).toBe("2.55");
+    expect(toDecimalDigits("1.23456")).toBe("1.234");
+    expect(formatQuantity(1050)).toBe("1,050");
+    expect(formatQuantity(2.5)).toBe("2.5");
   });
 });
