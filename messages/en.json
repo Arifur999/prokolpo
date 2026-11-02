@@ -713,5 +713,454 @@
     "whatsapp": "Urgent? WhatsApp <strong>{phone}</strong> (9 am – 9 pm)",
     "staff": "Prokolpo staff? Open the admin panel",
     "homeLabel": "Prokolpo — home page"
+  },
+  "AppHeader": {
+    "homeLabel": "My projects — Prokolpo",
+    "switchLanguage": "বাংলা",
+    "openMenu": "Account menu",
+    "myProjects": "My projects",
+    "profile": "Profile & account",
+    "language": "Language",
+    "help": "Help & contact",
+    "logout": "Log out",
+    "adminPanel": "Admin panel",
+    "staffBadge": "Staff"
+  },
+  "Projects": {
+    "ownership": {
+      "PERSONAL": "Personal",
+      "PARTNERSHIP": "Joint"
+    },
+    "status": {
+      "ACTIVE": "Active",
+      "ON_HOLD": "On hold",
+      "DONE": "Completed"
+    },
+    "role": {
+      "OWNER": "Owner",
+      "MANAGER": "Manager",
+      "VIEWER": "Viewer"
+    },
+    "kind": {
+      "BUILDING": "Building",
+      "FARM": "Farm",
+      "LAND": "Land",
+      "BUSINESS": "Business",
+      "RENOVATION": "Renovation",
+      "OTHER": "Other"
+    },
+    "farmType": {
+      "POULTRY": "Poultry",
+      "CATTLE": "Cattle & goats",
+      "FISH": "Fish",
+      "CROP": "Crops"
+    },
+    "floors": "{count, plural, one {# floor} other {# floors}}",
+    "members": "{count, plural, one {# member} other {# members}}",
+    "budgetPercent": "{percent} of budget spent",
+    "budgetPercentOver": "{percent} of budget spent — over budget"
+  },
+  "Dashboard": {
+    "title": "My projects",
+    "greeting": {
+      "morning": "Good morning, {name}",
+      "afternoon": "Good afternoon, {name}",
+      "evening": "Good evening, {name}",
+      "welcome": "Welcome, {name}"
+    },
+    "newProject": "New project",
+    "filterLabel": "Filter by status",
+    "filterAll": "All",
+    "searchLabel": "Search projects",
+    "searchPlaceholder": "Search by project name",
+    "noResultsTitle": "No projects found",
+    "noResultsBody": "Try another name, or show all projects",
+    "showAll": "Show all projects",
+    "listLabel": "Project list",
+    "card": {
+      "totalSpent": "Total spent",
+      "budget": "Budget ৳ {amount}",
+      "noBudget": "No budget set",
+      "overBudget": "৳ {amount} over budget",
+      "nearBudget": "Over 90% of the budget used",
+      "onHold": "Work paused",
+      "yourRole": "Your role:",
+      "moreOptions": "More options — {name}",
+      "open": "Open project",
+      "delete": "Delete"
+    },
+    "newCard": {
+      "title": "Start a new project",
+      "body": "Personal or joint — you can open either"
+    },
+    "empty": {
+      "title": "No projects yet",
+      "body": "Open your first project — a house, a flat or any building work. Expenses, dues, partners and installments all start here.",
+      "personalTitle": "Personal project",
+      "personalBody": "One owner. Expenses, budget, suppliers, contractors and money accounts.",
+      "personalCta": "Open a personal project",
+      "jointTitle": "Joint project",
+      "jointBody": "Several partners together. Everything in personal, plus partners' money, flat sales and installments.",
+      "jointCta": "Open a joint project",
+      "invited": "If someone adds your mobile number to a project, it will show up here by itself.",
+      "noActiveTitle": "No active projects right now",
+      "noActiveBody": "Open a new project — or, if you deleted one by mistake, bring it back from \"Deleted projects\" below."
+    },
+    "welcomeToast": "Welcome! Your account is ready",
+    "deleted": {
+      "title": "Deleted projects",
+      "body": "For 30 days after deleting, the owner can bring a project back — then it is gone for good. Only owners see this section.",
+      "deletedOn": "You deleted it on {date}",
+      "membersLine": "Members: {names}",
+      "purgeOn": "Gone for good on {date} · {days, plural, one {# day} other {# days}} left",
+      "restore": "Restore",
+      "urgentTitle": "\"{name}\" will be gone for good in {days, plural, one {# day} other {# days}}",
+      "urgentBody": "Once it is purged on the night of {date} it cannot be recovered. If you deleted it by mistake, restore it now.",
+      "urgentCta": "Restore now",
+      "footnote": "A deleted project comes here first. You get a notice the day before it is purged (by email too, if you have one). You don't need to contact support to restore it."
+    },
+    "restoreDialog": {
+      "title": "Restore \"{name}\"?",
+      "subtitle": "Deleted on {date} — it would be gone for good in {days, plural, one {# day} other {# days}}",
+      "pointBooks": "Every entry comes back exactly as it was",
+      "pointMembers": "{names} can see and write in it again",
+      "pointStatus": "Its status becomes \"Active\"",
+      "cancel": "Cancel",
+      "confirm": "Restore",
+      "done": "\"{name}\" is back — every entry is as it was"
+    },
+    "deleteDialog": {
+      "title": "Delete \"{name}\"?",
+      "body": "The project stays in \"Deleted projects\" for 30 days, and you can bring it back until then. Members lose access right away.",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "done": "\"{name}\" was deleted"
+    },
+    "actionFailed": "That didn't work — please try again"
+  },
+  "NewProject": {
+    "title": "Start a new project",
+    "breadcrumbHome": "My projects",
+    "breadcrumbCurrent": "New project",
+    "breadcrumbLabel": "Breadcrumb",
+    "intro": "Choose what the project is for — expense heads, phases and menus are set up to match.",
+    "kindTitle": "What is the project for?",
+    "kindHint": "Pick the closest match",
+    "kinds": {
+      "BUILDING": {
+        "label": "House / building",
+        "hint": "A new house, flats or a market",
+        "namePlaceholder": "e.g. Mirpur 6-storey building",
+        "descPlaceholder": "e.g. A 6-storey building on 5 katha, with 4 partners"
+      },
+      "FARM": {
+        "label": "Farm",
+        "hint": "Poultry, cattle, fish or vegetables",
+        "namePlaceholder": "e.g. Savar poultry farm",
+        "descPlaceholder": "e.g. A 2,000-broiler farm with 2 partners"
+      },
+      "LAND": {
+        "label": "Land trading",
+        "hint": "Buy land, split it into plots, sell",
+        "namePlaceholder": "e.g. 20 katha in Purbachal",
+        "descPlaceholder": "e.g. Buy the land and sell it as 5 plots"
+      },
+      "BUSINESS": {
+        "label": "Business / shop",
+        "hint": "Starting a shop or a business",
+        "namePlaceholder": "e.g. Mirpur Pharmacy",
+        "descPlaceholder": "e.g. A new pharmacy in a rented shop"
+      },
+      "RENOVATION": {
+        "label": "Renovation",
+        "hint": "Repairs and interiors for a house or flat",
+        "namePlaceholder": "e.g. Uttara flat renovation",
+        "descPlaceholder": "e.g. New tiles, paint and kitchen in a 3-bed flat"
+      },
+      "OTHER": {
+        "label": "Other",
+        "hint": "Accounts for anything else",
+        "namePlaceholder": "e.g. Wedding arrangements",
+        "descPlaceholder": "What it is and how long — in a line or two"
+      }
+    },
+    "ownershipTitle": "Ownership",
+    "ownershipHint": "This can't be changed later, so choose carefully",
+    "personalBody": "One owner. Every expense, due and income is yours.",
+    "jointBody": "Several partners. Who paid in how much and each one's share of the profit — all tracked.",
+    "infoTitle": "Project details",
+    "name": "Project name",
+    "location": "Address / area",
+    "locationPlaceholder": "e.g. Mirpur-10, Dhaka",
+    "optional": "(optional)",
+    "startDate": "Start date",
+    "description": "Description",
+    "budgetTitle": "Budget & details",
+    "farmTypeTitle": "Type of farm",
+    "farmTypes": {
+      "POULTRY": "Poultry (chickens/ducks)",
+      "CATTLE": "Cattle & goats",
+      "FISH": "Fish farming",
+      "CROP": "Crops / vegetables"
+    },
+    "budget": "Estimated total budget",
+    "budgetPlaceholder": "e.g. 2,50,00,000",
+    "budgetHelp": "Leave it blank if you don't know yet",
+    "words": {
+      "crore": "{n} crore",
+      "lakh": "{n} lakh",
+      "thousand": "{n} thousand",
+      "taka": "{words} taka"
+    },
+    "floors": "How many floors?",
+    "floorsHelp": "Each floor gets its own phase, so you can see spending floor by floor",
+    "floorsLess": "One floor fewer",
+    "floorsMore": "One floor more",
+    "batches": "How many batches will you track?",
+    "seasons": "How many seasons will you track?",
+    "batchesHelp": "See the profit or loss of each batch separately",
+    "seasonsHelp": "See the profit or loss of each season separately",
+    "countLess": "One fewer",
+    "countMore": "One more",
+    "landArea": "Land area",
+    "landAreaPlaceholder": "e.g. 10",
+    "landUnitLabel": "Land unit",
+    "landUnits": {
+      "SHOTANGSHO": "decimal",
+      "KATHA": "katha",
+      "BIGHA": "bigha"
+    },
+    "landHelp": "Profit is also shown per {unit}",
+    "plots": "How many plots will you sell?",
+    "plotsHelp": "The plots are ready for sale; add names and prices later",
+    "plotsLess": "One plot fewer",
+    "plotsMore": "One plot more",
+    "businessType": "What kind of business?",
+    "businessPlaceholder": "e.g. Grocery, pharmacy",
+    "renovationNote": "The phases are set up for you: demolition & cleanup → plumbing & electrical → tiles & paint → finishing",
+    "otherNote": "Add expense heads and phases later to suit your work",
+    "cancel": "Cancel",
+    "submit": "Create project",
+    "submitting": "Creating project…",
+    "created": "Project created — {name}",
+    "failed": "The project wasn't created — please try again",
+    "validation": {
+      "nameMissing": "Enter a project name",
+      "nameShort": "The name needs at least 3 characters",
+      "nameLong": "The name can be at most 80 characters"
+    },
+    "preview": {
+      "title": "Preview",
+      "untitled": "New project",
+      "budget": "Budget ৳ {amount}",
+      "noBudget": "No budget set",
+      "readyTitle": "Set up for you on creation",
+      "readyHint": "You can change all of it later in Settings",
+      "owner": "You join as the owner",
+      "ownerHint": "Add others later by mobile number",
+      "categories": "Expense heads ({count})",
+      "cash": "Money account: cash in hand",
+      "cashHint": "Starts at ৳ 0 · add a bank or bKash later",
+      "phases": "Phases ({count})",
+      "phasesNone": "Phases",
+      "phasesLater": "You can add phases yourself later.",
+      "phasesFloors": "Enter the number of floors to see the phases here, or add them yourself later.",
+      "plots": "Plots for sale ({count})",
+      "plotName": "Plot {n}",
+      "menusTitle": "Menus for this project",
+      "menuNotes": {
+        "FARM": "For income from eggs, birds, milk, fish or crops",
+        "LAND": "For plot sales and buyers' installments",
+        "BUSINESS": "For each day's sales and income",
+        "buildingJoint": "For flat/shop sales and installments",
+        "buildingPersonal": "Your own house — no sales menus needed",
+        "joint": "For partners' deposits and profit shares",
+        "personal": "Just expenses, dues and accounts"
+      }
+    }
+  },
+  "ProjectTemplates": {
+    "categories": {
+      "BUILDING": [
+        "Rods",
+        "Cement",
+        "Bricks",
+        "Sand",
+        "Stone chips",
+        "Tiles",
+        "Paint",
+        "Sanitary",
+        "Electrical",
+        "Wood/doors & windows",
+        "Grill/thai glass",
+        "Mason wages",
+        "Transport",
+        "Govt fees/design",
+        "Other"
+      ],
+      "LAND": [
+        "Land price",
+        "Registry & deed",
+        "Mutation & land tax",
+        "Broker/commission",
+        "Earth filling",
+        "Boundary & road",
+        "Legal costs",
+        "Transport",
+        "Other"
+      ],
+      "BUSINESS": [
+        "Shop rent & advance",
+        "Decoration",
+        "Stock purchase",
+        "Staff salaries",
+        "Electricity & internet",
+        "Trade licence & fees",
+        "Transport",
+        "Other"
+      ],
+      "RENOVATION": ["Paint", "Tiles", "Sanitary", "Electrical", "Wood & furniture", "Thai glass/grill", "Mason wages", "Transport", "Other"],
+      "OTHER": ["Materials", "Wages", "Transport", "Fees & paperwork", "Other"],
+      "POULTRY": ["Chicks", "Feed", "Medicine & vaccines", "Shed building", "Litter/husk", "Electricity", "Labour wages", "Transport", "Other"],
+      "CATTLE": ["Animals", "Feed (grass/bran)", "Medicine & vet", "Shed building", "Labour wages", "Electricity & water", "Transport", "Other"],
+      "FISH": ["Pond digging/repair", "Fingerlings", "Feed", "Medicine & lime", "Nets & gear", "Labour wages", "Electricity/pump", "Other"],
+      "CROP": ["Land lease", "Seeds/seedlings", "Fertiliser", "Pesticide", "Irrigation", "Labour wages", "Transport", "Other"]
+    },
+    "phases": {
+      "buildingStart": ["Land & design", "Piling", "Foundation"],
+      "buildingEnd": ["Roof", "Finishing"],
+      "floor": "{ordinal} floor",
+      "batch": "Batch {n}",
+      "season": "Season {n}",
+      "farmSetup": {
+        "POULTRY": "Shed building",
+        "CATTLE": "Shed building",
+        "FISH": "Pond preparation",
+        "CROP": "Land preparation"
+      },
+      "LAND": ["Purchase & registry", "Mutation & papers", "Development (filling, roads)", "Plot sales"],
+      "BUSINESS": ["Finding the shop", "Decoration", "Stocking up", "Opening"],
+      "RENOVATION": ["Demolition & cleanup", "Plumbing & electrical", "Tiles & paint", "Finishing"]
+    },
+    "menus": {
+      "partners": "Partners",
+      "units": "Units (flats/shops)",
+      "sales": "Sales & installments",
+      "customers": "Customers",
+      "plots": "Plots",
+      "buyers": "Buyers",
+      "farmSales": "Production sales",
+      "bizSales": "Sales & income"
+    }
+  },
+  "Overview": {
+    "nav": {
+      "label": "Project menu",
+      "currentProject": "Current project",
+      "overview": "Overview",
+      "expenses": "Expenses",
+      "moneyGroup": "Money & dues",
+      "suppliers": "Suppliers",
+      "contractors": "Contractors",
+      "accounts": "Accounts",
+      "jointGroup": "Joint project",
+      "salesGroup": "Sales",
+      "partners": "Partners",
+      "units": "Units",
+      "plots": "Plots",
+      "sales": "Sales & installments",
+      "customers": "Customers",
+      "farmSales": "Production sales",
+      "bizSales": "Sales & income",
+      "otherGroup": "Other",
+      "reports": "Reports",
+      "members": "Members",
+      "activity": "Activity",
+      "settings": "Settings",
+      "profileLabel": "Profile & account — {name}",
+      "logout": "Log out",
+      "switchLanguage": "বাংলা",
+      "switchProject": "Switch project"
+    },
+    "title": "Overview",
+    "downloadReport": "Download report",
+    "hero": {
+      "label": "Budget status",
+      "started": "started {date}",
+      "subtitle": "The whole project so far, at a glance",
+      "budgetUsed": "How much of the budget is spent",
+      "spent": "Spent",
+      "budget": "Budget",
+      "noBudget": "No budget yet — you can set one in Settings"
+    },
+    "quick": {
+      "label": "Quick add",
+      "expense": "Add expense",
+      "payment": "Make payment",
+      "attendance": "Mark attendance",
+      "installment": "Collect installment",
+      "partnerDeposit": "Partner deposit",
+      "sale": "Record a sale"
+    },
+    "stats": {
+      "label": "Key figures",
+      "cash": "Cash in hand",
+      "cashNote": "across {count, plural, one {# account} other {# accounts}}",
+      "suppliers": "Owed to suppliers",
+      "suppliersNote": "to {count, plural, one {# supplier} other {# suppliers}}",
+      "contractors": "Owed to contractors",
+      "contractorsNote": "to {count, plural, one {# contractor} other {# contractors}}",
+      "partners": "Partners still owe",
+      "partnersNote": "{due} of {count} partners",
+      "customers": "Customers owe",
+      "customersNote": "from {count, plural, one {# sale} other {# sales}}",
+      "monthInstallments": "Installments this month",
+      "monthInstallmentsNote": "{count, plural, one {# installment} other {# installments}}",
+      "overdue": "Overdue installments",
+      "overdueValue": "{count, plural, one {# installment} other {# installments}}",
+      "overdueNote": "৳ {amount} to collect",
+      "monthSpent": "Spent this month",
+      "monthSpentNote": "No expenses entered yet",
+      "nothingYet": "Nothing entered yet"
+    },
+    "byMonth": {
+      "title": "Spending by month",
+      "range": "{from} – {to}",
+      "period": "Period",
+      "six": "6 months",
+      "twelve": "12 months",
+      "chartLabel": "Bar chart of spending by month",
+      "lakh": "{n} lakh",
+      "empty": "Monthly spending shows here once you add the first expense"
+    },
+    "byCategory": {
+      "title": "Spending by category",
+      "subtitle": "Total ৳ {amount} · highest first",
+      "all": "All categories",
+      "empty": "Once you add expenses, this shows where the money went"
+    },
+    "recent": {
+      "title": "Recent entries",
+      "all": "See all",
+      "empty": "No entries yet — add the first expense with the buttons above"
+    },
+    "phaseBudget": {
+      "title": "Budget by phase",
+      "titleFloors": "Budget by floor",
+      "legend": "Yellow past 90%, red past 100%",
+      "amounts": "৳ {spent} / ৳ {budget}",
+      "noBudget": "৳ {spent} · no budget set",
+      "empty": "No phases — add them from Settings"
+    },
+    "overdue": {
+      "title": "Overdue installments",
+      "empty": "No installments are overdue",
+      "all": "See all installments"
+    },
+    "greeting": {
+      "morning": "Good morning, {name}",
+      "afternoon": "Good afternoon, {name}",
+      "evening": "Good evening, {name}"
+    }
   }
 }
