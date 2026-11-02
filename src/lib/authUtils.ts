@@ -27,9 +27,12 @@ export const isProtected = (pathname: string) => ROUTE_RULES.some((rule) => rule
 export const canAccessRoute = (pathname: string, role: UserRole) => ROUTE_RULES.find((rule) => rule.pattern.test(pathname))?.roles.includes(role) ?? true;
 
 // Guards ?redirect=: same-origin paths only (no "//evil.com", no "https://..."),
-// and only into areas this role can open.
+// and only into areas this role can open. Browsers drop tabs and newlines from a URL, so
+// "/\t/evil.com" would turn into "//evil.com": control characters and backslashes are refused.
+const UNSAFE_PATH = /[\u0000-\u001f\u007f\\]/;
+
 export const safeRedirect = (target: string | null | undefined, role: UserRole): string => {
-  if (!target || !target.startsWith("/") || target.startsWith("//") || target.startsWith("/\\")) return DEFAULT_DASHBOARD[role];
+  if (!target || !target.startsWith("/") || target.startsWith("//") || UNSAFE_PATH.test(target)) return DEFAULT_DASHBOARD[role];
   const pathname = target.split(/[?#]/)[0] ?? "";
   if (pathname === LOGIN_ROUTE || !canAccessRoute(pathname, role)) return DEFAULT_DASHBOARD[role];
   return target;

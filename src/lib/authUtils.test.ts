@@ -25,7 +25,7 @@ describe("canAccessRoute", () => {
 });
 
 describe("safeRedirect", () => {
-  it.each(["https://evil.com", "//evil.com", "/\\evil.com", "/login"])("rejects %s", (target) => {
+  it.each(["https://evil.com", "//evil.com", "/\\evil.com", "/\t/evil.com", "/\n/evil.com", "/projects\\x", "/login"])("rejects %s", (target) => {
     expect(safeRedirect(target, "user")).toBe(DEFAULT_DASHBOARD.user);
   });
 
