@@ -52,7 +52,7 @@ const phasesFor = ({ kind, farmType, floors, batches }: PlanInput, copy: PlanCop
 };
 
 // Joint projects get the partner books; selling kinds get their sales menus.
-const menusFor = ({ kind, ownership }: PlanInput): MenuKey[] => {
+export const menusFor = ({ kind, ownership }: Pick<PlanInput, "kind" | "ownership">): MenuKey[] => {
   const joint = ownership === "PARTNERSHIP";
   const menus: MenuKey[] = joint ? ["partners"] : [];
   if (kind === "BUILDING" && joint) menus.push("units", "sales", "customers");

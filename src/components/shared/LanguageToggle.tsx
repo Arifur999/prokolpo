@@ -11,16 +11,17 @@ type LanguageToggleProps = {
   // The header shows the language glyph; the footer link is text only.
   withIcon?: boolean;
   iconClassName?: string;
+  iconSize?: number;
 };
 
-export function LanguageToggle({ label, className, withIcon = true, iconClassName }: LanguageToggleProps) {
+export function LanguageToggle({ label, className, withIcon = true, iconClassName, iconSize = 18 }: LanguageToggleProps) {
   const { target, switchLanguage, isPending } = useSwitchLanguage();
 
   return (
     <button type="button" lang={target} onClick={switchLanguage} disabled={isPending} className={cn("cursor-pointer", className)}>
       {withIcon && (
         <span className={cn("flex", iconClassName)}>
-          <Icon name="language" size={18} />
+          <Icon name="language" size={iconSize} />
         </span>
       )}
       {label}
