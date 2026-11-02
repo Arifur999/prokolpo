@@ -9,6 +9,8 @@ export type PaymentPurpose = "WAGE" | "ADVANCE" | "INSTALL" | "EXTRA" | "FINAL" 
 export interface ICategory {
   id: string;
   name: string;
+  // Hidden in settings: kept on old expenses and in reports, left off the expense form.
+  hidden?: boolean;
 }
 
 export interface IExpense {

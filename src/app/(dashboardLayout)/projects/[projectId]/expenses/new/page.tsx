@@ -26,7 +26,10 @@ export default async function NewExpensePage({ params }: PageProps<"/projects/[p
   return (
     <div className="flex flex-col gap-6 p-4 lg:px-10 lg:pt-7 lg:pb-10">
       <ExpenseBreadcrumb projectId={projectId} current={t("newCurrent")} title={t("newTitle")} />
-      <NewExpenseForm {...data} defaults={{ ...blankExpense(dhakaToday(), data.suppliers[0]?.id, cash), categoryId: data.categories[0]?.id ?? "" }} />
+      <NewExpenseForm
+        {...data}
+        defaults={{ ...blankExpense(dhakaToday(), data.suppliers[0]?.id, cash), categoryId: data.categories.find((c) => !c.hidden)?.id ?? "" }}
+      />
     </div>
   );
 }

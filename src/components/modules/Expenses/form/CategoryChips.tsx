@@ -48,22 +48,24 @@ export function CategoryChips({ projectId, categories: initial, value, onChange,
       }
     >
       <div role="radiogroup" aria-labelledby="ex-cat-title" aria-invalid={Boolean(error)} className="flex flex-wrap gap-2">
-        {categories.map((category) => {
-          const on = category.id === value;
-          return (
-            <label
-              key={category.id}
-              className={cn(
-                "relative box-border flex h-10 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-sm has-focus-visible:shadow-focus",
-                on ? "border-[1.5px] border-brand bg-brand-wash font-semibold text-brand" : "border border-line bg-white font-medium text-ink",
-              )}
-            >
-              <input type="radio" name="ex-cat" checked={on} onChange={() => onChange(category.id)} className="absolute m-0 size-px opacity-0" />
-              {on && <Icon name="check" size={15} strokeWidth={2.6} />}
-              {category.name}
-            </label>
-          );
-        })}
+        {categories
+          .filter((category) => !category.hidden || category.id === value)
+          .map((category) => {
+            const on = category.id === value;
+            return (
+              <label
+                key={category.id}
+                className={cn(
+                  "relative box-border flex h-10 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-sm has-focus-visible:shadow-focus",
+                  on ? "border-[1.5px] border-brand bg-brand-wash font-semibold text-brand" : "border border-line bg-white font-medium text-ink",
+                )}
+              >
+                <input type="radio" name="ex-cat" checked={on} onChange={() => onChange(category.id)} className="absolute m-0 size-px opacity-0" />
+                {on && <Icon name="check" size={15} strokeWidth={2.6} />}
+                {category.name}
+              </label>
+            );
+          })}
         {adding ? (
           <span className="flex items-center gap-1.5">
             <label htmlFor="ex-new-cat" className="sr-only">
