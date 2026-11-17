@@ -78,8 +78,6 @@ export interface ICreateProjectPayload {
   ownership: Ownership;
   location: string;
   description: string;
-  startDate: string;
-  budget: number | null;
   farmType: FarmType | "";
   floors: number | null;
   batches: number | null;
@@ -89,4 +87,6 @@ export interface ICreateProjectPayload {
   businessType: string;
   categories: string[];
   phases: string[];
+  // A login of their own that opens only this project; null when the owner runs it alone.
+  manager: { name: string; phone: string; password: string; canAddStaff: boolean } | null;
 }
