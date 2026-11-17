@@ -73,6 +73,6 @@ test("the spending report groups a bill by head and by month", async ({ page, co
   await page.getByRole("button", { name: "মাস অনুযায়ী" }).click();
   await expect(page).toHaveURL(/g=MONTH/);
   await expect(page.getByRole("heading", { name: "মাস অনুযায়ী খরচ" })).toBeVisible();
-  await page.getByRole("link", { name: /পাওনা ও দেনা/ }).click();
+  await page.locator("#main-content").getByRole("link", { name: /পাওনা ও দেনা/ }).click();
   await expect(page.getByText("আমরা দেব")).toBeVisible();
 });

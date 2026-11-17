@@ -154,6 +154,25 @@ export const ICON_PATHS = {
       <path d="M12 17h.01" />
     </>
   ),
+  landmark: (
+    <>
+      <path d="M3 22h18" />
+      <path d="M6 18v-7" />
+      <path d="M10 18v-7" />
+      <path d="M14 18v-7" />
+      <path d="M18 18v-7" />
+      <path d="M12 2 20 7H4z" />
+    </>
+  ),
+  fileCheck: (
+    <>
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+      <path d="M14 2v6h6" />
+      <path d="M8 13h8" />
+      <path d="M8 17h5" />
+      <path d="m15 18 1.5 1.5L20 16" />
+    </>
+  ),
   history: (
     <>
       <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />

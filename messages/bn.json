@@ -1063,24 +1063,7 @@
       "currentProject": "চলমান প্রজেক্ট",
       "overview": "ওভারভিউ",
       "expenses": "খরচ",
-      "moneyGroup": "পাওনা ও টাকা",
-      "suppliers": "সাপ্লায়ার",
-      "contractors": "কন্ট্রাক্টর",
       "accounts": "অ্যাকাউন্ট",
-      "jointGroup": "যৌথ প্রজেক্ট",
-      "salesGroup": "বিক্রি",
-      "partners": "পার্টনার",
-      "units": "ইউনিট",
-      "plots": "প্লট",
-      "sales": "বিক্রি ও কিস্তি",
-      "customers": "কাস্টমার",
-      "farmSales": "উৎপাদন বিক্রি",
-      "bizSales": "বিক্রি ও আয়",
-      "otherGroup": "অন্যান্য",
-      "reports": "রিপোর্ট",
-      "members": "মেম্বার",
-      "activity": "অ্যাক্টিভিটি",
-      "settings": "সেটিংস",
       "profileLabel": "প্রোফাইল ও অ্যাকাউন্ট — {name}",
       "logout": "লগআউট",
       "switchLanguage": "English",
@@ -1091,8 +1074,120 @@
       "more": "আরও",
       "close": "বন্ধ করুন",
       "addExpense": "খরচ যোগ করুন",
-      "farmGroup": "খামার",
-      "shopGroup": "দোকান"
+      "items": {
+        "overview": "ড্যাশবোর্ড",
+        "balance": "ব্যালেন্স",
+        "expense": "খরচ",
+        "shareholder": "শেয়ারহোল্ডার",
+        "loan": "লোন ম্যানেজমেন্ট",
+        "supplier": "সাপ্লায়ার",
+        "sales": "সেলস",
+        "customer": "কাস্টমার",
+        "buyers": "ক্রেতা",
+        "agreement": "চুক্তিপত্র",
+        "contractor": "কন্ট্রাক্টর",
+        "unit": "ইউনিট",
+        "plots": "প্লট",
+        "report": "রিপোর্ট",
+        "member": "মেম্বার",
+        "activity": "অ্যাক্টিভিটি",
+        "settings": "সেটিংস"
+      },
+      "sub": {
+        "balance": {
+          "accounts": "অ্যাকাউন্ট",
+          "transfer": "ট্রান্সফার",
+          "ledger": "লেনদেনের খাতা"
+        },
+        "expense": {
+          "dashboard": "ড্যাশবোর্ড",
+          "list": "খরচের তালিকা",
+          "budget": "বাজেট",
+          "siteCash": "সাইট ক্যাশ",
+          "approvals": "অনুমোদন"
+        },
+        "shareholder": {
+          "list": "শেয়ারহোল্ডার লিস্ট",
+          "transactions": "লেনদেন",
+          "dashboard": "ড্যাশবোর্ড"
+        },
+        "loan": {
+          "dashboard": "ড্যাশবোর্ড",
+          "transactions": "লেনদেন",
+          "ledger": "খাতা",
+          "contacts": "কন্টাক্ট"
+        },
+        "supplier": {
+          "dashboard": "ড্যাশবোর্ড",
+          "list": "সাপ্লায়ার লিস্ট",
+          "purchases": "কেনাকাটা",
+          "payments": "পেমেন্ট",
+          "ledger": "খাতা",
+          "materials": "মাল ও দর"
+        },
+        "sales": {
+          "dashboard": "ড্যাশবোর্ড",
+          "list": "বিক্রির তালিকা",
+          "installments": "কিস্তি",
+          "collections": "আদায়",
+          "bookings": "বুকিং ও বাতিল",
+          "handover": "হস্তান্তর ও রেজিস্ট্রি"
+        },
+        "customer": {
+          "list": "কাস্টমার লিস্ট",
+          "leads": "লিড",
+          "followUps": "ফলো-আপ",
+          "documents": "কাগজপত্র",
+          "sms": "এসএমএস ও রিমাইন্ডার"
+        },
+        "agreement": {
+          "dashboard": "ড্যাশবোর্ড",
+          "new": "চুক্তিপত্র তৈরি",
+          "format": "ফরম্যাট"
+        },
+        "contractor": {
+          "dashboard": "ড্যাশবোর্ড",
+          "list": "কন্ট্রাক্টর লিস্ট",
+          "workOrders": "কাজের অর্ডার",
+          "bills": "চলতি বিল",
+          "payments": "পেমেন্ট",
+          "ledger": "খাতা",
+          "attendance": "হাজিরা"
+        },
+        "unit": {
+          "dashboard": "ড্যাশবোর্ড",
+          "map": "ইউনিট ম্যাপ",
+          "list": "ইউনিটের তালিকা",
+          "prices": "দামের তালিকা",
+          "landowner": "জমির মালিকের অংশ",
+          "add": "ইউনিট যোগ করুন"
+        },
+        "report": {
+          "overview": "সারসংক্ষেপ",
+          "profit": "লাভ-ক্ষতি",
+          "collection": "আদায় রিপোর্ট",
+          "cash": "নগদ প্রবাহ",
+          "dues": "পাওনা ও দেনা"
+        },
+        "member": {
+          "list": "মেম্বার লিস্ট",
+          "invite": "মেম্বার যোগ",
+          "roles": "রোল ও অনুমতি"
+        },
+        "activity": {
+          "log": "অ্যাক্টিভিটি লগ",
+          "alerts": "সতর্কতা",
+          "trash": "রিসাইকেল বিন"
+        },
+        "settings": {
+          "project": "প্রজেক্ট সেটিংস",
+          "phases": "ধাপ",
+          "lists": "খাত ও তালিকা",
+          "receipt": "রশিদ ও প্রিন্ট",
+          "backup": "ব্যাকআপ ও এক্সপোর্ট",
+          "support": "সাপোর্ট অ্যাক্সেস"
+        }
+      }
     },
     "title": "ওভারভিউ",
     "downloadReport": "রিপোর্ট ডাউনলোড",

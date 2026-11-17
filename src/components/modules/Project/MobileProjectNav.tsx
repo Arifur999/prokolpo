@@ -7,14 +7,14 @@ import { Dialog } from "radix-ui";
 import { useState } from "react";
 import { Icon } from "@/components/shared/icon/Icon";
 import type { IconName } from "@/components/shared/icon/iconPaths";
-import type { NavGroup } from "@/lib/projectNav";
+import type { ProjectNav } from "@/lib/projectNav";
 import { projectHref } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { ProjectNavLinks } from "./ProjectNavLinks";
 
 type MobileProjectNavProps = {
   projectId: string;
-  groups: NavGroup[];
+  nav: ProjectNav;
   // Projects that sell get "বিক্রি" in the bar; the rest get their accounts.
   salesPage: string | null;
 };
@@ -22,7 +22,7 @@ type MobileProjectNavProps = {
 type Tab = { key: string; label: string; icon: IconName; page: string };
 
 // Phones (board Mobile): four tabs and "আরও" at the bottom, and the gold add-expense button.
-export function MobileProjectNav({ projectId, groups, salesPage }: MobileProjectNavProps) {
+export function MobileProjectNav({ projectId, nav, salesPage }: MobileProjectNavProps) {
   const t = useTranslations("Overview.nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -89,7 +89,7 @@ export function MobileProjectNav({ projectId, groups, salesPage }: MobileProject
                 </Dialog.Close>
               </div>
               <Dialog.Description className="sr-only">{t("label")}</Dialog.Description>
-              <ProjectNavLinks projectId={projectId} groups={groups} onNavigate={() => setOpen(false)} />
+              <ProjectNavLinks projectId={projectId} nav={nav} onNavigate={() => setOpen(false)} />
             </Dialog.Content>
           </Dialog.Portal>
         </Dialog.Root>

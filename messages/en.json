@@ -2,7 +2,7 @@
   "Common": {
     "appName": "Prokolpo",
     "logoMark": "P",
-    "appTagline": "Project accounts book",
+    "appTagline": "Project ledger",
     "skipToContent": "Skip to main content",
     "accountHas": "Has ৳ {amount}"
   },
@@ -1079,27 +1079,10 @@
   "Overview": {
     "nav": {
       "label": "Project menu",
-      "currentProject": "Current project",
+      "currentProject": "Active projects",
       "overview": "Overview",
       "expenses": "Expenses",
-      "moneyGroup": "Money & dues",
-      "suppliers": "Suppliers",
-      "contractors": "Contractors",
       "accounts": "Accounts",
-      "jointGroup": "Joint project",
-      "salesGroup": "Sales",
-      "partners": "Partners",
-      "units": "Units",
-      "plots": "Plots",
-      "sales": "Sales & installments",
-      "customers": "Customers",
-      "farmSales": "Production sales",
-      "bizSales": "Sales & income",
-      "otherGroup": "Other",
-      "reports": "Reports",
-      "members": "Members",
-      "activity": "Activity",
-      "settings": "Settings",
       "profileLabel": "Profile & account — {name}",
       "logout": "Log out",
       "switchLanguage": "বাংলা",
@@ -1110,8 +1093,120 @@
       "more": "More",
       "close": "Close",
       "addExpense": "Add expense",
-      "farmGroup": "Farm",
-      "shopGroup": "Shop"
+      "items": {
+        "overview": "Dashboard",
+        "balance": "Balance",
+        "expense": "Expense",
+        "shareholder": "Shareholders",
+        "loan": "Loan management",
+        "supplier": "Suppliers",
+        "sales": "Sales",
+        "customer": "Customers",
+        "buyers": "Buyers",
+        "agreement": "Agreements",
+        "contractor": "Contractors",
+        "unit": "Units",
+        "plots": "Plots",
+        "report": "Reports",
+        "member": "Members",
+        "activity": "Activity",
+        "settings": "Settings"
+      },
+      "sub": {
+        "balance": {
+          "accounts": "Accounts",
+          "transfer": "Transfers",
+          "ledger": "Ledger"
+        },
+        "expense": {
+          "dashboard": "Dashboard",
+          "list": "Expense list",
+          "budget": "Budget",
+          "siteCash": "Site cash",
+          "approvals": "Approvals"
+        },
+        "shareholder": {
+          "list": "Shareholder list",
+          "transactions": "Transactions",
+          "dashboard": "Dashboard"
+        },
+        "loan": {
+          "dashboard": "Dashboard",
+          "transactions": "Transactions",
+          "ledger": "Ledger",
+          "contacts": "Contacts"
+        },
+        "supplier": {
+          "dashboard": "Dashboard",
+          "list": "Supplier list",
+          "purchases": "Purchases",
+          "payments": "Payments",
+          "ledger": "Ledger",
+          "materials": "Materials & rates"
+        },
+        "sales": {
+          "dashboard": "Dashboard",
+          "list": "Sales list",
+          "installments": "Installments",
+          "collections": "Collections",
+          "bookings": "Bookings & cancellations",
+          "handover": "Handover & registration"
+        },
+        "customer": {
+          "list": "Customer list",
+          "leads": "Leads",
+          "followUps": "Follow-ups",
+          "documents": "Documents",
+          "sms": "SMS & reminders"
+        },
+        "agreement": {
+          "dashboard": "Dashboard",
+          "new": "Create agreement",
+          "format": "Format"
+        },
+        "contractor": {
+          "dashboard": "Dashboard",
+          "list": "Contractor list",
+          "workOrders": "Work orders",
+          "bills": "Running bills",
+          "payments": "Payments",
+          "ledger": "Ledger",
+          "attendance": "Attendance"
+        },
+        "unit": {
+          "dashboard": "Dashboard",
+          "map": "Unit map",
+          "list": "Unit list",
+          "prices": "Price list",
+          "landowner": "Landowner’s share",
+          "add": "Add units"
+        },
+        "report": {
+          "overview": "Overview",
+          "profit": "Profit & loss",
+          "collection": "Collections",
+          "cash": "Cash flow",
+          "dues": "Dues & payables"
+        },
+        "member": {
+          "list": "Member list",
+          "invite": "Invite member",
+          "roles": "Roles & permissions"
+        },
+        "activity": {
+          "log": "Activity log",
+          "alerts": "Alerts",
+          "trash": "Recycle bin"
+        },
+        "settings": {
+          "project": "Project settings",
+          "phases": "Phases",
+          "lists": "Categories & lists",
+          "receipt": "Receipt & print",
+          "backup": "Backup & export",
+          "support": "Support access"
+        }
+      }
     },
     "title": "Overview",
     "downloadReport": "Download report",

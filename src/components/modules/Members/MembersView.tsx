@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useUrlFlag } from "@/hooks/useUrlFlag";
 import { Icon } from "@/components/shared/icon/Icon";
 import { ProjectPageHeader } from "@/components/modules/Project/ProjectPageHeader";
 import { cn } from "@/lib/utils";
@@ -18,7 +19,8 @@ type MembersViewProps = { projectId: string; projectName: string; team: ITeam; i
 // each role may do. Only the owner sees the add, reset and remove controls.
 export function MembersView({ projectId, projectName, team, isOwner }: MembersViewProps) {
   const t = useTranslations("Members");
-  const [inviting, setInviting] = useState(false);
+  // ?invite=1 opens the invite, so the sidebar's "মেম্বার যোগ" lands on it.
+  const [inviting, setInviting] = useUrlFlag("invite");
   const [confirmId, setConfirmId] = useState("");
   const [resetId, setResetId] = useState("");
   const resetFor = team.members.find((m) => m.userId === resetId);

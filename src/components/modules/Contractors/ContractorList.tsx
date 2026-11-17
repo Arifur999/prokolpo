@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useUrlFlag } from "@/hooks/useUrlFlag";
 import { Icon } from "@/components/shared/icon/Icon";
 import type { PayAccount } from "@/components/shared/PayDialog";
 import { Segmented } from "@/components/shared/Segmented";
@@ -35,15 +35,11 @@ type Filter = "all" | PayType;
 // paid and are owed (boards ContractorList, ContractorAdd, ContractorPay). ?new=1 opens add.
 export function ContractorList({ projectId, contractors, accounts, canWrite }: ContractorListProps) {
   const t = useTranslations("Contractors");
-  const router = useRouter();
-  const pathname = usePathname();
-  const params = useSearchParams();
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("all");
   const [paying, setPaying] = useState<IContractor | null>(null);
   const [added, setAdded] = useState<string | null>(null);
-  const adding = params.get("new") === "1";
-  const setAdding = (open: boolean) => router.replace(open ? `${pathname}?new=1` : pathname, { scroll: false });
+  const [adding, setAdding] = useUrlFlag("new");
 
   const needle = query.trim().toLocaleLowerCase();
   const rows = contractors

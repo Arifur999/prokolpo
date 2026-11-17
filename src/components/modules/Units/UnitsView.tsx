@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useUrlFlag } from "@/hooks/useUrlFlag";
 import { ProjectPageHeader } from "@/components/modules/Project/ProjectPageHeader";
 import { Icon } from "@/components/shared/icon/Icon";
 import { floorList, typesFor, unitStatus } from "@/lib/unitLook";
@@ -22,6 +23,10 @@ export function UnitsView({ projectId, projectName, kind, floors: floorCount, un
   const [filter, setFilter] = useState<UnitFilter>({ status: "ALL", type: "ALL", q: "" });
   const [selected, setSelected] = useState("");
   const [dialog, setDialog] = useState<UnitDialogMode | null>(null);
+  // ?add=1 opens the bulk add, so the sidebar's "ইউনিট যোগ করুন" lands on it.
+  const [adding, setAdding] = useUrlFlag("add");
+  const open = dialog ?? (adding ? ({ kind: "bulk" } as const) : null);
+  const close = () => (adding ? setAdding(false) : setDialog(null));
   const types = typesFor(kind);
   const floors = floorList(floorCount, units);
   const q = squash(filter.q);
@@ -115,7 +120,7 @@ export function UnitsView({ projectId, projectName, kind, floors: floorCount, un
           )}
         </section>
       )}
-      {dialog && <UnitDialog projectId={projectId} mode={dialog} units={units} types={types} floors={floors} onClose={() => setDialog(null)} />}
+      {open && <UnitDialog projectId={projectId} mode={open} units={units} types={types} floors={floors} onClose={close} />}
     </>
   );
 }

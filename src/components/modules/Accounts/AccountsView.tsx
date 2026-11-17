@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useUrlFlag } from "@/hooks/useUrlFlag";
 import { Icon } from "@/components/shared/icon/Icon";
 import { ProjectPageHeader } from "../Project/ProjectPageHeader";
 import { Segmented } from "@/components/shared/Segmented";
@@ -46,7 +47,9 @@ export function AccountsView({ projectId, accounts, movements, today, canWrite, 
   const t = useTranslations("Accounts");
   const [selected, setSelected] = useState<string | null>(null);
   const [direction, setDirection] = useState<Direction>("all");
-  const [dialog, setDialog] = useState<"transfer" | "add" | null>(null);
+  const [adding, setAdding] = useState(false);
+  // ?transfer=1 opens the transfer, so the sidebar's "ট্রান্সফার" lands on it.
+  const [transferring, setTransferring] = useUrlFlag("transfer");
   const index = new Map(accounts.map((a, i) => [a.id, i]));
   const total = accounts.reduce((sum, a) => sum + a.balance, 0);
   const positive = accounts.reduce((sum, a) => sum + Math.max(0, a.balance), 0);
@@ -95,7 +98,7 @@ export function AccountsView({ projectId, accounts, movements, today, canWrite, 
               {accounts.length > 1 && (
                 <button
                   type="button"
-                  onClick={() => setDialog("transfer")}
+                  onClick={() => setTransferring(true)}
                   className="flex h-11 cursor-pointer items-center gap-2 rounded-lg border border-brand bg-white px-4 text-[15px] font-semibold text-brand"
                 >
                   <Icon name="refresh" size={18} />
@@ -104,7 +107,7 @@ export function AccountsView({ projectId, accounts, movements, today, canWrite, 
               )}
               <button
                 type="button"
-                onClick={() => setDialog("add")}
+                onClick={() => setAdding(true)}
                 className="flex h-11 cursor-pointer items-center gap-2 rounded-lg border-none bg-brand pr-4.5 pl-3.5 text-[15px] font-semibold text-white"
               >
                 <Icon name="plus" size={18} strokeWidth={2.2} />
@@ -187,7 +190,7 @@ export function AccountsView({ projectId, accounts, movements, today, canWrite, 
         {canWrite && (
           <button
             type="button"
-            onClick={() => setDialog("add")}
+            onClick={() => setAdding(true)}
             className="flex min-h-37.5 cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-[1.5px] border-dashed border-line-strong bg-transparent p-4 text-ink"
           >
             <span className="flex size-11 items-center justify-center rounded-full bg-brand-tint text-brand">
@@ -304,8 +307,8 @@ export function AccountsView({ projectId, accounts, movements, today, canWrite, 
         </div>
       </section>
 
-      {dialog === "transfer" && <TransferDialog projectId={projectId} accounts={accounts} onClose={() => setDialog(null)} />}
-      {dialog === "add" && <AccountFormDialog projectId={projectId} onClose={() => setDialog(null)} />}
+      {transferring && <TransferDialog projectId={projectId} accounts={accounts} onClose={() => setTransferring(false)} />}
+      {adding && <AccountFormDialog projectId={projectId} onClose={() => setAdding(false)} />}
     </>
   );
 }

@@ -13,8 +13,8 @@ export default async function ProjectLayout({ children, params }: LayoutProps<"/
   if (!user) redirect(SESSION_EXPIRED_LOGIN_ROUTE);
   if (!project) notFound();
 
-  const groups = projectNav(project);
-  const salesPage = salesPageOf(groups);
+  const nav = projectNav(project);
+  const salesPage = salesPageOf(project);
 
   return (
     <div className="flex min-h-screen">
@@ -25,7 +25,7 @@ export default async function ProjectLayout({ children, params }: LayoutProps<"/
         {children}
       </main>
       <div className="contents print:hidden">
-        <MobileProjectNav projectId={project.id} groups={groups} salesPage={salesPage} />
+        <MobileProjectNav projectId={project.id} nav={nav} salesPage={salesPage} />
       </div>
     </div>
   );

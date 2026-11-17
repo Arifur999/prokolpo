@@ -16,6 +16,13 @@ export async function ProjectSidebar({ project, user }: { project: IProject; use
   const t = await getTranslations("Overview.nav");
   const common = await getTranslations("Common");
   const tp = await getTranslations("Projects");
+  // Farms and shops say what they are under the name (boards FarmSales, BizSales).
+  const kindLine =
+    project.kind === "FARM" && project.farmType
+      ? `${tp("kind.FARM")} · ${tp(`farmType.${project.farmType}`)}`
+      : project.kind === "BUSINESS"
+        ? [tp("kind.BUSINESS"), project.businessType].filter(Boolean).join(" · ")
+        : null;
 
   return (
     <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col gap-5 overflow-y-auto bg-brand px-4 py-6 text-white lg:flex">
@@ -40,12 +47,13 @@ export async function ProjectSidebar({ project, user }: { project: IProject; use
         <span className="flex min-w-0 grow flex-col">
           <span className="text-[13px] text-white/68">{t("currentProject")}</span>
           <span className="truncate text-[15px] font-semibold">{project.name}</span>
+          {kindLine && <span className="text-xs text-white/68">{kindLine}</span>}
         </span>
         <span className="rounded-full bg-gold/20 px-2 py-px text-[13px] font-semibold text-gold-light">{tp(`ownership.${project.ownership}`)}</span>
         <Icon name="chevronsUpDown" size={16} strokeWidth={2} className="text-white/70" />
       </Link>
 
-      <ProjectNavLinks projectId={project.id} groups={projectNav(project)} />
+      <ProjectNavLinks projectId={project.id} nav={projectNav(project)} />
 
       <div className="mt-auto flex flex-col gap-2.5">
         <Link
