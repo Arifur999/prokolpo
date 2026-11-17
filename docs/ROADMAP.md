@@ -49,3 +49,32 @@ Groups 38–40 (billing and the extended admin panel) were added in Phase 2; the
 | 38  | প্ল্যান ও বিল (`billing`)                  | Pricing, Billing, BillingUpgrade, BillingSuccess, PlanLimit, BillingPastDue                                       | todo                                                               |
 | 39  | অ্যাডমিন — বিলিং (`admin-billing`)         | AdminRevenue, AdminSubscriptions, AdminSubscriptionDetail, AdminPayments, AdminPlans, AdminPlanEdit, AdminCoupons | todo                                                               |
 | 40  | অ্যাডমিন — সিস্টেম (`admin-system`)        | AdminAnalytics, AdminHealth, AdminMessages, AdminSecurity, AdminFlags                                             | todo                                                               |
+
+## Design v2 (canvas updated, re-synced 17/11/2026)
+
+The canvas grew from 119 to 313 boards. The previous copy is kept in `design/project-2026-11-02/`; `design/project/`
+is the current one. Specs written from the new boards are in `design/specs/`. Screenshot tools are in
+`design/tools/` (`boardshot.js` renders a board, `appshot.js` the app, `sidebyside.py` compares them).
+
+What changed for the groups above:
+
+- Every project page: a new accordion sidebar with sub-menus, and a fluid page width (min 1280px).
+- Dashboard, DashboardBanner, NewProject (project manager section) and the 13 auth pages (new brand panel).
+- An English board (`*En`) now exists for every screen; English copy is checked against it.
+
+New groups and boards:
+
+| #   | Page group                             | Boards                                                                   | Status |
+| --- | -------------------------------------- | ------------------------------------------------------------------------ | ------ |
+| 41  | প্রজেক্ট সাইডবার (navigation)          | sidebar of every project board                                           | todo   |
+| 42  | খরচ — সাব-মেনু                         | ExpDash, ExpBudget, ExpPetty, ExpApprove                                 | todo   |
+| 43  | সাপ্লায়ার — সাব-মেনু                  | SupDash, SupPurchase, SupPayments, SupLedger, SupMaterials               | todo   |
+| 44  | কন্ট্রাক্টর — সাব-মেনু                 | CtrDash, CtrWork, CtrBills                                               | todo   |
+| 45  | শেয়ারহোল্ডার                          | ShareholderList, ShareholderTxn, ShareholderDash                         | todo   |
+| 46  | লোন ম্যানেজমেন্ট (`loans`)             | LoanDash, LoanTxn, LoanLedger, LoanContacts                              | todo   |
+| 47  | ইউনিট — সাব-মেনু                       | UnitDash, UnitList, UnitPrice, UnitLandowner                             | todo   |
+| 48  | সেলস — সাব-মেনু                        | SalesDash, SaleInstall, SaleCollections, SaleBookings, SaleHandover      | todo   |
+| 49  | কাস্টমার — সাব-মেনু                    | CustLeads, CustFollow, CustDocs, CustSms                                 | todo   |
+| 50  | চুক্তিপত্র (`agreements`)              | SaleDeeds, SaleDeedNew, SaleDeedPrint, AgrFormat                         | todo   |
+| 51  | রিপোর্ট, অ্যাক্টিভিটি, মেম্বার, সেটিংস | RepCash, RepDues, ActAlerts, ActTrash, MemRoles, SetLists, SetBackup     | todo   |
+| 52  | বদলে যাওয়া পেজ                        | Dashboard, DashboardBanner, NewProject, Login…Support (auth brand panel) | todo   |
