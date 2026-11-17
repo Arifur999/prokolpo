@@ -19,9 +19,8 @@ import { SubmitButton } from "../SubmitButton";
 import { PasswordStrengthMeter } from "./PasswordStrengthMeter";
 
 const DEFAULTS: IRegisterFormValues = {
-  companyName: "",
   firstName: "",
-  lastName: "",
+  companyName: "",
   email: "",
   phone: "",
   password: "",
@@ -34,7 +33,7 @@ type FieldName = keyof IRegisterFormValues;
 // invite: the number was checked while registration is closed; it stays fixed.
 export function RegisterForm({ invite }: { invite?: IInviteCheck }) {
   const t = useTranslations("Auth.register");
-  const schema = registerFormSchema(useMessages().Auth.validation);
+  const schema = registerFormSchema(useMessages().Auth.validation, { invited: Boolean(invite) });
   const [failure, setFailure] = useState<ApiErrorResponse | null>(null);
   const [serverErrors, setServerErrors] = useState<Partial<Record<FieldName, string>>>({});
 
@@ -43,7 +42,7 @@ export function RegisterForm({ invite }: { invite?: IInviteCheck }) {
     validators: { onBlur: schema, onSubmit: schema },
     onSubmit: async ({ value }) => {
       // Success redirects inside the action; anything that comes back is a failure.
-      const result = await registerAction(value);
+      const result = await registerAction(value, Boolean(invite));
       setFailure(result.fieldErrors ? null : result);
       setServerErrors(result.fieldErrors ?? {});
     },
@@ -85,55 +84,42 @@ export function RegisterForm({ invite }: { invite?: IInviteCheck }) {
           const errorOf = (name: FieldName, meta: { errors: unknown[]; isBlurred: boolean }) => visibleFieldError(meta, submitted, serverErrors[name]);
           return (
             <>
+              <form.Field name="firstName">
+                {(field) => (
+                  <LabeledInput
+                    id="rg-first"
+                    label={t("ownerName")}
+                    autoComplete="name"
+                    placeholder={t("ownerPlaceholder")}
+                    aria-required
+                    value={field.state.value}
+                    onChange={(event) => field.handleChange(event.target.value)}
+                    onBlur={field.handleBlur}
+                    error={errorOf("firstName", field.state.meta)}
+                  />
+                )}
+              </form.Field>
+
               <form.Field name="companyName">
                 {(field) => (
                   <LabeledInput
                     id="rg-company"
                     label={t("company")}
-                    labelNote={t("optional")}
+                    labelNote={invite ? t("optional") : undefined}
                     autoComplete="organization"
                     placeholder={t("companyPlaceholder")}
+                    aria-required={!invite}
                     value={field.state.value}
-                    onChange={(event) => field.handleChange(event.target.value)}
+                    onChange={(event) => {
+                      clearServerError("companyName");
+                      field.handleChange(event.target.value);
+                    }}
                     onBlur={field.handleBlur}
                     error={errorOf("companyName", field.state.meta)}
                     hint={t("companyHelp")}
                   />
                 )}
               </form.Field>
-
-              <div className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2">
-                <form.Field name="firstName">
-                  {(field) => (
-                    <LabeledInput
-                      id="rg-first"
-                      label={t("firstName")}
-                      autoComplete="given-name"
-                      placeholder={t("firstPlaceholder")}
-                      aria-required
-                      value={field.state.value}
-                      onChange={(event) => field.handleChange(event.target.value)}
-                      onBlur={field.handleBlur}
-                      error={errorOf("firstName", field.state.meta)}
-                    />
-                  )}
-                </form.Field>
-                <form.Field name="lastName">
-                  {(field) => (
-                    <LabeledInput
-                      id="rg-last"
-                      label={t("lastName")}
-                      autoComplete="family-name"
-                      placeholder={t("lastPlaceholder")}
-                      aria-required
-                      value={field.state.value}
-                      onChange={(event) => field.handleChange(event.target.value)}
-                      onBlur={field.handleBlur}
-                      error={errorOf("lastName", field.state.meta)}
-                    />
-                  )}
-                </form.Field>
-              </div>
 
               <form.Field name="email">
                 {(field) => (
@@ -177,6 +163,7 @@ export function RegisterForm({ invite }: { invite?: IInviteCheck }) {
                       onBlur={field.handleBlur}
                       error={error}
                       success={invite ? undefined : savedAs}
+                      hint={t("phoneHelp")}
                     />
                   );
                 }}

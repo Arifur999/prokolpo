@@ -62,6 +62,17 @@ export const changePassword = async (currentPassword: string, password: string, 
     { ...(await getForwardHeaders()), Authorization: `Bearer ${await getAccessToken()}` },
   );
 
+// Where a session that just signed in should land: a manager or staff login that belongs to
+// exactly one project (and owns none) opens it directly (board Login).
+export const onlyProjectOf = async (accessToken: string): Promise<string | null> => {
+  const response = await axios.get<IApiSuccessBody<{ id: string; role: string }[]>>(url("/projects"), {
+    headers: { ...(await getForwardHeaders()), Authorization: `Bearer ${accessToken}` },
+    timeout: 15_000,
+  });
+  const [only, ...others] = response.data.data;
+  return only && others.length === 0 && only.role !== "OWNER" ? only.id : null;
+};
+
 // Layout, sidebar and page all need the user in one request; cache() makes that one round trip.
 // Returns null ONLY when the API says the token is no good (401/403). Anything else (API down,
 // 5xx, timeout) throws to error.tsx: an outage must not log everyone out.

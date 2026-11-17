@@ -9,7 +9,15 @@ const signIn = async (context: BrowserContext, baseURL: string) => {
   const response = await fetch(`${API}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ firstName: "আব্দুল", lastName: "করিম", email: "", phone: randomPhone(), password: "karim2026", acceptTerms: true }),
+    body: JSON.stringify({
+      firstName: "আব্দুল",
+      lastName: "করিম",
+      companyName: "করিম বিল্ডার্স",
+      email: "",
+      phone: randomPhone(),
+      password: "karim2026",
+      acceptTerms: true,
+    }),
   });
   const { data } = (await response.json()) as { data: { accessToken: string; refreshToken: string } };
   await context.addCookies([

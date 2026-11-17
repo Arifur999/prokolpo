@@ -5,9 +5,8 @@ import { loginFormSchema, newPasswordSchema, registerFormSchema } from "./auth.v
 const m = bn.Auth.validation;
 
 const validRegistration = {
-  companyName: "",
-  firstName: " আব্দুল ",
-  lastName: "করিম",
+  firstName: " আব্দুল করিম ",
+  companyName: "করিম বিল্ডার্স",
   email: "",
   phone: "+880 1712-345678",
   password: "karim2026",
@@ -23,9 +22,9 @@ describe("registerFormSchema", () => {
     const result = registerFormSchema(m).safeParse(validRegistration);
     expect(result.success).toBe(true);
     expect(result.data).toEqual({
-      companyName: "",
-      firstName: "আব্দুল",
-      lastName: "করিম",
+      companyName: "করিম বিল্ডার্স",
+      firstName: "আব্দুল করিম",
+      lastName: "",
       email: "",
       phone: "01712345678",
       password: "karim2026",
@@ -37,7 +36,6 @@ describe("registerFormSchema", () => {
     const result = registerFormSchema(m).safeParse({
       companyName: "ক",
       firstName: "আ",
-      lastName: "",
       email: "not-an-email",
       phone: "12345",
       password: "short",
@@ -47,12 +45,17 @@ describe("registerFormSchema", () => {
     expect(messagesOf(result)).toMatchObject({
       companyName: m.companyShort,
       firstName: m.firstShort,
-      lastName: m.lastMissing,
       email: m.emailBad,
       phone: m.phoneBad,
       password: m.passwordWeak,
       acceptTerms: m.termsMissing,
     });
+  });
+
+  it("asks a builder for their company but not someone joining by invitation", () => {
+    const blank = { ...validRegistration, companyName: "" };
+    expect(messagesOf(registerFormSchema(m).safeParse(blank))).toEqual({ companyName: m.companyMissing });
+    expect(registerFormSchema(m, { invited: true }).safeParse(blank).success).toBe(true);
   });
 
   it("flags a confirmation that does not match", () => {

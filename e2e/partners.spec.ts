@@ -18,6 +18,7 @@ test("an owner adds partners, makes a capital call, and a deposit prints its rec
   const session = await post<{ accessToken: string; refreshToken: string }>("/auth/register", {
     firstName: "আব্দুল",
     lastName: "করিম",
+    companyName: "করিম বিল্ডার্স",
     email: "",
     phone: ownerPhone,
     password: "karim2026",

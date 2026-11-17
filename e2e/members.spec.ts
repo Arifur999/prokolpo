@@ -16,7 +16,7 @@ const post = async <T>(path: string, body: Record<string, unknown>, token?: stri
 type Session = { accessToken: string; refreshToken: string };
 
 const register = (firstName: string, phone: string) =>
-  post<Session>("/auth/register", { firstName, lastName: "খান", email: "", phone, password: "pass2026", acceptTerms: true });
+  post<Session>("/auth/register", { firstName, lastName: "খান", companyName: "করিম বিল্ডার্স", email: "", phone, password: "pass2026", acceptTerms: true });
 
 const signIn = (context: BrowserContext, baseURL: string, session: Session) =>
   context.addCookies([

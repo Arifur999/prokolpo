@@ -29,18 +29,20 @@ export type ILoginFormValues = z.input<ReturnType<typeof loginFormSchema>>;
 // ---- registration
 
 // A blank name gets only "enter your name", not the length message too.
-const requiredName = (missing: string, long: string) => z.string().trim().min(1, { message: missing, abort: true }).max(30, long);
+const requiredName = (missing: string, long: string) => z.string().trim().min(1, { message: missing, abort: true }).max(50, long);
 
-export const registerFormSchema = (m: AuthValidationMessages) =>
+// The owner's name is one field and the company is required (board Register); someone
+// registering an invited number joins a project and has no company to give.
+export const registerFormSchema = (m: AuthValidationMessages, { invited = false }: { invited?: boolean } = {}) =>
   z
     .object({
       companyName: z
         .string()
         .trim()
+        .refine((v) => invited || v !== "", { message: m.companyMissing, abort: true })
         .refine((v) => v === "" || v.length >= 2, m.companyShort)
         .refine((v) => v.length <= 80, m.companyLong),
       firstName: requiredName(m.firstMissing, m.firstLong).min(2, m.firstShort),
-      lastName: requiredName(m.lastMissing, m.lastLong),
       email: z
         .string()
         .trim()
@@ -54,7 +56,7 @@ export const registerFormSchema = (m: AuthValidationMessages) =>
     .transform((v) => ({
       companyName: v.companyName,
       firstName: v.firstName,
-      lastName: v.lastName,
+      lastName: "",
       email: v.email,
       phone: v.phone,
       password: v.password,

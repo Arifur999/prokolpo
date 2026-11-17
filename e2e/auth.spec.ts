@@ -15,6 +15,7 @@ const registerViaApi = async (account: Account) => {
     body: JSON.stringify({
       firstName: "তানিয়া",
       lastName: "রহমান",
+      companyName: "করিম বিল্ডার্স",
       email: account.email ?? "",
       phone: account.phone,
       password: account.password,
@@ -25,8 +26,8 @@ const registerViaApi = async (account: Account) => {
 };
 
 const fillRegistration = async (page: Page, phone: string) => {
-  await page.locator("#rg-first").fill("আব্দুল");
-  await page.locator("#rg-last").fill("করিম");
+  await page.locator("#rg-first").fill("আব্দুল করিম");
+  await page.locator("#rg-company").fill("করিম বিল্ডার্স");
   await page.locator("#rg-phone").fill(phone);
   await page.locator("#rg-pass").fill("karim2026");
   await page.locator("#rg-pass2").fill("karim2026");

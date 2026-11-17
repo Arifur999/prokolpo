@@ -5,15 +5,9 @@ import { dhakaToday, formatDate, formatTime } from "@/lib/dhakaTime";
 import { displayPhone } from "@/lib/phone";
 import { cn } from "@/lib/utils";
 import type { IAdminUserRow } from "@/types/admin.types";
+import { initials } from "@/lib/initials";
 
 const GRID = "lg:grid lg:grid-cols-[minmax(0,1fr)_210px_112px_128px_168px_84px_28px] lg:items-center lg:gap-x-3";
-
-const initialsOf = (name: string) =>
-  name
-    .split(/\s+/)
-    .map((p) => Array.from(p)[0] ?? "")
-    .slice(0, 2)
-    .join("");
 
 // The accounts (board AdminUsers): who, how to reach them, when they joined and were last
 // seen, their projects and whether they are suspended.
@@ -58,7 +52,7 @@ export function UsersTable({ rows, now }: { rows: IAdminUserRow[]; now: string }
                   u.staffRole ? "bg-ink text-gold-light" : off ? "bg-surface-4 text-ink-5" : "bg-brand-tint text-brand",
                 )}
               >
-                {initialsOf(u.name)}
+                {initials(u.name)}
               </span>
               <span className="flex min-w-0 flex-col">
                 <span className="flex min-w-0 items-center gap-1.5">

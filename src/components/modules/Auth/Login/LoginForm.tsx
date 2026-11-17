@@ -60,8 +60,10 @@ export function LoginForm({ redirectTo }: { redirectTo?: string }) {
                   <FormField id="login-id" label={t("identifier")} className="gap-2">
                     <TextInput
                       id="login-id"
-                      type="text"
+                      type="tel"
+                      inputMode="numeric"
                       autoComplete="username"
+                      placeholder={t("identifierPlaceholder")}
                       value={field.state.value}
                       onChange={(event) => field.handleChange(event.target.value)}
                       onBlur={field.handleBlur}

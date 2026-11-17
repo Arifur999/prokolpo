@@ -9,7 +9,15 @@ const signUpAndOpenProfile = async (page: Page) => {
   const response = await fetch(`${API}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ firstName: "তানিয়া", lastName: "রহমান", email: "", phone, password: "tania2026", acceptTerms: true }),
+    body: JSON.stringify({
+      firstName: "তানিয়া",
+      lastName: "রহমান",
+      companyName: "করিম বিল্ডার্স",
+      email: "",
+      phone,
+      password: "tania2026",
+      acceptTerms: true,
+    }),
   });
   expect(response.status).toBe(201);
   await page.goto("/login");

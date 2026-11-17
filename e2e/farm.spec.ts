@@ -18,6 +18,7 @@ test("a farm sale on part credit shows on the batch and the buyer pays the rest 
   const session = await post<{ accessToken: string; refreshToken: string }>("/auth/register", {
     firstName: "আব্দুল",
     lastName: "করিম",
+    companyName: "করিম বিল্ডার্স",
     email: "",
     phone: randomPhone(),
     password: "karim2026",

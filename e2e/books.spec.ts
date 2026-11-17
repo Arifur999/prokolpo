@@ -21,6 +21,7 @@ const setUp = async (context: BrowserContext, baseURL: string) => {
   const session = await call<{ accessToken: string; refreshToken: string }>("POST", "/auth/register", {
     firstName: "আব্দুল",
     lastName: "করিম",
+    companyName: "করিম বিল্ডার্স",
     email: "",
     phone: randomPhone(),
     password: "karim2026",

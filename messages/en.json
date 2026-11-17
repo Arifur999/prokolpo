@@ -459,39 +459,62 @@
     "brand": {
       "homeLabel": "Prokolpo — home page",
       "aboutLabel": "About Prokolpo",
-      "title": "Every taka of your project, in one place",
-      "lead": "Building a house or running a joint project — expenses, dues, partner money and installments stay in one ledger.",
-      "points": {
-        "dues": {
-          "title": "Expenses and dues",
-          "body": "What you owe each shop and each worker — at a glance"
+      "title": "Many projects, one dashboard",
+      "lead": "Each project keeps its own expenses, deposits and manager — the owner sees every project from one place.",
+      "audience": "For home owners, joint building groups and small developers",
+      "languageLabel": "Language",
+      "demo": {
+        "title": "My projects",
+        "active": "3 active",
+        "r1": {
+          "name": "Residential building · 6 floors",
+          "sub": "Joint · manager assigned"
         },
-        "partners": {
-          "title": "Clear accounts for partners",
-          "body": "Who paid what and who still owes — every partner sees the same numbers"
+        "r2": {
+          "name": "Commercial market",
+          "sub": "Personal · manager assigned"
         },
-        "sales": {
-          "title": "Sales and installments",
-          "body": "Flat sales, installment dates and receipts — all in order"
+        "r3": {
+          "name": "Duplex house",
+          "sub": "Final-stage work"
+        },
+        "totals": {
+          "budget": {
+            "label": "Total budget",
+            "value": "৳ 4.2 crore"
+          },
+          "spent": {
+            "label": "Spent",
+            "value": "৳ 2.6 crore"
+          },
+          "deposited": {
+            "label": "Deposited",
+            "value": "৳ 2.9 crore"
+          }
         }
       },
-      "audience": "For home owners, joint building groups and small developers",
-      "languageLabel": "Language"
+      "chips": {
+        "managers": "A manager per project",
+        "roles": "Role-based access",
+        "reports": "Reports in one click"
+      }
     },
     "login": {
       "title": "Log in to your account",
-      "subtitle": "Use your mobile number or email",
-      "identifier": "Mobile number or email",
+      "subtitle": "Owner and manager — everyone logs in with mobile number and password",
+      "identifier": "Mobile number",
       "password": "Password",
       "forgot": "Forgot password?",
       "remember": "Remember me",
       "rememberHint": "(stay logged in for 30 days)",
       "submit": "Log in",
       "submitting": "Logging in…",
-      "noAccount": "No account yet?",
-      "createAccount": "Create an account",
+      "noAccount": "No account?",
+      "createAccount": "Create a new account",
       "failed": "Couldn't log in — please try again",
-      "sessionExpired": "Your session has ended — please log in again"
+      "sessionExpired": "Your session has ended — please log in again",
+      "identifierPlaceholder": "01XXXXXXXXX",
+      "roleNote": "An <strong>owner</strong> sees every project after logging in. A <strong>manager</strong> goes straight to their own project. The owner sets the manager’s password."
     },
     "suspended": {
       "title": "Your account is temporarily suspended — please contact support",
@@ -504,24 +527,23 @@
       "hide": "Hide password"
     },
     "validation": {
-      "identifierMissing": "Enter your mobile number or email",
+      "identifierMissing": "Enter your mobile number",
       "passwordMissing": "Enter your password",
-      "firstMissing": "Enter your first name",
-      "firstShort": "First name must be at least 2 characters",
-      "firstLong": "First name can't be longer than 30 characters",
-      "lastMissing": "Enter your last name",
-      "lastLong": "Last name can't be longer than 30 characters",
+      "firstMissing": "Enter owner’s name",
+      "firstShort": "Owner’s name must be at least 2 characters",
+      "firstLong": "Owner’s name can’t be longer than 50 characters",
       "companyShort": "Company name must be at least 2 characters",
       "companyLong": "Company name can't be longer than 80 characters",
       "emailBad": "Enter a valid email",
       "phoneBad": "Enter a valid mobile number (e.g. 01712345678)",
       "passwordWeak": "Password must be at least 8 characters with letters and numbers",
       "confirmMismatch": "Passwords don't match",
-      "termsMissing": "Please accept the terms"
+      "termsMissing": "Please accept the terms",
+      "companyMissing": "Enter builders or company name"
     },
     "register": {
       "title": "Create a new account",
-      "subtitle": "All you need is a mobile number",
+      "subtitle": "Open an account as the builder’s owner — your mobile number is your login ID",
       "closedTitle": "New accounts are paused",
       "closedSubtitle": "You can still sign up with an invited number",
       "closedNoticeTitle": "New registrations are paused for now",
@@ -529,29 +551,25 @@
       "closedHelp": "No invitation? You can sign up when registration reopens. Questions?",
       "closedHelpLink": "Write to support",
       "closedHelpEnd": ".",
-      "company": "Company name",
+      "company": "Builders / company name",
       "optional": "(optional)",
-      "companyPlaceholder": "e.g. Karim Builders",
-      "companyHelp": "Leave blank for a personal project",
-      "firstName": "First name",
-      "firstPlaceholder": "e.g. Abdul",
-      "lastName": "Last name",
-      "lastPlaceholder": "e.g. Karim",
+      "companyPlaceholder": "Your company name",
+      "companyHelp": "This name will show on project cards, receipts and reports",
       "email": "Email",
-      "emailPlaceholder": "example@gmail.com",
+      "emailPlaceholder": "Your email",
       "phone": "Mobile number",
-      "phonePlaceholder": "01XXXXXXXXX",
+      "phonePlaceholder": "Your mobile number",
       "phoneSavedAs": "Will be saved as {phone}",
       "password": "Password",
       "passwordPlaceholder": "At least 8 characters",
-      "passwordHelp": "At least 8 characters, letters and numbers together",
+      "passwordHelp": "At least 8 characters, mixing letters and numbers",
       "strength": {
         "weak": "Weak",
         "medium": "Medium",
         "strong": "Strong"
       },
       "confirm": "Confirm password",
-      "confirmPlaceholder": "Type the same password again",
+      "confirmPlaceholder": "Re-enter the same password",
       "confirmOk": "Passwords match",
       "termsBefore": "I have read and agree to Prokolpo's",
       "termsLink": "terms",
@@ -575,7 +593,10 @@
         "OWNER": "Owner",
         "MANAGER": "Manager",
         "VIEWER": "Viewer"
-      }
+      },
+      "ownerName": "Owner’s name",
+      "ownerPlaceholder": "Your name",
+      "phoneHelp": "You’ll log in with this mobile number and password"
     },
     "forgot": {
       "stepsLabel": "Steps",
@@ -664,7 +685,7 @@
       "app": "You're logged in as {name} — name, number and email come from your account, and the request is linked to it."
     },
     "name": "Your name",
-    "namePlaceholder": "e.g. Tania Rahman",
+    "namePlaceholder": "Full name",
     "phone": "Mobile number",
     "phonePlaceholder": "01XXX-XXXXXX",
     "phoneHelp": "We'll call this number",

@@ -99,6 +99,15 @@
   --color-share-3: #eb6834;
   --color-share-4: #7a5ac8;
   --color-success-line: #cfe3d8;
+  /* Design v2: the auth panel's progress mint, cash-flow "out" clay, the dashboard's
+     super-owner box, the alerts info dot and the roles board's locked tick. */
+  --color-mint: #9fe0c2;
+  --color-mint-strong: #5fbf95;
+  --color-clay: #c2722b;
+  --color-gold-cream: #fbf6ea;
+  --color-gold-cream-line: #f0e2bf;
+  --color-info-dot: #1d5a93;
+  --color-lock: #8a928e;
   /* Around a green-washed figure card (boards FarmSales, BizSales, Reports). */
   --color-brand-edge: #d5e6dd;
 

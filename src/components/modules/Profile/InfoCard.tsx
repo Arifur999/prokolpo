@@ -8,12 +8,12 @@ import { saveProfileAction } from "@/app/(dashboardLayout)/(home)/profile/_actio
 import { Icon } from "@/components/shared/icon/Icon";
 import { LabeledInput } from "@/components/shared/form/LabeledInput";
 import { formatDate } from "@/lib/dhakaTime";
+import { initials } from "@/lib/initials";
 import { displayPhone } from "@/lib/phone";
 import { cn } from "@/lib/utils";
 import type { IProfile, IProfilePayload } from "@/types/account.types";
 import { PhoneDialog } from "./PhoneDialog";
 import { ProfileCard } from "./ProfileCard";
-import { initialsOf } from "./profileLook";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -84,7 +84,7 @@ export function InfoCard({ profile }: { profile: IProfile }) {
       sub={t("sub", { date: formatDate(new Date(profile.createdAt)), count: owned })}
       lead={
         <span aria-hidden="true" className="flex size-15 shrink-0 items-center justify-center rounded-full bg-gold text-[21px] font-bold text-brand">
-          {initialsOf(profile.name)}
+          {initials(profile.name)}
         </span>
       }
       footer={footer}

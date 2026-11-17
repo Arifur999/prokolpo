@@ -18,6 +18,7 @@ test("a shop writes up the day with a credit sale, and the credit book picks it 
   const session = await post<{ accessToken: string; refreshToken: string }>("/auth/register", {
     firstName: "আব্দুল",
     lastName: "করিম",
+    companyName: "করিম বিল্ডার্স",
     email: "",
     phone: randomPhone(),
     password: "karim2026",

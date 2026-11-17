@@ -19,6 +19,7 @@ test("a flat sold on installments shows in sales, takes a payment and prints its
   const session = await post<{ accessToken: string; refreshToken: string }>("/auth/register", {
     firstName: "আব্দুল",
     lastName: "করিম",
+    companyName: "করিম বিল্ডার্স",
     email: "",
     phone: randomPhone(),
     password: "karim2026",

@@ -5,7 +5,8 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { toActionError } from "@/lib/actionError";
 import { safeRedirect } from "@/lib/authUtils";
 import { setAuthCookies } from "@/lib/tokenUtils";
-import { login } from "@/services/auth.services";
+import { projectHref } from "@/lib/routes";
+import { login, onlyProjectOf } from "@/services/auth.services";
 import type { ApiErrorResponse } from "@/types/api.types";
 import { loginFormSchema } from "@/zod/auth.validation";
 
@@ -21,6 +22,11 @@ export const loginAction = async (values: unknown, redirectTo?: string): Promise
     const session = await login(parsed.data);
     await setAuthCookies(session);
     destination = safeRedirect(redirectTo, session.user.role);
+    // A manager's login goes straight into their one project; the owner sees the dashboard.
+    if (!redirectTo && session.user.role === "user") {
+      const only = await onlyProjectOf(session.accessToken).catch(() => null);
+      if (only) destination = projectHref(only);
+    }
   } catch (error) {
     return toActionError(error, t("login.failed"));
   }
