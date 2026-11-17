@@ -5,6 +5,7 @@ import { DeleteCard } from "@/components/modules/Profile/DeleteCard";
 import { DevicesCard } from "@/components/modules/Profile/DevicesCard";
 import { InfoCard } from "@/components/modules/Profile/InfoCard";
 import { LanguageCard } from "@/components/modules/Profile/LanguageCard";
+import { ManagedPasswordCard } from "@/components/modules/Profile/ManagedPasswordCard";
 import { PasswordCard } from "@/components/modules/Profile/PasswordCard";
 import { ProjectsCard } from "@/components/modules/Profile/ProjectsCard";
 import { Icon } from "@/components/shared/icon/Icon";
@@ -40,7 +41,7 @@ export default async function ProfilePage() {
       <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_380px]">
         <div className="flex min-w-0 flex-col gap-5">
           <InfoCard key={profile.phone + profile.name + (profile.email ?? "") + (profile.companyName ?? "")} profile={profile} />
-          <PasswordCard changedAt={profile.passwordChangedAt} />
+          {profile.passwordManaged ? <ManagedPasswordCard /> : <PasswordCard changedAt={profile.passwordChangedAt} />}
           <DevicesCard devices={devices} now={now} />
         </div>
         <div className="flex min-w-0 flex-col gap-5">

@@ -57,3 +57,49 @@ test("changing the password keeps this device signed in and the new password wor
   });
   expect(login.status).toBe(200);
 });
+
+test("a manager signs in straight into their project, and only the owner sets their password", async ({ page }) => {
+  const owner = await fetch(`${API}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      firstName: "আব্দুল করিম",
+      lastName: "",
+      companyName: "করিম বিল্ডার্স",
+      email: "",
+      phone: randomPhone(),
+      password: "karim2026",
+      acceptTerms: true,
+    }),
+  });
+  const { data: session } = (await owner.json()) as { data: { accessToken: string } };
+  const managerPhone = randomPhone();
+  const created = await fetch(`${API}/projects`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.accessToken}` },
+    body: JSON.stringify({
+      name: "উত্তরা ফ্ল্যাট",
+      kind: "RENOVATION",
+      ownership: "PERSONAL",
+      location: "সেক্টর ৭, উত্তরা",
+      description: "",
+      farmType: "",
+      landUnit: "",
+      businessType: "",
+      categories: ["রং"],
+      phases: [],
+      manager: { name: "রাকিব হাসান", phone: managerPhone, password: "rakib1", canAddStaff: false },
+    }),
+  });
+  const { data: project } = (await created.json()) as { data: { id: string } };
+
+  await page.goto("/login");
+  await page.locator("#login-id").fill(managerPhone);
+  await page.locator("#login-pass").fill("rakib1");
+  await page.getByRole("button", { name: "লগইন করুন" }).click();
+  await expect(page).toHaveURL(new RegExp(`/projects/${project.id}$`));
+
+  await page.goto("/profile");
+  await expect(page.getByText("আপনার পাসওয়ার্ড প্রজেক্টের মালিক ঠিক করে দেন।", { exact: false })).toBeVisible();
+  await expect(page.locator("#pw-cur")).toHaveCount(0);
+});

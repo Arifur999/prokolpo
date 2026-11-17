@@ -18,6 +18,8 @@ export interface IUser {
   role: UserRole;
   staffRole: StaffRole | null;
   createdAt: string;
+  // A manager's login the project owner opened: only the owner sets its password.
+  passwordManaged: boolean;
 }
 
 // What register, login and refresh return.
