@@ -31,7 +31,7 @@ test("a shop writes up the day with a credit sale, and the credit book picks it 
       kind: "BUSINESS",
       businessType: "হার্ডওয়্যার দোকান",
       ownership: "PERSONAL",
-      location: "",
+      location: "মিরপুর-১০, ঢাকা",
       description: "",
       startDate: "2026-01-15",
       budget: null,

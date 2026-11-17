@@ -34,7 +34,7 @@ test("an owner adds a member, gives a reset code, and the member resets with it"
       name: "মিরপুর ভবন",
       kind: "BUILDING",
       ownership: "PERSONAL",
-      location: "",
+      location: "মিরপুর-১০, ঢাকা",
       description: "",
       startDate: "2026-01-15",
       budget: null,

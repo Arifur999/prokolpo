@@ -7,7 +7,6 @@ import { TextInput } from "@/components/shared/form/TextInput";
 import { Icon } from "@/components/shared/icon/Icon";
 import { cn } from "@/lib/utils";
 import { FARM_TYPES, LAND_UNITS } from "@/types/project.types";
-import { BudgetField } from "./BudgetField";
 import { FormSection } from "@/components/shared/form/FormSection";
 import type { NewProjectValues } from "./newProjectValues";
 
@@ -28,7 +27,8 @@ function Field({ id, label, optional, help, children }: { id: string; label: str
   );
 }
 
-// "বাজেট ও বিস্তারিত": the budget plus whatever the chosen kind needs (floors, batches, land, shop).
+// "আরও তথ্য": whatever the chosen kind needs (floors, batches, land, shop). The budget is set
+// later, inside the project.
 export function KindDetails({ values, set }: KindDetailsProps) {
   const t = useTranslations("NewProject");
   const optional = t("optional");
@@ -36,7 +36,7 @@ export function KindDetails({ values, set }: KindDetailsProps) {
   const seasons = values.farmType === "CROP";
 
   return (
-    <FormSection id="np-budget-title" title={t("budgetTitle")} className="gap-4.5">
+    <FormSection id="np-budget-title" title={t("moreTitle")} className="gap-4.5">
       {kind === "FARM" && (
         <div role="radiogroup" aria-labelledby="np-farm-title" className="flex flex-col gap-2">
           <span id="np-farm-title" className="text-[15px] font-semibold">
@@ -63,8 +63,6 @@ export function KindDetails({ values, set }: KindDetailsProps) {
       )}
 
       <div className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2">
-        <BudgetField value={values.budget} onChange={(budget) => set({ budget })} />
-
         {kind === "BUILDING" && (
           <Field id="np-floors" label={t("floors")} optional={optional} help={t("floorsHelp")}>
             <Stepper

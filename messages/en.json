@@ -909,37 +909,31 @@
       "BUILDING": {
         "label": "House / building",
         "hint": "A new house, flats or a market",
-        "namePlaceholder": "e.g. Mirpur 6-storey building",
         "descPlaceholder": "e.g. A 6-storey building on 5 katha, with 4 partners"
       },
       "FARM": {
         "label": "Farm",
         "hint": "Poultry, cattle, fish or vegetables",
-        "namePlaceholder": "e.g. Savar poultry farm",
         "descPlaceholder": "e.g. A 2,000-broiler farm with 2 partners"
       },
       "LAND": {
         "label": "Land trading",
         "hint": "Buy land, split it into plots, sell",
-        "namePlaceholder": "e.g. 20 katha in Purbachal",
         "descPlaceholder": "e.g. Buy the land and sell it as 5 plots"
       },
       "BUSINESS": {
         "label": "Business / shop",
         "hint": "Starting a shop or a business",
-        "namePlaceholder": "e.g. Mirpur Pharmacy",
         "descPlaceholder": "e.g. A new pharmacy in a rented shop"
       },
       "RENOVATION": {
         "label": "Renovation",
         "hint": "Repairs and interiors for a house or flat",
-        "namePlaceholder": "e.g. Uttara flat renovation",
         "descPlaceholder": "e.g. New tiles, paint and kitchen in a 3-bed flat"
       },
       "OTHER": {
         "label": "Other",
         "hint": "Accounts for anything else",
-        "namePlaceholder": "e.g. Wedding arrangements",
         "descPlaceholder": "What it is and how long — in a line or two"
       }
     },
@@ -949,12 +943,10 @@
     "jointBody": "Several partners. Who paid in how much and each one's share of the profit — all tracked.",
     "infoTitle": "Project details",
     "name": "Project name",
-    "location": "Address / area",
-    "locationPlaceholder": "e.g. Mirpur-10, Dhaka",
+    "location": "Project address",
+    "locationPlaceholder": "Project address",
     "optional": "(optional)",
-    "startDate": "Start date",
     "description": "Description",
-    "budgetTitle": "Budget & details",
     "farmTypeTitle": "Type of farm",
     "farmTypes": {
       "POULTRY": "Poultry (chickens/ducks)",
@@ -962,9 +954,6 @@
       "FISH": "Fish farming",
       "CROP": "Crops / vegetables"
     },
-    "budget": "Estimated total budget",
-    "budgetPlaceholder": "e.g. 2,50,00,000",
-    "budgetHelp": "Leave it blank if you don't know yet",
     "words": {
       "crore": "{n} crore",
       "lakh": "{n} lakh",
@@ -995,7 +984,7 @@
     "plotsLess": "One plot fewer",
     "plotsMore": "One plot more",
     "businessType": "What kind of business?",
-    "businessPlaceholder": "e.g. Grocery, pharmacy",
+    "businessPlaceholder": "Type of business",
     "renovationNote": "The phases are set up for you: demolition & cleanup → plumbing & electrical → tiles & paint → finishing",
     "otherNote": "Add expense heads and phases later to suit your work",
     "cancel": "Cancel",
@@ -1006,17 +995,19 @@
     "validation": {
       "nameMissing": "Enter a project name",
       "nameShort": "The name needs at least 3 characters",
-      "nameLong": "The name can be at most 80 characters"
+      "nameLong": "The name can be at most 80 characters",
+      "locationMissing": "Enter project address",
+      "managerNameMissing": "Enter manager’s name",
+      "managerNameShort": "Name must be at least 2 characters",
+      "managerNameLong": "Name can’t be longer than 50 characters",
+      "managerPhone": "Enter a valid mobile number (e.g. 01811223344)",
+      "managerPassword": "Password must be at least 6 characters"
     },
     "preview": {
       "title": "Preview",
       "untitled": "New project",
-      "budget": "Budget ৳ {amount}",
-      "noBudget": "No budget set",
       "readyTitle": "Set up for you on creation",
       "readyHint": "You can change all of it later in Settings",
-      "owner": "You join as the owner",
-      "ownerHint": "Add others later by mobile number",
       "categories": "Expense heads ({count})",
       "cash": "Money account: cash in hand",
       "cashHint": "Starts at ৳ 0 · add a bank or bKash later",
@@ -1035,7 +1026,39 @@
         "buildingPersonal": "Your own house — no sales menus needed",
         "joint": "For partners' deposits and profit shares",
         "personal": "Just expenses, dues and accounts"
-      }
+      },
+      "ownerAlone": "Only you — owner",
+      "ownerWithManager": "You are the owner, {name} Manager",
+      "managerFallback": "Manager",
+      "ownerLater": "Add a manager later from the Members page",
+      "managerStaff": "Manager can add their own staff",
+      "ownerStaff": "Only you will add staff"
+    },
+    "namePlaceholder": "Your project name",
+    "moreTitle": "More info",
+    "goToProject": "Go to project",
+    "createdWithManager": "Project created — {name} · manager login enabled",
+    "manager": {
+      "title": "Project manager",
+      "hint": "Make someone manager now, or run it yourself for now — you can give access any time later",
+      "now": "Add a manager now",
+      "nowBody": "They log in with mobile number and password, into this project only",
+      "later": "Just me for now",
+      "laterBody": "Don’t give anyone access yet — add a manager later when needed",
+      "name": "Manager’s name",
+      "namePlaceholder": "Manager’s name",
+      "phone": "Mobile number (login ID)",
+      "phonePlaceholder": "01XXXXXXXXX",
+      "password": "Manager’s password",
+      "passwordPlaceholder": "At least 6 characters",
+      "generate": "Generate",
+      "staff": "Manager can add their own staff",
+      "staffBody": "Staff also log in with mobile number and password, into this project only",
+      "lockNote": "The manager can’t change their own password — the owner changes it from settings. The owner can always enter all of your projects.",
+      "laterNote": "For now this project stays with you only. Later you can add a manager any time from <strong>Settings › Members</strong> and give them a mobile number and password.",
+      "doneTitle": "Manager login created — give them these details",
+      "donePhone": "Mobile:",
+      "donePassword": "Password:"
     }
   },
   "ProjectTemplates": {
@@ -1078,16 +1101,76 @@
         "Transport",
         "Other"
       ],
-      "RENOVATION": ["Paint", "Tiles", "Sanitary", "Electrical", "Wood & furniture", "Thai glass/grill", "Mason wages", "Transport", "Other"],
-      "OTHER": ["Materials", "Wages", "Transport", "Fees & paperwork", "Other"],
-      "POULTRY": ["Chicks", "Feed", "Medicine & vaccines", "Shed building", "Litter/husk", "Electricity", "Labour wages", "Transport", "Other"],
-      "CATTLE": ["Animals", "Feed (grass/bran)", "Medicine & vet", "Shed building", "Labour wages", "Electricity & water", "Transport", "Other"],
-      "FISH": ["Pond digging/repair", "Fingerlings", "Feed", "Medicine & lime", "Nets & gear", "Labour wages", "Electricity/pump", "Other"],
-      "CROP": ["Land lease", "Seeds/seedlings", "Fertiliser", "Pesticide", "Irrigation", "Labour wages", "Transport", "Other"]
+      "RENOVATION": [
+        "Paint",
+        "Tiles",
+        "Sanitary",
+        "Electrical",
+        "Wood & furniture",
+        "Thai glass/grill",
+        "Mason wages",
+        "Transport",
+        "Other"
+      ],
+      "OTHER": [
+        "Materials",
+        "Wages",
+        "Transport",
+        "Fees & paperwork",
+        "Other"
+      ],
+      "POULTRY": [
+        "Chicks",
+        "Feed",
+        "Medicine & vaccines",
+        "Shed building",
+        "Litter/husk",
+        "Electricity",
+        "Labour wages",
+        "Transport",
+        "Other"
+      ],
+      "CATTLE": [
+        "Animals",
+        "Feed (grass/bran)",
+        "Medicine & vet",
+        "Shed building",
+        "Labour wages",
+        "Electricity & water",
+        "Transport",
+        "Other"
+      ],
+      "FISH": [
+        "Pond digging/repair",
+        "Fingerlings",
+        "Feed",
+        "Medicine & lime",
+        "Nets & gear",
+        "Labour wages",
+        "Electricity/pump",
+        "Other"
+      ],
+      "CROP": [
+        "Land lease",
+        "Seeds/seedlings",
+        "Fertiliser",
+        "Pesticide",
+        "Irrigation",
+        "Labour wages",
+        "Transport",
+        "Other"
+      ]
     },
     "phases": {
-      "buildingStart": ["Land & design", "Piling", "Foundation"],
-      "buildingEnd": ["Roof", "Finishing"],
+      "buildingStart": [
+        "Land & design",
+        "Piling",
+        "Foundation"
+      ],
+      "buildingEnd": [
+        "Roof",
+        "Finishing"
+      ],
       "floor": "{ordinal} floor",
       "batch": "Batch {n}",
       "season": "Season {n}",
@@ -1097,9 +1180,24 @@
         "FISH": "Pond preparation",
         "CROP": "Land preparation"
       },
-      "LAND": ["Purchase & registry", "Mutation & papers", "Development (filling, roads)", "Plot sales"],
-      "BUSINESS": ["Finding the shop", "Decoration", "Stocking up", "Opening"],
-      "RENOVATION": ["Demolition & cleanup", "Plumbing & electrical", "Tiles & paint", "Finishing"]
+      "LAND": [
+        "Purchase & registry",
+        "Mutation & papers",
+        "Development (filling, roads)",
+        "Plot sales"
+      ],
+      "BUSINESS": [
+        "Finding the shop",
+        "Decoration",
+        "Stocking up",
+        "Opening"
+      ],
+      "RENOVATION": [
+        "Demolition & cleanup",
+        "Plumbing & electrical",
+        "Tiles & paint",
+        "Finishing"
+      ]
     },
     "menus": {
       "partners": "Partners",
@@ -1716,7 +1814,18 @@
       "হার্ডওয়্যার",
       "অন্যান্য"
     ],
-    "works": ["রাজমিস্ত্রি", "রড মিস্ত্রি", "রং", "টাইলস", "স্যানিটারি", "ইলেকট্রিক", "কাঠমিস্ত্রি", "লেবার/যোগালি", "পাইলিং", "অন্যান্য"]
+    "works": [
+      "রাজমিস্ত্রি",
+      "রড মিস্ত্রি",
+      "রং",
+      "টাইলস",
+      "স্যানিটারি",
+      "ইলেকট্রিক",
+      "কাঠমিস্ত্রি",
+      "লেবার/যোগালি",
+      "পাইলিং",
+      "অন্যান্য"
+    ]
   },
   "Ledger": {
     "breadcrumbLabel": "Breadcrumb",

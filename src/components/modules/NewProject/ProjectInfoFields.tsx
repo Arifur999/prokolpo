@@ -1,21 +1,21 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { FormSection } from "@/components/shared/form/FormSection";
 import { LabeledInput } from "@/components/shared/form/LabeledInput";
 import { TextArea } from "@/components/shared/form/TextArea";
-import { DateField } from "@/components/shared/form/DateField";
-import { FormSection } from "@/components/shared/form/FormSection";
 import type { NewProjectValues } from "./newProjectValues";
+import type { CheckedField } from "./useNewProjectErrors";
 
 type ProjectInfoFieldsProps = {
   values: NewProjectValues;
   set: (patch: Partial<NewProjectValues>) => void;
-  nameError?: string;
-  onNameBlur: () => void;
+  errorOf: (field: CheckedField) => string | undefined;
+  touch: (field: CheckedField) => void;
 };
 
-// Name, place, start date and a short description.
-export function ProjectInfoFields({ values, set, nameError, onNameBlur }: ProjectInfoFieldsProps) {
+// Name, address and a short description.
+export function ProjectInfoFields({ values, set, errorOf, touch }: ProjectInfoFieldsProps) {
   const t = useTranslations("NewProject");
 
   return (
@@ -24,28 +24,22 @@ export function ProjectInfoFields({ values, set, nameError, onNameBlur }: Projec
         id="np-name"
         label={t("name")}
         aria-required="true"
-        placeholder={t(`kinds.${values.kind}.namePlaceholder`)}
+        placeholder={t("namePlaceholder")}
         value={values.name}
         onChange={(event) => set({ name: event.target.value })}
-        onBlur={onNameBlur}
-        error={nameError}
+        onBlur={() => touch("name")}
+        error={errorOf("name")}
       />
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-[minmax(0,1fr)_220px]">
-        <LabeledInput
-          id="np-location"
-          label={t("location")}
-          labelNote={t("optional")}
-          placeholder={t("locationPlaceholder")}
-          value={values.location}
-          onChange={(event) => set({ location: event.target.value })}
-        />
-        <div className="flex flex-col gap-1.5">
-          <label htmlFor="np-start" className="text-[15px] font-semibold">
-            {t("startDate")}
-          </label>
-          <DateField id="np-start" value={values.startDate} onChange={(startDate) => set({ startDate })} />
-        </div>
-      </div>
+      <LabeledInput
+        id="np-location"
+        label={t("location")}
+        aria-required="true"
+        placeholder={t("locationPlaceholder")}
+        value={values.location}
+        onChange={(event) => set({ location: event.target.value })}
+        onBlur={() => touch("location")}
+        error={errorOf("location")}
+      />
       <div className="flex flex-col gap-1.5">
         <label htmlFor="np-desc" className="text-[15px] font-semibold">
           {t("description")} <span className="font-normal text-ink-3">{t("optional")}</span>
@@ -56,7 +50,7 @@ export function ProjectInfoFields({ values, set, nameError, onNameBlur }: Projec
           placeholder={t(`kinds.${values.kind}.descPlaceholder`)}
           value={values.description}
           onChange={(event) => set({ description: event.target.value })}
-          className="min-h-22 resize-none px-3.5 py-3 text-base"
+          className="min-h-22 resize-none px-3.5 py-3 text-base leading-[normal]"
         />
       </div>
     </FormSection>

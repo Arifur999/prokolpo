@@ -30,7 +30,7 @@ test("an owner adds partners, makes a capital call, and a deposit prints its rec
       name: "মিরপুর ভবন",
       kind: "BUILDING",
       ownership: "PARTNERSHIP",
-      location: "",
+      location: "মিরপুর-১০, ঢাকা",
       description: "",
       startDate: "2026-01-15",
       budget: null,

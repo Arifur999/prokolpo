@@ -31,7 +31,7 @@ test("the spending report groups a bill by head and by month", async ({ page, co
       name: "গ্রামের বাড়ি",
       kind: "BUILDING",
       ownership: "PERSONAL",
-      location: "",
+      location: "মিরপুর-১০, ঢাকা",
       description: "",
       startDate: "2026-01-15",
       budget: 4_500_000,

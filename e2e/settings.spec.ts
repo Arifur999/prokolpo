@@ -38,7 +38,7 @@ const setUp = async (context: BrowserContext, baseURL: string) => {
       name: "মিরপুর ভবন",
       kind: "BUILDING",
       ownership: "PERSONAL",
-      location: "",
+      location: "মিরপুর-১০, ঢাকা",
       description: "",
       startDate: "2026-01-15",
       budget: 1000000,

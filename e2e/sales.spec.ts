@@ -31,7 +31,7 @@ test("a flat sold on installments shows in sales, takes a payment and prints its
       name: "মিরপুর ভবন",
       kind: "BUILDING",
       ownership: "PERSONAL",
-      location: "",
+      location: "মিরপুর-১০, ঢাকা",
       description: "",
       startDate: "2026-01-15",
       budget: null,

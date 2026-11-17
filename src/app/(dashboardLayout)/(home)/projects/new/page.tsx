@@ -4,7 +4,6 @@ import { getTranslations } from "next-intl/server";
 import { NewProjectForm } from "@/components/modules/NewProject/NewProjectForm";
 import { newProjectDefaults } from "@/components/modules/NewProject/newProjectValues";
 import { Icon } from "@/components/shared/icon/Icon";
-import { dhakaToday } from "@/lib/dhakaTime";
 import { ROUTES } from "@/lib/routes";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function NewProjectPage({ searchParams }: PageProps<"/projects/new">) {
   const t = await getTranslations("NewProject");
   const { ownership } = await searchParams;
-  const defaults = newProjectDefaults(ownership === "PARTNERSHIP" ? "PARTNERSHIP" : "PERSONAL", dhakaToday());
+  const defaults = newProjectDefaults(ownership === "PARTNERSHIP" ? "PARTNERSHIP" : "PERSONAL");
 
   return (
     <div className="flex flex-col gap-6 pt-7">

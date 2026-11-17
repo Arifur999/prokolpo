@@ -11,7 +11,6 @@ import { Panel, PanelEmpty } from "@/components/modules/Overview/Panel";
 import { PhaseBudgets } from "@/components/modules/Overview/PhaseBudgets";
 import { QuickActions } from "@/components/modules/Overview/QuickActions";
 import { Icon } from "@/components/shared/icon/Icon";
-import { ToastOnMount } from "@/components/shared/ToastOnMount";
 import type { Locale } from "@/i18n/config";
 import { dayPart, formatDate, formatWeekdayDate } from "@/lib/dhakaTime";
 import { initials } from "@/lib/initials";
@@ -31,8 +30,8 @@ export async function generateMetadata({ params }: PageProps<"/projects/[project
 }
 
 // Boards Main, MainEn and Mobile: the project at a glance.
-export default async function OverviewPage({ params, searchParams }: PageProps<"/projects/[projectId]">) {
-  const [{ projectId }, { created }] = await Promise.all([params, searchParams]);
+export default async function OverviewPage({ params }: PageProps<"/projects/[projectId]">) {
+  const { projectId } = await params;
   const [project, user, t, locale, common, books] = await Promise.all([
     loadProject(projectId),
     getUserInfo(),
@@ -51,7 +50,6 @@ export default async function OverviewPage({ params, searchParams }: PageProps<"
 
   return (
     <>
-      {created !== undefined && <ToastOnMount message={(await getTranslations("NewProject"))("created", { name: project.name })} />}
       <MobileOverviewHeader project={project} initials={initials(user.firstName, user.lastName)} logoMark={common("logoMark")} />
       <h1 className="sr-only lg:hidden">{t("title")}</h1>
 

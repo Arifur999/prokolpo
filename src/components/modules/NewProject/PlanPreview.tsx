@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import { Icon } from "@/components/shared/icon/Icon";
 import type { IconName } from "@/components/shared/icon/iconPaths";
-import { formatAmount } from "@/lib/money";
 import type { Plan } from "@/lib/projectPlan";
 import { cn } from "@/lib/utils";
 import type { NewProjectValues } from "./newProjectValues";
@@ -48,7 +47,9 @@ export function PlanPreview({ values, plan, plotNames }: PlanPreviewProps) {
   const tp = useTranslations("NewProject.preview");
   const tProjects = useTranslations("Projects");
   const tMenus = useTranslations("ProjectTemplates.menus");
-  const budget = Number(values.budget || 0);
+  const withManager = values.managerMode === "NOW";
+  const ownerTitle = withManager ? tp("ownerWithManager", { name: values.managerName.trim() || tp("managerFallback") }) : tp("ownerAlone");
+  const ownerSub = !withManager ? tp("ownerLater") : values.managerCanAddStaff ? tp("managerStaff") : tp("ownerStaff");
   const kindLabel = values.kind === "FARM" ? `${tProjects("kind.FARM")} · ${tProjects(`farmType.${values.farmType}`)}` : t(`kinds.${values.kind}.label`);
 
   return (
@@ -63,7 +64,6 @@ export function PlanPreview({ values, plan, plotNames }: PlanPreviewProps) {
           <span className="box-border flex h-6.5 items-center rounded-full bg-gold/20 px-2.5 text-[13px] font-semibold text-gold-light">
             {tProjects(`ownership.${values.ownership}`)}
           </span>
-          <span className="text-sm text-white/80">{budget ? tp("budget", { amount: formatAmount(budget) }) : tp("noBudget")}</span>
         </div>
       </div>
 
@@ -73,8 +73,8 @@ export function PlanPreview({ values, plan, plotNames }: PlanPreviewProps) {
           <p className="m-0 text-[13px] text-ink-3">{tp("readyHint")}</p>
         </div>
 
-        <Row icon="user" title={tp("owner")} tight>
-          <span className="text-[13px] text-ink-3">{tp("ownerHint")}</span>
+        <Row icon="user" title={ownerTitle} tight>
+          <span className="text-[13px] text-ink-3">{ownerSub}</span>
         </Row>
         <Row icon="tag" title={tp("categories", { count: plan.categories.length })}>
           <Chips items={plan.categories} className="bg-surface-4 text-ink-2" />

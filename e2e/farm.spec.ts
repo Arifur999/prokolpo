@@ -31,7 +31,7 @@ test("a farm sale on part credit shows on the batch and the buyer pays the rest 
       kind: "FARM",
       farmType: "POULTRY",
       ownership: "PERSONAL",
-      location: "",
+      location: "মিরপুর-১০, ঢাকা",
       description: "",
       startDate: "2026-01-15",
       budget: null,
