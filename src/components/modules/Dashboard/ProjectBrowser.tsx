@@ -50,7 +50,7 @@ export function ProjectBrowser({ projects }: { projects: IProjectSummary[] }) {
         </div>
       )}
 
-      <section aria-label={t("listLabel")} className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <section aria-label={t("listLabel")} className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         {shown.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

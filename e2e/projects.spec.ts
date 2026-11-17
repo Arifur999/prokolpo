@@ -53,8 +53,16 @@ test("a new building project opens on its overview and shows on the dashboard", 
   await expect(page.getByRole("heading", { name: "তলা অনুযায়ী বাজেট" })).toBeVisible();
   await expect(page.getByText("২য় তলা")).toBeVisible();
 
+  // The card numbers the project, names the company and shows the owner running it alone.
   await page.goto("/dashboard");
-  await expect(page.getByRole("link", { name: "মিরপুর ৬ তলা ভবন" })).toBeVisible();
+  const card = page.getByRole("article").filter({ has: page.getByRole("heading", { name: "মিরপুর ৬ তলা ভবন" }) });
+  await expect(card.getByText("প্রজেক্ট 1", { exact: true })).toBeVisible();
+  await expect(card.getByText("করিম বিল্ডার্স")).toBeVisible();
+  await expect(card.getByText("নতুন", { exact: true })).toBeVisible();
+  await expect(card.getByText("সুপার ওনার · আলাদা লগইন লাগে না")).toBeVisible();
+  await expect(card.getByText("এখনো কোনো লেনদেন নেই")).toBeVisible();
+  await card.getByRole("link", { name: "মিরপুর ৬ তলা ভবন — প্রজেক্ট খুলুন" }).click();
+  await expect(page).toHaveURL(/\/projects\/[0-9a-f-]+$/);
 });
 
 test("an owner deletes a project and brings it back", async ({ page, context, baseURL }) => {
@@ -73,5 +81,5 @@ test("an owner deletes a project and brings it back", async ({ page, context, ba
   await expect(page.getByRole("heading", { name: "এখন কোনো চালু প্রজেক্ট নেই" })).toBeVisible();
   await page.getByRole("button", { name: "ফিরিয়ে আনুন" }).first().click();
   await page.getByRole("dialog").getByRole("button", { name: "ফিরিয়ে আনুন" }).click();
-  await expect(page.getByRole("link", { name: "সাভার পোল্ট্রি খামার" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "সাভার পোল্ট্রি খামার — প্রজেক্ট খুলুন" })).toBeVisible();
 });

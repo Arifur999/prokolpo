@@ -31,6 +31,15 @@ export interface IProjectSummary {
   role: ProjectRole;
   memberCount: number;
   createdAt: string;
+  projectNo: number;
+  // Money that came in (opening balances, deposits, collections, takings), transfers left out.
+  deposited: number;
+  ownerName: string;
+  ownerCompany: string | null;
+  // The first manager; null when the owner runs the project alone.
+  manager: { id: string; name: string; phone: string } | null;
+  // Nothing spent or paid in yet: the card shows the "নতুন" pill.
+  isNew: boolean;
 }
 
 export interface IProjectPhase {

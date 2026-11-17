@@ -778,7 +778,7 @@
     "status": {
       "ACTIVE": "Active",
       "ON_HOLD": "On hold",
-      "DONE": "Completed"
+      "DONE": "Done"
     },
     "role": {
       "OWNER": "Owner",
@@ -822,16 +822,31 @@
     "showAll": "Show all projects",
     "listLabel": "Project list",
     "card": {
-      "totalSpent": "Total spent",
-      "budget": "Budget ৳ {amount}",
       "noBudget": "No budget set",
-      "overBudget": "৳ {amount} over budget",
-      "nearBudget": "Over 90% of the budget used",
-      "onHold": "Work paused",
-      "yourRole": "Your role:",
-      "moreOptions": "More options — {name}",
+      "moreOptions": "{name} — more options",
       "open": "Open project",
-      "delete": "Delete"
+      "delete": "Delete",
+      "number": "Project {number}",
+      "status": {
+        "NEW": "New",
+        "ACTIVE": "Active",
+        "ON_HOLD": "On hold",
+        "DONE": "Done"
+      },
+      "manager": "Project manager",
+      "superOwner": "Super owner · no separate login",
+      "directAccess": "Direct access",
+      "budgetLabel": "Total budget",
+      "spentLabel": "Spent",
+      "depositedLabel": "Deposited",
+      "percentSpent": "{percent} of budget spent",
+      "percentAria": "{percent} of budget spent",
+      "available": "Available ৳ {amount}",
+      "shortfall": "Short ৳ {amount}",
+      "nothingSpent": "Nothing spent yet",
+      "noTransactions": "No transactions yet",
+      "setBudgetInside": "Set budget inside",
+      "openAria": "{name} — open project"
     },
     "newCard": {
       "title": "Start a new project",
