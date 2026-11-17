@@ -62,11 +62,15 @@ What changed for the groups above:
 - Dashboard, DashboardBanner, NewProject (project manager section) and the 13 auth pages (new brand panel).
 - An English board (`*En`) now exists for every screen; English copy is checked against it.
 
+Group 52 so far: the dashboard card (number, company, manager or super owner, deposits), New Project (manager
+login, required address; the owner sets a managed login's password, `PASSWORD_MANAGED` elsewhere), Login and
+Register. Left: DashboardBanner (waits on admin announcements) and the other auth boards' copy.
+
 New groups and boards:
 
 | #   | Page group                             | Boards                                                                   | Status |
 | --- | -------------------------------------- | ------------------------------------------------------------------------ | ------ |
-| 41  | প্রজেক্ট সাইডবার (navigation)          | sidebar of every project board                                           | todo   |
+| 41  | প্রজেক্ট সাইডবার (navigation)          | sidebar of every project board                                           | done   |
 | 42  | খরচ — সাব-মেনু                         | ExpDash, ExpBudget, ExpPetty, ExpApprove                                 | todo   |
 | 43  | সাপ্লায়ার — সাব-মেনু                  | SupDash, SupPurchase, SupPayments, SupLedger, SupMaterials               | todo   |
 | 44  | কন্ট্রাক্টর — সাব-মেনু                 | CtrDash, CtrWork, CtrBills                                               | todo   |
@@ -77,4 +81,4 @@ New groups and boards:
 | 49  | কাস্টমার — সাব-মেনু                    | CustLeads, CustFollow, CustDocs, CustSms                                 | todo   |
 | 50  | চুক্তিপত্র (`agreements`)              | SaleDeeds, SaleDeedNew, SaleDeedPrint, AgrFormat                         | todo   |
 | 51  | রিপোর্ট, অ্যাক্টিভিটি, মেম্বার, সেটিংস | RepCash, RepDues, ActAlerts, ActTrash, MemRoles, SetLists, SetBackup     | todo   |
-| 52  | বদলে যাওয়া পেজ                        | Dashboard, DashboardBanner, NewProject, Login…Support (auth brand panel) | todo   |
+| 52  | বদলে যাওয়া পেজ                        | Dashboard, DashboardBanner, NewProject, Login…Support (auth brand panel) | doing  |
