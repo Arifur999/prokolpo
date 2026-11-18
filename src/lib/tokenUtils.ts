@@ -1,6 +1,7 @@
 import "server-only";
 import { cookies } from "next/headers";
 import type { ISession } from "@/types/auth.types";
+import { cookiesAreSecure } from "@/env";
 import { jwtUtils } from "./jwtUtils";
 
 // Cookie names are a contract with proxy.ts. Keep every cookie/token touchpoint in this file.
@@ -32,7 +33,7 @@ export const cookieMaxAge = (token: string, fallback: number) => {
 // from an email still carries the session.
 export const cookieOptions = (maxAge: number) => ({
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
+  secure: cookiesAreSecure(),
   sameSite: "lax" as const,
   path: "/",
   maxAge,
